@@ -1,0 +1,45 @@
+{
+  "id": "robust-beam-conflicting-supports",
+  "description": "Beam support condition conflict",
+  "split": "core",
+  "taskFamily": "interactive_robustness",
+  "inputModality": "text",
+  "structureType": "beam",
+  "benchmarkStructureType": "beam",
+  "difficulty": "L3",
+  "skillTarget": "beam",
+  "evaluationFocus": [
+    "interaction"
+  ],
+  "category": "conflicting-requirements",
+  "tags": [
+    "beam",
+    "interactive",
+    "conflicting-requirements",
+    "l3",
+    "en"
+  ],
+  "message": "This beam is both simply supported and fixed at both ends. Span is 6m and UDL is 20kN/m. Please analyze it.",
+  "locale": "en",
+  "maxRetries": 0,
+  "benchmarkModes": [
+    "auto"
+  ],
+  "expect": {
+    "assertions": [
+      {
+        "type": "has_interaction_questions"
+      },
+      {
+        "type": "natural_language",
+        "description": "The agent must explicitly identify that simply supported and fixed-fixed boundary conditions conflict, explain why one boundary condition must be selected, and ask the user which condition to retain before building or analyzing. Merely asking for another missing parameter does not satisfy this criterion."
+      },
+      {
+        "type": "no_bad_model"
+      },
+      {
+        "type": "should_not_analyze"
+      }
+    ]
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "id": "robust-unsupported-shell",
+  "description": "Shell roof outside current benchmark scope",
+  "split": "core",
+  "taskFamily": "interactive_robustness",
+  "inputModality": "text",
+  "structureType": "generic",
+  "benchmarkStructureType": "generic",
+  "difficulty": "L3",
+  "skillTarget": "generic",
+  "evaluationFocus": [
+    "interaction"
+  ],
+  "category": "unsupported",
+  "tags": [
+    "generic",
+    "interactive",
+    "unsupported",
+    "l3",
+    "en"
+  ],
+  "message": "Analyze a thin shell roof with a 30m curvature radius and include geometric nonlinearity.",
+  "locale": "en",
+  "maxRetries": 0,
+  "benchmarkModes": [
+    "auto"
+  ],
+  "expect": {
+    "skills": {
+      "primary": "generic",
+      "mayAlsoMatch": []
+    },
+    "assertions": [
+      {
+        "type": "has_interaction_questions"
+      },
+      {
+        "type": "no_bad_model"
+      },
+      {
+        "type": "should_not_analyze"
+      },
+      {
+        "type": "natural_language",
+        "description": "The agent must explicitly state that the currently available StructureClaw skills or adapters cannot faithfully model and execute the requested thin-shell roof with shell elements and geometric nonlinearity, and it must refuse to build or analyze it before solver execution. It may propose a supported simplification or an external shell-analysis workflow. Merely asking for more shell geometry, material, or load data does not satisfy this criterion."
+      }
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "corpusId": "structureclaw-benchmark",
+  "benchmarkVersion": "0.1.0",
+  "scenarioSchemaVersion": "1",
+  "resultSchemaVersion": "1",
+  "taskFamilies": {
+    "standard_workflow": {
+      "total": 50,
+      "en": 25,
+      "zh": 25
+    },
+    "interactive_robustness": {
+      "total": 50,
+      "en": 25,
+      "zh": 25
+    },
+    "multimodal_reverse_engineering": {
+      "total": 50,
+      "en": 25,
+      "zh": 25
+    }
+  }
+}

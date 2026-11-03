@@ -1,0 +1,93 @@
+{
+  "id": "re-truss-simple-tri-construction",
+  "description": "反问题：施工图重建平行弦三角腹杆桁架",
+  "split": "auxiliary",
+  "taskFamily": "multimodal_reverse_engineering",
+  "inputModality": "image",
+  "structureType": "truss",
+  "benchmarkStructureType": "truss",
+  "difficulty": "L2",
+  "skillTarget": "truss",
+  "evaluationFocus": [
+    "routing",
+    "modeling",
+    "model_match",
+    "analysis",
+    "numerical_match"
+  ],
+  "category": "reverse-engineering",
+  "tags": [
+    "reverse-engineering",
+    "truss",
+    "construction-plan",
+    "zh"
+  ],
+  "message": "附图为平行弦三角腹杆桁架。请根据附图及工程说明建立计算模型并进行静力分析。无法可靠识别的图片信息请明确询问，不要自行假设。",
+  "locale": "zh",
+  "maxRetries": 0,
+  "attachments": [
+    {
+      "fileId": "re-truss-simple-tri-c",
+      "originalName": "drawing-034.png",
+      "relPath": "fixtures/drawings/truss-simple-tri-construction.png",
+      "mimeType": "image/png"
+    }
+  ],
+  "expect": {
+    "skills": {
+      "primary": "truss",
+      "mayAlsoMatch": [
+        "generic"
+      ]
+    },
+    "assertions": [
+      {
+        "type": "structural_type",
+        "expected": "truss"
+      },
+      {
+        "type": "skill_match",
+        "primary": "truss",
+        "mayAlsoMatch": [
+          "generic"
+        ]
+      },
+      {
+        "type": "model_matches",
+        "groundTruthId": "truss-simple-tri",
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05
+        }
+      },
+      {
+        "type": "numerical_matches",
+        "groundTruthId": "truss-simple-tri",
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05,
+          "numeric": 0.01,
+          "numericAbsolute": 1e-8
+        }
+      },
+      {
+        "type": "has_analysis"
+      }
+    ]
+  },
+  "engineeringSpecification": "材料 steel：E=205000 MPa，ν=0.3，密度=7850 kg/m3。全部构件采用 T1（A=0.01 m2）。采用SI单位和全局Z轴向上的坐标约定。仅使用图中标注的荷载工况与荷载值，不附加构件自重。分析荷载组合：ULS = 1 × LC1。",
+  "inputContract": {
+    "imageProvides": [
+      "topology",
+      "dimensions",
+      "supports",
+      "loads"
+    ],
+    "specificationProvides": [
+      "materials",
+      "sections",
+      "analysis-settings"
+    ],
+    "completeness": "complete"
+  }
+}

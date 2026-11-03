@@ -1,0 +1,152 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/structureclaw/structureclaw-benchmark/schemas/scenario.schema.json",
+  "title": "StructureClaw benchmark scenario",
+  "type": "object",
+  "required": [
+    "id",
+    "description",
+    "split",
+    "taskFamily",
+    "inputModality",
+    "structureType",
+    "benchmarkStructureType",
+    "difficulty",
+    "skillTarget",
+    "evaluationFocus",
+    "category",
+    "tags",
+    "locale",
+    "maxRetries"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "taskFamily": {
+      "enum": [
+        "standard_workflow",
+        "interactive_robustness",
+        "multimodal_reverse_engineering"
+      ]
+    },
+    "inputModality": {
+      "type": "string",
+      "minLength": 1
+    },
+    "locale": {
+      "enum": [
+        "en",
+        "zh"
+      ]
+    },
+    "maxRetries": {
+      "const": 0
+    },
+    "message": {
+      "type": "string",
+      "minLength": 1
+    },
+    "expect": {
+      "$ref": "#/$defs/expectation"
+    },
+    "turns": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "message",
+          "assertions"
+        ],
+        "properties": {
+          "message": {
+            "type": "string",
+            "minLength": 1
+          },
+          "assertions": {
+            "$ref": "#/$defs/assertions"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "attachments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "fileId",
+          "originalName",
+          "relPath",
+          "mimeType"
+        ],
+        "additionalProperties": true
+      }
+    }
+  },
+  "oneOf": [
+    {
+      "required": [
+        "message",
+        "expect"
+      ]
+    },
+    {
+      "required": [
+        "turns"
+      ]
+    }
+  ],
+  "$defs": {
+    "expectation": {
+      "type": "object",
+      "required": [
+        "assertions"
+      ],
+      "properties": {
+        "assertions": {
+          "$ref": "#/$defs/assertions"
+        }
+      },
+      "additionalProperties": true
+    },
+    "assertions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "type"
+        ],
+        "properties": {
+          "type": {
+            "enum": [
+              "analysis_or_interaction",
+              "engine_match",
+              "has_analysis",
+              "has_interaction_questions",
+              "has_model",
+              "has_report",
+              "model_matches",
+              "natural_language",
+              "no_bad_model",
+              "numerical_matches",
+              "report_numerical_consistency",
+              "should_not_analyze",
+              "skill_match",
+              "structural_type"
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,78 @@
+
+============================================================
+LangGraph Agent Benchmark: 1 scenario run(s)
+Mode: auto
+Execution: web-stream
+Case timeout: 1800000ms
+SUT root: C:\Users\user\PycharmProjects\MLTestovoe\structureclaw
+Model: qwen3.5:9b
+Base URL: http://localhost:18435/v1
+============================================================
+
+Running: robust-truss-unit-ton-or-kn#auto...
+[2026-10-26 04:13:48.713 +0300] INFO: building agent graph
+    toolCount: 20
+    hasCheckpointer: true
+[2026-10-26 04:13:48.717 +0300] INFO: LangGraph agent stream started
+    traceId: "548a97ef-1e13-4a60-9270-9bd1382af7d5"
+    conversationId: "bench-5ac2f0d8-ff22-4c7f-a4cf-f3a7da42587a"
+    message: "This 15m truss has nodal loads of either 10 tons or 10kN; I am not sure. Please analyze it first."
+[2026-10-26 04:13:48.739 +0300] INFO: agent node invoking LLM
+    traceId: "548a97ef-1e13-4a60-9270-9bd1382af7d5"
+    conversationId: "bench-5ac2f0d8-ff22-4c7f-a4cf-f3a7da42587a"
+    node: "agent"
+    messageCount: 2
+    activeToolCount: 9
+    toolCallCount: 0
+    compacted: false
+[2026-10-26 04:13:56.503 +0300] INFO: agent node LLM response received
+    traceId: "548a97ef-1e13-4a60-9270-9bd1382af7d5"
+    conversationId: "bench-5ac2f0d8-ff22-4c7f-a4cf-f3a7da42587a"
+    node: "agent"
+    durationMs: 7764
+    hasToolCalls: true
+    finishReason: "tool_calls"
+    contentLength: 115
+    reasoningContentLength: 0
+[2026-10-26 04:13:56.514 +0300] INFO: LangGraph agent stream completed
+    traceId: "548a97ef-1e13-4a60-9270-9bd1382af7d5"
+    conversationId: "bench-5ac2f0d8-ff22-4c7f-a4cf-f3a7da42587a"
+    durationMs: 7807
+    mode: "stream"
+
+============================================================
+FAIL  robust-truss-unit-ton-or-kn#auto
+     Truss nodal load unit ambiguity
+
+  ✗ structural_type    expected: truss                          actual: (none)
+  ✗ skill_match        expected: truss                          actual: (none)
+  ✓ has_interaction_questions expected: agent asks a relevant clarification or capability-resolution question actual: questions found
+  ✓ no_bad_model       expected: no computable model for unsafe or incomplete input actual: (none)
+  ✓ should_not_analyze expected: no analysis result or run_analysis call actual: no analysis run
+  ✓ natural_language   expected: The agent must identify the concrete ambiguity or physically implausible value in the request, explain why it prevents a trustworthy analysis, and ask for relevant confirmation or correction before building or analyzing. A generic or unrelated question does not satisfy this criterion. actual: satisfied
+  ✓ toolCalls          expected: (info, lower is better)        actual: 1
+  ✓ inputTokens        expected: (info, lower is better)        actual: 4300
+  ✓ outputTokens       expected: (info, lower is better)        actual: 140
+  ✓ totalTokens        expected: (info, lower is better)        actual: 4440
+  ✓ duration           expected: (info)                         actual: 7.8s
+============================================================
+
+============================================================
+Benchmark Results: 0/1 (0.0%) pass, 1 failed
+Pass@1: 0/1 (0.0%)
+Average tool calls: 1.0
+Average primary-model tokens: 4440.0
+Average duration: 7.8s
+Failed: robust-truss-unit-ton-or-kn#auto
+Total time: 7.8s
+
+By metric:
+  has_interaction_questions        1/1 (100.0%)
+  natural_language                 1/1 (100.0%)
+  no_bad_model                     1/1 (100.0%)
+  should_not_analyze               1/1 (100.0%)
+  skill_match                      0/1 (0.0%)
+  structural_type                  0/1 (0.0%)
+============================================================
+
+Results written to C:/Users/user/PycharmProjects/MLTestovoe/bench_runs/20261026-041344_robust-truss-unit-ton-or-kn.json

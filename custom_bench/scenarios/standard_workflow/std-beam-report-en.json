@@ -1,0 +1,88 @@
+{
+  "id": "std-beam-report-en",
+  "description": "Beam analysis with report in English",
+  "split": "core",
+  "taskFamily": "standard_workflow",
+  "inputModality": "text",
+  "structureType": "beam",
+  "benchmarkStructureType": "beam",
+  "difficulty": "L1",
+  "skillTarget": "beam",
+  "evaluationFocus": [
+    "routing",
+    "modeling",
+    "model_match",
+    "analysis",
+    "report",
+    "semantic",
+    "numerical_match"
+  ],
+  "category": "standard-workflow",
+  "tags": [
+    "beam",
+    "standard",
+    "en",
+    "l1"
+  ],
+  "message": "Analyze a simply supported beam, span 7.5m, with an 18kN/m downward UDL over the full span. Discretize the beam at midspan with a connected analysis node, report the midspan vertical deflection, and generate a calculation report.",
+  "locale": "en",
+  "maxRetries": 0,
+  "expect": {
+    "skills": {
+      "primary": "beam",
+      "mayAlsoMatch": [
+        "generic"
+      ]
+    },
+    "assertions": [
+      {
+        "type": "structural_type",
+        "expected": "beam"
+      },
+      {
+        "type": "skill_match",
+        "primary": "beam",
+        "mayAlsoMatch": [
+          "generic"
+        ]
+      },
+      {
+        "type": "has_model",
+        "minNodes": 2,
+        "minElements": 1
+      },
+      {
+        "type": "model_matches",
+        "groundTruthId": "beam-simple-7p5m-udl18",
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05
+        }
+      },
+      {
+        "type": "numerical_matches",
+        "groundTruthId": "beam-simple-7p5m-udl18",
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05,
+          "numeric": 0.01,
+          "numericAbsolute": 1e-8
+        }
+      },
+      {
+        "type": "has_analysis"
+      },
+      {
+        "type": "has_report"
+      },
+      {
+        "type": "report_numerical_consistency"
+      },
+      {
+        "type": "natural_language",
+        "description": "The report markdown must faithfully reflect the current model, loads, and analysis artifact, explicitly include the requested midspan vertical deflection, contain no numerical value or engineering conclusion inconsistent with the current artifacts, and make no unsupported structural-safety or code-compliance claim."
+      }
+    ]
+  },
+  "engineeringSpecification": "Use these complete analysis-property records exactly in every mode; they are not placeholders and need no clarification. Use only the user task to classify the structure, but include these properties in parameter extraction. Do not create an explicit self-weight load or duplicate a converted load; an analysis provider may apply its configured member self-weight internally. Reconstruct geometry, topology, supports, and load placement from the task.\nUnit system: SI\nCoordinate system: semantics=global-z-up, version=1, dimension=2d, plane=xz, dof_order=ux,uy,uz,rx,ry,rz\nMaterials: id=1, name=steel, E=205000, nu=0.3, rho=7850\nSections: id=1, name=B1, type=beam, properties(A=0.01, Iy=0.0001, Iz=0.0001, J=0.0001, G=79000)\nAnalysis load combinations: id=ULS, factors={LC1=1}"
+}

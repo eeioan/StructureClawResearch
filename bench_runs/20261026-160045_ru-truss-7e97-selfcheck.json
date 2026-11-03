@@ -1,0 +1,581 @@
+{
+  "timestamp": "2026-10-26T13:00:52.029Z",
+  "run": {
+    "schemaVersion": "structureclaw-benchmark-run/v3",
+    "runId": "c109bf17-6ffe-4f14-b94d-cc625af39ef3",
+    "repeatId": null,
+    "startedAt": "2026-10-26T13:00:51.567Z",
+    "plannedScenarioCount": 1,
+    "selection": {
+      "scenarioId": "ru-truss-7e97-selfcheck",
+      "taskFamily": null,
+      "split": null,
+      "mode": "auto",
+      "execution": "web-stream",
+      "supervised": false,
+      "caseTimeoutMs": 1800000,
+      "repeatId": null,
+      "scenarioOrderSeed": null
+    },
+    "models": {
+      "primary": {
+        "configId": null,
+        "model": "gemma4:31b-cloud",
+        "endpoint": "http://localhost:18435/v1",
+        "temperature": 0,
+        "maxTokens": 16384,
+        "providerMaxRetries": 0,
+        "timeoutMs": 600000
+      },
+      "judge": {
+        "configId": null,
+        "model": "gemma4:31b-cloud",
+        "endpoint": "https://localhost:18436/v1",
+        "temperature": 0,
+        "maxTokens": 4096,
+        "maxAttempts": 3,
+        "timeoutMs": 120000
+      },
+      "vision": null
+    },
+    "revisions": {
+      "structureclaw": {
+        "revision": "44f487d5ab4a6e6483ca62219432d47a334a8d63",
+        "dirty": true
+      },
+      "benchmark": {
+        "revision": null,
+        "dirty": null
+      }
+    },
+    "runtime": {
+      "node": "v24.14.0",
+      "platform": "win32",
+      "architecture": "x64",
+      "yjkVersion": null,
+      "pkpmVersion": null,
+      "openSees": {
+        "packageVersion": "3.7.1.2",
+        "runtimePackage": "openseespywin",
+        "runtimePackageVersion": "3.8.0.0",
+        "engineVersion": "3.8.0"
+      },
+      "llmRoutingAndExtractionOnly": true,
+      "runtimeId": null,
+      "backendPrebuilt": true
+    },
+    "measurement": {
+      "duration": "vision preprocessing plus agent execution; excludes judge evaluation and setup",
+      "primaryTokens": "provider usage attached to checkpointed agent and benchmark nested-call messages; includes nested routing and parameter extraction",
+      "visionTokens": "provider usage from benchmark vision preprocessing, reported separately",
+      "judgeTokens": "excluded from agent-efficiency metrics",
+      "totalApiCostAvailable": false
+    },
+    "protocol": {
+      "phase": "development",
+      "targeted": true,
+      "commonCoreComparison": true,
+      "automaticModelRetries": 0,
+      "solverGate": "off",
+      "yjkCooldownMs": 0,
+      "formalJobId": null,
+      "formalMatrixSha256": null
+    },
+    "fingerprints": {
+      "scenarioHash": "a11047c60453c21bc31007948abd8edfb3f1a52acea516dc5e93694508835c5a",
+      "scenarioOrderHash": "05c97b492f24f585d6d7024e316b95e717c326482b0c4a15021ad3b46b6f7ef4",
+      "attachmentHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "promptAndToolHash": "8149f97926bf9337780f5ef09f2bb40b201d56d961cbbd842fa6051065d41c5a",
+      "evaluationHash": "319c84aa39aa04084b82c69e29e8769d3664509ba7b2a1011a8bc726718fa3bf",
+      "runtimeConfigHash": "89b3361fe3911dbd64a56ce7a9d71a97f5c798f52050b8d09893c4552505675d"
+    },
+    "completedScenarioCount": 1,
+    "completed": true,
+    "finishedAt": "2026-10-26T13:00:52.029Z",
+    "validity": {
+      "phase": "development",
+      "paperEligible": false,
+      "reason": "development run; not eligible for paper results"
+    }
+  },
+  "totalScenarios": 1,
+  "passAt1": 0,
+  "passAtN": 0,
+  "passed": 0,
+  "failed": 1,
+  "passAt1Rate": 0,
+  "passAtNRate": 0,
+  "commonCorePassAt1": 0,
+  "commonCorePassed": 0,
+  "commonCoreFailed": 1,
+  "commonCorePassAt1Rate": 0,
+  "commonCorePassRate": 0,
+  "averageRetries": 0,
+  "averageToolCalls": null,
+  "averageTotalTokens": null,
+  "totalTokens": 0,
+  "averageVisionTotalTokens": null,
+  "visionTotalTokens": 0,
+  "averageDurationMs": 71,
+  "totalDurationMs": 71,
+  "averageEffectiveDurationMs": 71,
+  "totalEffectiveDurationMs": 71,
+  "solverQueueWaitMs": 0,
+  "solverExecutionMs": 0,
+  "solverCooldownMs": 0,
+  "by": {
+    "taskFamily": {
+      "interactive_robustness": {
+        "total": 1,
+        "passAt1": 0,
+        "passAtN": 0,
+        "passed": 0,
+        "failed": 1,
+        "passAt1Rate": 0,
+        "passAtNRate": 0,
+        "commonCorePassAt1": 0,
+        "commonCorePassed": 0,
+        "commonCoreFailed": 1,
+        "commonCorePassAt1Rate": 0,
+        "commonCorePassRate": 0,
+        "averageRetries": 0,
+        "averageToolCalls": null,
+        "averageTotalTokens": null,
+        "totalTokens": 0,
+        "averageVisionTotalTokens": null,
+        "visionTotalTokens": 0,
+        "averageDurationMs": 71,
+        "totalDurationMs": 71,
+        "averageEffectiveDurationMs": 71,
+        "totalEffectiveDurationMs": 71,
+        "solverQueueWaitMs": 0,
+        "solverExecutionMs": 0,
+        "solverCooldownMs": 0
+      }
+    },
+    "mode": {
+      "auto": {
+        "total": 1,
+        "passAt1": 0,
+        "passAtN": 0,
+        "passed": 0,
+        "failed": 1,
+        "passAt1Rate": 0,
+        "passAtNRate": 0,
+        "commonCorePassAt1": 0,
+        "commonCorePassed": 0,
+        "commonCoreFailed": 1,
+        "commonCorePassAt1Rate": 0,
+        "commonCorePassRate": 0,
+        "averageRetries": 0,
+        "averageToolCalls": null,
+        "averageTotalTokens": null,
+        "totalTokens": 0,
+        "averageVisionTotalTokens": null,
+        "visionTotalTokens": 0,
+        "averageDurationMs": 71,
+        "totalDurationMs": 71,
+        "averageEffectiveDurationMs": 71,
+        "totalEffectiveDurationMs": 71,
+        "solverQueueWaitMs": 0,
+        "solverExecutionMs": 0,
+        "solverCooldownMs": 0
+      }
+    },
+    "split": {
+      "core": {
+        "total": 1,
+        "passAt1": 0,
+        "passAtN": 0,
+        "passed": 0,
+        "failed": 1,
+        "passAt1Rate": 0,
+        "passAtNRate": 0,
+        "commonCorePassAt1": 0,
+        "commonCorePassed": 0,
+        "commonCoreFailed": 1,
+        "commonCorePassAt1Rate": 0,
+        "commonCorePassRate": 0,
+        "averageRetries": 0,
+        "averageToolCalls": null,
+        "averageTotalTokens": null,
+        "totalTokens": 0,
+        "averageVisionTotalTokens": null,
+        "visionTotalTokens": 0,
+        "averageDurationMs": 71,
+        "totalDurationMs": 71,
+        "averageEffectiveDurationMs": 71,
+        "totalEffectiveDurationMs": 71,
+        "solverQueueWaitMs": 0,
+        "solverExecutionMs": 0,
+        "solverCooldownMs": 0
+      }
+    },
+    "category": {
+      "self-check": {
+        "total": 1,
+        "passAt1": 0,
+        "passAtN": 0,
+        "passed": 0,
+        "failed": 1,
+        "passAt1Rate": 0,
+        "passAtNRate": 0,
+        "commonCorePassAt1": 0,
+        "commonCorePassed": 0,
+        "commonCoreFailed": 1,
+        "commonCorePassAt1Rate": 0,
+        "commonCorePassRate": 0,
+        "averageRetries": 0,
+        "averageToolCalls": null,
+        "averageTotalTokens": null,
+        "totalTokens": 0,
+        "averageVisionTotalTokens": null,
+        "visionTotalTokens": 0,
+        "averageDurationMs": 71,
+        "totalDurationMs": 71,
+        "averageEffectiveDurationMs": 71,
+        "totalEffectiveDurationMs": 71,
+        "solverQueueWaitMs": 0,
+        "solverExecutionMs": 0,
+        "solverCooldownMs": 0
+      }
+    },
+    "inputModality": {
+      "text": {
+        "total": 1,
+        "passAt1": 0,
+        "passAtN": 0,
+        "passed": 0,
+        "failed": 1,
+        "passAt1Rate": 0,
+        "passAtNRate": 0,
+        "commonCorePassAt1": 0,
+        "commonCorePassed": 0,
+        "commonCoreFailed": 1,
+        "commonCorePassAt1Rate": 0,
+        "commonCorePassRate": 0,
+        "averageRetries": 0,
+        "averageToolCalls": null,
+        "averageTotalTokens": null,
+        "totalTokens": 0,
+        "averageVisionTotalTokens": null,
+        "visionTotalTokens": 0,
+        "averageDurationMs": 71,
+        "totalDurationMs": 71,
+        "averageEffectiveDurationMs": 71,
+        "totalEffectiveDurationMs": 71,
+        "solverQueueWaitMs": 0,
+        "solverExecutionMs": 0,
+        "solverCooldownMs": 0
+      }
+    },
+    "inputCompleteness": {
+      "(unset)": {
+        "total": 1,
+        "passAt1": 0,
+        "passAtN": 0,
+        "passed": 0,
+        "failed": 1,
+        "passAt1Rate": 0,
+        "passAtNRate": 0,
+        "commonCorePassAt1": 0,
+        "commonCorePassed": 0,
+        "commonCoreFailed": 1,
+        "commonCorePassAt1Rate": 0,
+        "commonCorePassRate": 0,
+        "averageRetries": 0,
+        "averageToolCalls": null,
+        "averageTotalTokens": null,
+        "totalTokens": 0,
+        "averageVisionTotalTokens": null,
+        "visionTotalTokens": 0,
+        "averageDurationMs": 71,
+        "totalDurationMs": 71,
+        "averageEffectiveDurationMs": 71,
+        "totalEffectiveDurationMs": 71,
+        "solverQueueWaitMs": 0,
+        "solverExecutionMs": 0,
+        "solverCooldownMs": 0
+      }
+    },
+    "benchmarkStructureType": {
+      "truss": {
+        "total": 1,
+        "passAt1": 0,
+        "passAtN": 0,
+        "passed": 0,
+        "failed": 1,
+        "passAt1Rate": 0,
+        "passAtNRate": 0,
+        "commonCorePassAt1": 0,
+        "commonCorePassed": 0,
+        "commonCoreFailed": 1,
+        "commonCorePassAt1Rate": 0,
+        "commonCorePassRate": 0,
+        "averageRetries": 0,
+        "averageToolCalls": null,
+        "averageTotalTokens": null,
+        "totalTokens": 0,
+        "averageVisionTotalTokens": null,
+        "visionTotalTokens": 0,
+        "averageDurationMs": 71,
+        "totalDurationMs": 71,
+        "averageEffectiveDurationMs": 71,
+        "totalEffectiveDurationMs": 71,
+        "solverQueueWaitMs": 0,
+        "solverExecutionMs": 0,
+        "solverCooldownMs": 0
+      }
+    },
+    "structureType": {
+      "truss": {
+        "total": 1,
+        "passAt1": 0,
+        "passAtN": 0,
+        "passed": 0,
+        "failed": 1,
+        "passAt1Rate": 0,
+        "passAtNRate": 0,
+        "commonCorePassAt1": 0,
+        "commonCorePassed": 0,
+        "commonCoreFailed": 1,
+        "commonCorePassAt1Rate": 0,
+        "commonCorePassRate": 0,
+        "averageRetries": 0,
+        "averageToolCalls": null,
+        "averageTotalTokens": null,
+        "totalTokens": 0,
+        "averageVisionTotalTokens": null,
+        "visionTotalTokens": 0,
+        "averageDurationMs": 71,
+        "totalDurationMs": 71,
+        "averageEffectiveDurationMs": 71,
+        "totalEffectiveDurationMs": 71,
+        "solverQueueWaitMs": 0,
+        "solverExecutionMs": 0,
+        "solverCooldownMs": 0
+      }
+    },
+    "analysisEngineTarget": {
+      "builtin-opensees": {
+        "total": 1,
+        "passAt1": 0,
+        "passAtN": 0,
+        "passed": 0,
+        "failed": 1,
+        "passAt1Rate": 0,
+        "passAtNRate": 0,
+        "commonCorePassAt1": 0,
+        "commonCorePassed": 0,
+        "commonCoreFailed": 1,
+        "commonCorePassAt1Rate": 0,
+        "commonCorePassRate": 0,
+        "averageRetries": 0,
+        "averageToolCalls": null,
+        "averageTotalTokens": null,
+        "totalTokens": 0,
+        "averageVisionTotalTokens": null,
+        "visionTotalTokens": 0,
+        "averageDurationMs": 71,
+        "totalDurationMs": 71,
+        "averageEffectiveDurationMs": 71,
+        "totalEffectiveDurationMs": 71,
+        "solverQueueWaitMs": 0,
+        "solverExecutionMs": 0,
+        "solverCooldownMs": 0
+      }
+    }
+  },
+  "metrics": {
+    "execution": {
+      "total": 1,
+      "passed": 0,
+      "failed": 1
+    }
+  },
+  "scenarios": [
+    {
+      "scenarioId": "ru-truss-7e97-selfcheck#auto",
+      "baseScenarioId": "ru-truss-7e97-selfcheck",
+      "description": "Ферма 2.1: агент сам выписывает выведенные величины и может спросить; подсказка — только если спросил",
+      "split": "core",
+      "taskFamily": "interactive_robustness",
+      "inputModality": "text",
+      "inputCompleteness": null,
+      "structureType": "truss",
+      "benchmarkStructureType": "truss",
+      "difficulty": "L2",
+      "skillTarget": "truss",
+      "category": "self-check",
+      "tags": [
+        "truss",
+        "university",
+        "ru",
+        "l2",
+        "self-check"
+      ],
+      "locale": "en",
+      "analysisSkillTarget": "opensees-static",
+      "analysisEngineTarget": "builtin-opensees",
+      "mode": "auto",
+      "evaluationFocus": [
+        "routing",
+        "modeling",
+        "model_match",
+        "analysis",
+        "engine_match",
+        "numerical_match",
+        "interaction"
+      ],
+      "passed": 0,
+      "total": 1,
+      "allPassed": false,
+      "metrics": [
+        {
+          "metric": "execution",
+          "pass": false,
+          "expected": "case completes",
+          "actual": "Connection error."
+        },
+        {
+          "metric": "duration",
+          "pass": true,
+          "expected": "(info)",
+          "actual": "0.1s"
+        }
+      ],
+      "durationMs": 71,
+      "turnResults": [
+        {
+          "turnIndex": 0,
+          "evaluation": {
+            "scenarioId": "ru-truss-7e97-selfcheck#auto",
+            "baseScenarioId": "ru-truss-7e97-selfcheck",
+            "description": "Ферма 2.1: агент сам выписывает выведенные величины и может спросить; подсказка — только если спросил",
+            "split": "core",
+            "taskFamily": "interactive_robustness",
+            "inputModality": "text",
+            "inputCompleteness": null,
+            "structureType": "truss",
+            "benchmarkStructureType": "truss",
+            "difficulty": "L2",
+            "skillTarget": "truss",
+            "category": "self-check",
+            "tags": [
+              "truss",
+              "university",
+              "ru",
+              "l2",
+              "self-check"
+            ],
+            "locale": "en",
+            "analysisSkillTarget": "opensees-static",
+            "analysisEngineTarget": "builtin-opensees",
+            "mode": "auto",
+            "evaluationFocus": [
+              "routing",
+              "modeling",
+              "model_match",
+              "analysis",
+              "engine_match",
+              "numerical_match",
+              "interaction"
+            ],
+            "passed": 0,
+            "total": 1,
+            "allPassed": false,
+            "metrics": [
+              {
+                "metric": "execution",
+                "pass": false,
+                "expected": "case completes",
+                "actual": "Connection error."
+              }
+            ],
+            "durationMs": 71,
+            "executionProfile": {
+              "execution": "web-stream",
+              "mode": "auto",
+              "skillIds": [],
+              "enabledToolIds": [],
+              "sourceDataDir": null,
+              "runtimeDataDir": null,
+              "visionModel": null,
+              "analysisSkillTarget": "opensees-static",
+              "caseTimeoutMs": 1800000,
+              "yjkCloseAfterRun": "1",
+              "supervised": false
+            }
+          }
+        }
+      ],
+      "executionProfile": {
+        "execution": "web-stream",
+        "mode": "auto",
+        "skillIds": [
+          "beam",
+          "column",
+          "concrete-frame",
+          "double-span-beam",
+          "frame",
+          "generic",
+          "portal-frame",
+          "truss",
+          "opensees-static",
+          "validation-structure-model",
+          "report-export-builtin"
+        ],
+        "enabledToolIds": [
+          "detect_structure_type",
+          "extract_draft_params",
+          "build_model",
+          "validate_model",
+          "run_analysis",
+          "generate_report",
+          "ask_user_clarification",
+          "set_session_config",
+          "analyze_file"
+        ],
+        "sourceDataDir": null,
+        "runtimeDataDir": null,
+        "visionModel": null,
+        "analysisSkillTarget": "opensees-static",
+        "caseTimeoutMs": 1800000,
+        "yjkCloseAfterRun": "1",
+        "conversationId": "bench-f529a254-91a8-40b9-b730-97c3ef457665",
+        "solverGate": {
+          "enabled": false,
+          "mode": "off",
+          "events": [],
+          "solverQueueWaitMs": 0,
+          "solverExecutionMs": 0,
+          "cooldownMs": 0
+        },
+        "effectiveDurationMs": 71
+      },
+      "retries": {
+        "attempts": 1,
+        "maxRetries": 0,
+        "retriesUsed": 0,
+        "passAt1": false,
+        "passAtN": false,
+        "rounds": [
+          {
+            "attempt": 1,
+            "allPassed": false,
+            "metrics": [
+              {
+                "metric": "execution",
+                "pass": false
+              },
+              {
+                "metric": "duration",
+                "pass": true
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

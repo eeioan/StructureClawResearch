@@ -1,0 +1,88 @@
+{
+  "id": "re-arch-frame3d-complex",
+  "description": "建筑平面图反问题：2层复杂空间框架",
+  "split": "auxiliary",
+  "taskFamily": "multimodal_reverse_engineering",
+  "inputModality": "dxf",
+  "structureType": "frame",
+  "benchmarkStructureType": "steel-frame",
+  "difficulty": "L3",
+  "skillTarget": "frame",
+  "evaluationFocus": [
+    "routing",
+    "modeling",
+    "model_match",
+    "analysis",
+    "numerical_match"
+  ],
+  "category": "reverse-engineering",
+  "tags": [
+    "reverse-engineering",
+    "frame",
+    "3d",
+    "architectural",
+    "dxf",
+    "zh"
+  ],
+  "message": "请根据所附建筑平面DXF及工程说明提取结构柱网和梁连接，过滤墙体、门窗、家具等非结构建筑元素，建立空间计算模型并进行静力分析。平面尺寸与拓扑须以图中可见证据为准，不得补猜。",
+  "engineeringSpecification": "材料 Q345：E=206000 MPa，ν=0.3，密度=7850 kg/m3，fy=345 MPa。柱构件采用 HW400x400（H=400 mm，B=400 mm，tw=13 mm，tf=21 mm；A=0.01972 m2，Iy=0.000667 m4，Iz=0.000224 m4，J=0.0000101 m4，G=79000 MPa）。梁构件采用 HN600x200（H=600 mm，B=200 mm，tw=11 mm，tf=17 mm；A=0.01341 m2，Iy=0.000906 m4，Iz=0.0000227 m4，J=0.00000148 m4，G=79000 MPa）。平面图源X/Y轴映射为全局X/Y轴；沿全局Z方向建立2层，每层层高3.6 m。全部柱脚固定，一层和二层分别施加全局Z负向10 kN/m2与8 kN/m2楼面荷载。采用SI单位和全局Z轴向上的坐标约定，不附加构件自重，分析荷载组合为 ULS = 1 × D。",
+  "inputContract": {
+    "dxfProvides": ["topology", "dimensions"],
+    "specificationProvides": ["vertical-geometry", "materials", "sections", "supports", "loads", "analysis-settings"],
+    "completeness": "complete"
+  },
+  "locale": "zh",
+  "maxRetries": 0,
+  "attachments": [
+    {
+      "fileId": "re-arch-frame3d-complex",
+      "originalName": "drawing-038.dxf",
+      "relPath": "fixtures/drawings/arch-frame3d-complex.dxf",
+      "mimeType": "application/dxf"
+    }
+  ],
+  "expect": {
+    "skills": {
+      "primary": "frame",
+      "mayAlsoMatch": [
+        "concrete-frame",
+        "generic"
+      ]
+    },
+    "assertions": [
+      {
+        "type": "structural_type",
+        "expected": "frame"
+      },
+      {
+        "type": "skill_match",
+        "primary": "frame",
+        "mayAlsoMatch": [
+          "concrete-frame",
+          "generic"
+        ]
+      },
+      {
+        "type": "model_matches",
+        "groundTruthId": "frame3d-complex",
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05
+        }
+      },
+      {
+        "type": "numerical_matches",
+        "groundTruthId": "frame3d-complex",
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05,
+          "numeric": 0.01,
+          "numericAbsolute": 1e-8
+        }
+      },
+      {
+        "type": "has_analysis"
+      }
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "structureclaw-benchmark",
+  "name": "StructureClaw Benchmark Tools",
+  "description": "Exposes the frozen StructureClaw benchmark tool surface to OpenClaw.",
+  "activation": {
+    "onStartup": true
+  },
+  "contracts": {
+    "tools": [
+      "detect_structure_type",
+      "extract_draft_params",
+      "build_model",
+      "validate_model",
+      "run_analysis",
+      "generate_report",
+      "ask_user_clarification",
+      "set_session_config",
+      "analyze_file"
+    ]
+  },
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "id": "robust-portal-unrealistic-span",
+  "description": "Portal frame with extreme span and load",
+  "split": "core",
+  "taskFamily": "interactive_robustness",
+  "inputModality": "text",
+  "structureType": "portal-frame",
+  "benchmarkStructureType": "portal-frame",
+  "difficulty": "L2",
+  "skillTarget": "portal-frame",
+  "evaluationFocus": [
+    "routing",
+    "interaction",
+    "analysis"
+  ],
+  "category": "unrealistic-values",
+  "tags": [
+    "portal-frame",
+    "interactive",
+    "unrealistic-values",
+    "l2",
+    "en"
+  ],
+  "message": "A portal frame has a 500m span, 3m eave height, and 3000kN/m roof load. Please analyze it.",
+  "locale": "en",
+  "maxRetries": 0,
+  "benchmarkModes": [
+    "auto"
+  ],
+  "expect": {
+    "skills": {
+      "primary": "portal-frame",
+      "mayAlsoMatch": [
+        "generic"
+      ]
+    },
+    "assertions": [
+      {
+        "type": "structural_type",
+        "expected": "portal-frame"
+      },
+      {
+        "type": "skill_match",
+        "primary": "portal-frame",
+        "mayAlsoMatch": [
+          "generic"
+        ]
+      },
+      {
+        "type": "analysis_or_interaction"
+      }
+    ]
+  }
+}

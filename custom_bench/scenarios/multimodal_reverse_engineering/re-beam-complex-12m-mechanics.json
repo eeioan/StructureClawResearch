@@ -1,0 +1,93 @@
+{
+  "id": "re-beam-complex-12m-mechanics",
+  "description": "反问题：力学简图重建简支梁12m+集中力",
+  "split": "auxiliary",
+  "taskFamily": "multimodal_reverse_engineering",
+  "inputModality": "image",
+  "structureType": "beam",
+  "benchmarkStructureType": "beam",
+  "difficulty": "L2",
+  "skillTarget": "beam",
+  "evaluationFocus": [
+    "routing",
+    "modeling",
+    "model_match",
+    "analysis",
+    "numerical_match"
+  ],
+  "category": "reverse-engineering",
+  "tags": [
+    "reverse-engineering",
+    "beam",
+    "mechanics-diagram",
+    "zh"
+  ],
+  "message": "请根据附图及工程说明建立计算模型并进行静力分析。无法可靠识别的图片信息请明确询问，不要自行假设。",
+  "locale": "zh",
+  "maxRetries": 0,
+  "attachments": [
+    {
+      "fileId": "re-beam-complex-12m-m",
+      "originalName": "drawing-011.png",
+      "relPath": "fixtures/drawings/beam-complex-12m-mechanics.png",
+      "mimeType": "image/png"
+    }
+  ],
+  "expect": {
+    "skills": {
+      "primary": "beam",
+      "mayAlsoMatch": [
+        "generic"
+      ]
+    },
+    "assertions": [
+      {
+        "type": "structural_type",
+        "expected": "beam"
+      },
+      {
+        "type": "skill_match",
+        "primary": "beam",
+        "mayAlsoMatch": [
+          "generic"
+        ]
+      },
+      {
+        "type": "model_matches",
+        "groundTruthId": "beam-complex-12m",
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05
+        }
+      },
+      {
+        "type": "numerical_matches",
+        "groundTruthId": "beam-complex-12m",
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05,
+          "numeric": 0.01,
+          "numericAbsolute": 1e-8
+        }
+      },
+      {
+        "type": "has_analysis"
+      }
+    ]
+  },
+  "engineeringSpecification": "材料 steel：E=205000 MPa，ν=0.3，密度=7850 kg/m3。全部构件采用 B1（A=0.01 m2，Iy=0.0001 m4，Iz=0.0001 m4，J=0.0001 m4，G=79000 MPa）。采用SI单位和全局Z轴向上的坐标约定。仅使用图中标注的荷载工况与荷载值，不附加构件自重。分析荷载组合：ULS = 1 × LC1。除集中荷载节点外，请在跨中设置与两侧梁单元连接的分析节点，并输出跨中竖向挠度。",
+  "inputContract": {
+    "imageProvides": [
+      "topology",
+      "dimensions",
+      "supports",
+      "loads"
+    ],
+    "specificationProvides": [
+      "materials",
+      "sections",
+      "analysis-settings"
+    ],
+    "completeness": "complete"
+  }
+}

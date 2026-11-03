@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 2,
+  "description": "Policy for automatically cross-validating every canonical ground-truth model that can be represented without inventing geometry in OpenSees, PKPM/SATWE, and YJK.",
+  "comparisonPolicy": {
+    "totalGravity": {
+      "tier": "equilibrium",
+      "relativeTolerance": 0.02
+    },
+    "bottomColumnAxialSum": {
+      "tier": "equilibrium",
+      "relativeTolerance": 0.02
+    },
+    "maxBottomColumnAxial": {
+      "tier": "response",
+      "relativeTolerance": 0.08
+    },
+    "maxBeamShear": {
+      "tier": "response",
+      "relativeTolerance": 0.1
+    },
+    "maxBottomColumnMoment": {
+      "tier": "response",
+      "relativeTolerance": 0.15
+    },
+    "maxVerticalDisplacement": {
+      "tier": "response",
+      "engines": [
+        "opensees",
+        "yjk"
+      ],
+      "relativeTolerance": 0.2,
+      "exclusionReason": "PKPM DL vertical displacement uses its construction-stage convention and is not comparable until that analysis option is aligned."
+    }
+  }
+}

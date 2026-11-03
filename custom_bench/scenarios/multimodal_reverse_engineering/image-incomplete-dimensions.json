@@ -1,0 +1,64 @@
+{
+  "id": "image-incomplete-dimensions",
+  "description": "Image input with missing critical frame dimensions",
+  "split": "auxiliary",
+  "taskFamily": "multimodal_reverse_engineering",
+  "inputModality": "image",
+  "structureType": "frame",
+  "benchmarkStructureType": "steel-frame",
+  "difficulty": "L2",
+  "skillTarget": "frame",
+  "evaluationFocus": [
+    "interaction",
+    "semantic"
+  ],
+  "category": "multimodal",
+  "tags": [
+    "multimodal",
+    "error-recovery",
+    "image",
+    "en"
+  ],
+  "message": "Review the attached drawing and determine whether all geometry, support, and load annotations required for analysis are visible. Ask specific follow-up questions instead of building or analyzing an incomplete model.",
+  "locale": "en",
+  "maxRetries": 0,
+  "attachments": [
+    {
+      "fileId": "bench-incomplete-dims",
+      "originalName": "drawing-003.png",
+      "relPath": "fixtures/incomplete-dimensions.png",
+      "mimeType": "image/png"
+    }
+  ],
+  "expect": {
+    "skills": {
+      "primary": "frame",
+      "mayAlsoMatch": [
+        "generic"
+      ]
+    },
+    "assertions": [
+      {
+        "type": "has_interaction_questions"
+      },
+      {
+        "type": "no_bad_model"
+      },
+      {
+        "type": "should_not_analyze"
+      },
+      {
+        "type": "natural_language",
+        "description": "The agent should recognize the structure from the image but notice missing dimensions and ask the user to provide specific values"
+      }
+    ]
+  },
+  "engineeringSpecification": null,
+  "inputContract": {
+    "imageProvides": [
+      "partial-topology"
+    ],
+    "specificationProvides": [],
+    "completeness": "intentionally-incomplete"
+  }
+}

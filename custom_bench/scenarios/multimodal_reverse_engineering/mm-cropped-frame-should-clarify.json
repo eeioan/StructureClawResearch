@@ -1,0 +1,72 @@
+{
+  "id": "mm-cropped-frame-should-clarify",
+  "description": "Cropped frame drawing should trigger clarification",
+  "split": "auxiliary",
+  "taskFamily": "multimodal_reverse_engineering",
+  "inputModality": "image",
+  "structureType": "generic",
+  "benchmarkStructureType": "generic",
+  "difficulty": "L3",
+  "skillTarget": "generic",
+  "evaluationFocus": [
+    "interaction",
+    "semantic"
+  ],
+  "category": "image-robustness",
+  "tags": [
+    "multimodal",
+    "image",
+    "robustness",
+    "l3",
+    "en"
+  ],
+  "message": "Review the attached cropped drawing. Build and analyze a model only if all critical geometry, support, and load annotations are visible; otherwise ask for the complete drawing.",
+  "locale": "en",
+  "maxRetries": 0,
+  "benchmarkModes": [
+    "auto",
+    "oracle-specialist",
+    "generic-only"
+  ],
+  "attachments": [
+    {
+      "fileId": "mm-cropped-frame",
+      "originalName": "drawing-009.png",
+      "relPath": "fixtures/cropped-frame-sketch.png",
+      "mimeType": "image/png"
+    }
+  ],
+  "expect": {
+    "skills": {
+      "primary": "generic",
+      "mayAlsoMatch": [
+        "beam",
+        "frame",
+        "truss"
+      ]
+    },
+    "assertions": [
+      {
+        "type": "has_interaction_questions"
+      },
+      {
+        "type": "no_bad_model"
+      },
+      {
+        "type": "should_not_analyze"
+      },
+      {
+        "type": "natural_language",
+        "description": "Agent should not invent a full frame model from a cropped drawing with missing span or support information; it should ask for clearer dimensions or a complete drawing."
+      }
+    ]
+  },
+  "engineeringSpecification": null,
+  "inputContract": {
+    "imageProvides": [
+      "partial-topology"
+    ],
+    "specificationProvides": [],
+    "completeness": "intentionally-incomplete"
+  }
+}

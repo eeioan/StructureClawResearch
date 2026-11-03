@@ -1,0 +1,49 @@
+{
+  "id": "robust-unsupported-slab",
+  "description": "暂不支持楼板壳单元",
+  "split": "core",
+  "taskFamily": "interactive_robustness",
+  "inputModality": "text",
+  "structureType": "generic",
+  "benchmarkStructureType": "generic",
+  "difficulty": "L3",
+  "skillTarget": "generic",
+  "evaluationFocus": [
+    "interaction"
+  ],
+  "category": "unsupported",
+  "tags": [
+    "generic",
+    "interactive",
+    "unsupported",
+    "zh",
+    "l3"
+  ],
+  "message": "请用壳单元精细分析一块双向楼板，考虑板柱节点冲切",
+  "locale": "zh",
+  "maxRetries": 0,
+  "benchmarkModes": [
+    "auto"
+  ],
+  "expect": {
+    "skills": {
+      "primary": "generic",
+      "mayAlsoMatch": []
+    },
+    "assertions": [
+      {
+        "type": "has_interaction_questions"
+      },
+      {
+        "type": "no_bad_model"
+      },
+      {
+        "type": "should_not_analyze"
+      },
+      {
+        "type": "natural_language",
+        "description": "智能体必须明确说明当前 StructureClaw 的技能或适配器不能忠实建模并执行所要求的双向楼板壳单元与板柱冲切分析，并在求解器执行前拒绝建模或分析。可以建议受支持的简化方案或外部楼板分析流程；仅继续追问楼板几何、材料或荷载参数不能满足该标准。"
+      }
+    ]
+  }
+}

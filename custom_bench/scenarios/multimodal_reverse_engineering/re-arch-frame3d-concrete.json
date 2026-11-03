@@ -1,0 +1,98 @@
+{
+  "id": "re-arch-frame3d-concrete",
+  "description": "Architectural DXF reverse engineering: 3D concrete frame",
+  "split": "auxiliary",
+  "taskFamily": "multimodal_reverse_engineering",
+  "inputModality": "dxf",
+  "structureType": "concrete-frame",
+  "benchmarkStructureType": "concrete-frame",
+  "difficulty": "L3",
+  "skillTarget": "concrete-frame",
+  "evaluationFocus": [
+    "routing",
+    "modeling",
+    "model_match",
+    "analysis",
+    "numerical_match"
+  ],
+  "category": "reverse-engineering",
+  "tags": [
+    "reverse-engineering",
+    "concrete-frame",
+    "3d",
+    "architectural",
+    "dxf",
+    "en"
+  ],
+  "message": "Extract the structural grid and beam connectivity from the attached architectural floor-plan DXF and engineering specification, filter out non-structural building elements, build the spatial calculation model, and run static analysis. Use visible plan dimensions and topology; do not infer missing engineering information.",
+  "locale": "en",
+  "maxRetries": 0,
+  "attachments": [
+    {
+      "fileId": "re-arch-frame3d-concrete",
+      "originalName": "drawing-039.dxf",
+      "relPath": "fixtures/drawings/arch-frame3d-concrete.dxf",
+      "mimeType": "application/dxf"
+    }
+  ],
+  "expect": {
+    "skills": {
+      "primary": "concrete-frame",
+      "mayAlsoMatch": [
+        "frame",
+        "generic"
+      ]
+    },
+    "assertions": [
+      {
+        "type": "structural_type",
+        "expected": "frame"
+      },
+      {
+        "type": "skill_match",
+        "primary": "concrete-frame",
+        "mayAlsoMatch": [
+          "frame",
+          "generic"
+        ]
+      },
+      {
+        "type": "model_matches",
+        "groundTruthId": "frame3d-concrete",
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05
+        }
+      },
+      {
+        "type": "numerical_matches",
+        "groundTruthId": "frame3d-concrete",
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05,
+          "numeric": 0.01,
+          "numericAbsolute": 1e-8
+        }
+      },
+      {
+        "type": "has_analysis"
+      }
+    ]
+  },
+  "engineeringSpecification": "Material C30: E=30000 MPa, ν=0.2, density=2500 kg/m3, and fc=14.3 MPa. Columns use C30 500x500 sections (H=500 mm, B=500 mm; A=0.25 m2, Iy=0.0052 m4, Iz=0.0052 m4, J=0.0088021 m4, G=12500 MPa). Beams use C30 300x600 sections (H=600 mm, B=300 mm; A=0.18 m2, Iy=0.0054 m4, Iz=0.00135 m4, J=0.00370786 m4, G=12500 MPa). Map the floor plan's source X/Y axes to global X/Y; create two stories in global Z, each 3.6 m high. Use fixed column bases and apply global-Z downward floor loads of 12 kN/m2 on the first story and 10 kN/m2 on the second story. Use SI units and the global-Z-up coordinate convention, do not add member self-weight, and analyze load combination ULS = 1 × D.",
+  "inputContract": {
+    "dxfProvides": [
+      "topology",
+      "dimensions"
+    ],
+    "specificationProvides": [
+      "vertical-geometry",
+      "materials",
+      "sections",
+      "supports",
+      "loads",
+      "analysis-settings"
+    ],
+    "completeness": "complete"
+  }
+}

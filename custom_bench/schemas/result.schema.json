@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/structureclaw/structureclaw-benchmark/schemas/result.schema.json",
+  "title": "StructureClaw benchmark result",
+  "type": "object",
+  "required": [
+    "timestamp",
+    "scenarios"
+  ],
+  "properties": {
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "run": {
+      "type": "object"
+    },
+    "scenarios": {
+      "type": "array"
+    }
+  },
+  "additionalProperties": true
+}

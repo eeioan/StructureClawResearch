@@ -1,0 +1,22 @@
+{
+  "name": "structureclaw-benchmark",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Public, reproducible benchmark runner and corpus for StructureClaw",
+  "license": "MIT",
+  "type": "commonjs",
+  "dependencies": {
+    "sharp": "^0.35.1"
+  },
+  "scripts": {
+    "benchmark": "node runner.cjs",
+    "benchmark:single": "node runner.cjs --scenario",
+    "benchmark:all-modes": "node runner.cjs --mode all",
+    "benchmark:openclaw": "node external/openclaw/runner.cjs",
+    "test:openclaw": "node --test external/openclaw/config.test.cjs",
+    "validate": "node lib/validate-corpus.cjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

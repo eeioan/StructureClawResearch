@@ -1,0 +1,114 @@
+{
+  "id": "robust-update-concrete-material",
+  "description": "多轮：混凝土框架修改材料",
+  "split": "core",
+  "taskFamily": "interactive_robustness",
+  "inputModality": "text",
+  "structureType": "concrete-frame",
+  "benchmarkStructureType": "concrete-frame",
+  "difficulty": "L3",
+  "skillTarget": "concrete-frame",
+  "evaluationFocus": [
+    "routing",
+    "modeling",
+    "model_match",
+    "analysis",
+    "numerical_match",
+    "semantic",
+    "interaction"
+  ],
+  "category": "multi-turn-update",
+  "tags": [
+    "concrete-frame",
+    "interactive",
+    "multi-turn-update",
+    "zh",
+    "l3"
+  ],
+  "locale": "zh",
+  "maxRetries": 0,
+  "benchmarkModes": [
+    "auto"
+  ],
+  "turns": [
+    {
+      "message": "两层两跨2D混凝土框架，所有柱脚固定，C30混凝土、HRB400钢筋，柱截面500mm×500mm，梁截面300mm×600mm，每跨6m，层高3.6m，每层各梁施加向下10kN/m线荷载，请分析。",
+      "assertions": [
+        {
+          "type": "structural_type",
+          "expected": "frame"
+        },
+        {
+          "type": "skill_match",
+          "primary": "concrete-frame",
+          "mayAlsoMatch": [
+            "generic"
+          ]
+        },
+        {
+          "type": "has_model",
+          "minNodes": 6,
+          "minElements": 5
+        },
+        {
+          "type": "has_analysis"
+        },
+        {
+          "type": "model_matches",
+          "groundTruthId": "concrete-frame-2s2b-6m-10k-c30",
+          "tolerances": {
+            "coordinate": 0.05,
+            "load": 0.05
+          }
+        },
+        {
+          "type": "numerical_matches",
+          "groundTruthId": "concrete-frame-2s2b-6m-10k-c30",
+          "tolerances": {
+            "coordinate": 0.05,
+            "load": 0.05,
+            "numeric": 0.01,
+            "numericAbsolute": 1e-8
+          }
+        }
+      ],
+      "engineeringSpecification": "所有模式均须严格使用以下完整分析属性；这些记录不是占位符，无需要求补充。结构分类只使用用户任务，参数提取须同时包含这些属性。不得显式创建构件自重荷载或重复施加折算荷载；分析后端可按自身配置在内部计入构件自重。几何、拓扑、支座和荷载位置仍由用户任务确定。\n单位制: SI\n坐标系: semantics=global-z-up, version=1, dimension=2d, plane=xz, dof_order=ux,uy,uz,rx,ry,rz\n材料: id=1, name=C30, grade=C30, category=concrete, E=30000, nu=0.2, rho=2500, fc=14.3\n截面: id=1, name=C30 500x500, type=rect, purpose=column, shape(kind=rectangular, H=500, B=500), properties(A=0.25, Iy=0.005208333333333333, Iz=0.005208333333333333, J=0.008802083333333334, G=12500); id=2, name=C30 300x600, type=rect, purpose=beam, shape(kind=rectangular, H=600, B=300), properties(A=0.18, Iy=0.0053999999999999986, Iz=0.0013499999999999996, J=0.003707859374999999, G=12500)\n分析荷载组合: id=ULS, factors={D=1}"
+    },
+    {
+      "message": "混凝土等级改成C40，重新分析",
+      "assertions": [
+        {
+          "type": "has_model",
+          "minNodes": 6,
+          "minElements": 5
+        },
+        {
+          "type": "has_analysis"
+        },
+        {
+          "type": "model_matches",
+          "groundTruthId": "concrete-frame-2s2b-6m-10k-c40",
+          "tolerances": {
+            "coordinate": 0.05,
+            "load": 0.05
+          }
+        },
+        {
+          "type": "numerical_matches",
+          "groundTruthId": "concrete-frame-2s2b-6m-10k-c40",
+          "tolerances": {
+            "coordinate": 0.05,
+            "load": 0.05,
+            "numeric": 0.01,
+            "numericAbsolute": 1e-8
+          }
+        },
+        {
+          "type": "natural_language",
+          "description": "The updated model should use C40 concrete."
+        }
+      ],
+      "engineeringSpecification": "所有模式均须严格使用以下完整分析属性；这些记录不是占位符，无需要求补充。结构分类只使用用户任务，参数提取须同时包含这些属性。不得显式创建构件自重荷载或重复施加折算荷载；分析后端可按自身配置在内部计入构件自重。几何、拓扑、支座和荷载位置仍由用户任务确定。\n单位制: SI\n坐标系: semantics=global-z-up, version=1, dimension=2d, plane=xz, dof_order=ux,uy,uz,rx,ry,rz\n材料: id=1, name=C40, grade=C40, category=concrete, E=32500, nu=0.2, rho=2500, fc=19.1\n截面: id=1, name=C40 500x500, type=rect, purpose=column, shape(kind=rectangular, H=500, B=500), properties(A=0.25, Iy=0.005208333333333333, Iz=0.005208333333333333, J=0.008802083333333334, G=13541.666666666668); id=2, name=C40 300x600, type=rect, purpose=beam, shape(kind=rectangular, H=600, B=300), properties(A=0.18, Iy=0.0053999999999999986, Iz=0.0013499999999999996, J=0.003707859374999999, G=13541.666666666668)\n分析荷载组合: id=ULS, factors={D=1}"
+    }
+  ]
+}

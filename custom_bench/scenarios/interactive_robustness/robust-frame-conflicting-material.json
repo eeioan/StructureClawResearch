@@ -1,0 +1,45 @@
+{
+  "id": "robust-frame-conflicting-material",
+  "description": "Steel frame with conflicting material description",
+  "split": "core",
+  "taskFamily": "interactive_robustness",
+  "inputModality": "text",
+  "structureType": "frame",
+  "benchmarkStructureType": "steel-frame",
+  "difficulty": "L3",
+  "skillTarget": "frame",
+  "evaluationFocus": [
+    "interaction"
+  ],
+  "category": "conflicting-requirements",
+  "tags": [
+    "frame",
+    "interactive",
+    "conflicting-requirements",
+    "l3",
+    "en"
+  ],
+  "message": "A one-story frame has a 7.2m span and 4.1m story height. The same beam and column members are each specified as homogeneous C35 concrete and homogeneous Q420 steel, while composite sections and mixed-material members are explicitly excluded. Please analyze it directly.",
+  "locale": "en",
+  "maxRetries": 0,
+  "benchmarkModes": [
+    "auto"
+  ],
+  "expect": {
+    "assertions": [
+      {
+        "type": "has_interaction_questions"
+      },
+      {
+        "type": "natural_language",
+        "description": "The agent must identify the mutually incompatible material requirements for the same homogeneous members, explain that the material system must be resolved, and ask which material system to use before building or analyzing. Merely asking for an unrelated missing parameter does not satisfy this criterion."
+      },
+      {
+        "type": "no_bad_model"
+      },
+      {
+        "type": "should_not_analyze"
+      }
+    ]
+  }
+}

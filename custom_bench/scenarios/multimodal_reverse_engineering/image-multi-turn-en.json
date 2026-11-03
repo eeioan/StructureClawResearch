@@ -1,0 +1,104 @@
+{
+  "id": "image-multi-turn-en",
+  "description": "Upload image identify then add params and analyze",
+  "split": "auxiliary",
+  "taskFamily": "multimodal_reverse_engineering",
+  "inputModality": "image",
+  "structureType": "truss",
+  "benchmarkStructureType": "truss",
+  "difficulty": "L2",
+  "skillTarget": "truss",
+  "evaluationFocus": [
+    "routing",
+    "semantic",
+    "modeling",
+    "model_match",
+    "analysis",
+    "numerical_match"
+  ],
+  "category": "multimodal",
+  "tags": [
+    "multimodal",
+    "multi-turn",
+    "image",
+    "en"
+  ],
+  "locale": "en",
+  "maxRetries": 0,
+  "attachments": [
+    {
+      "fileId": "bench-truss-diagram-mt",
+      "originalName": "drawing-004.png",
+      "relPath": "fixtures/truss-diagram.png",
+      "mimeType": "image/png"
+    }
+  ],
+  "turns": [
+    {
+      "message": "Identify the structural system shown in the attached image using only visible evidence.",
+      "assertions": [
+        {
+          "type": "structural_type",
+          "expected": "truss"
+        },
+        {
+          "type": "skill_match",
+          "primary": "truss",
+          "mayAlsoMatch": [
+            "generic"
+          ]
+        },
+        {
+          "type": "natural_language",
+          "description": "The agent should identify the image shows a truss structure"
+        }
+      ]
+    },
+    {
+      "message": "Use the engineering specification provided with this turn to build the calculation model and run static analysis.",
+      "assertions": [
+        {
+          "type": "has_model",
+          "minNodes": 3,
+          "minElements": 3
+        },
+        {
+          "type": "model_matches",
+          "groundTruthId": "truss-triangle-12m-3m-20k",
+          "tolerances": {
+            "load": 0.05,
+            "coordinate": 0.05
+          }
+        },
+        {
+          "type": "numerical_matches",
+          "groundTruthId": "truss-triangle-12m-3m-20k",
+          "tolerances": {
+            "load": 0.05,
+            "coordinate": 0.05,
+            "numeric": 0.01,
+            "numericAbsolute": 1e-8
+          }
+        },
+        {
+          "type": "has_analysis"
+        }
+      ],
+      "engineeringSpecification": "Material steel: E=205000 MPa, nu=0.3, density=7850 kg/m3. All members use section T1 (A=0.01 m2). Use SI units and the global-z-up coordinate convention. Use only the load cases and load magnitudes annotated in the drawing; do not add member self-weight. Analyze load combination ULS = 1 x LC1."
+    }
+  ],
+  "inputContract": {
+    "imageProvides": [
+      "topology",
+      "dimensions",
+      "supports",
+      "loads"
+    ],
+    "specificationProvides": [
+      "materials",
+      "sections",
+      "analysis-settings"
+    ],
+    "completeness": "complete"
+  }
+}

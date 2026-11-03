@@ -1,0 +1,96 @@
+{
+  "id": "re-dxf-frame3d-concrete",
+  "description": "DXF反问题：3D混凝土框架",
+  "split": "auxiliary",
+  "taskFamily": "multimodal_reverse_engineering",
+  "inputModality": "dxf",
+  "structureType": "concrete-frame",
+  "benchmarkStructureType": "concrete-frame",
+  "difficulty": "L3",
+  "skillTarget": "concrete-frame",
+  "evaluationFocus": [
+    "routing",
+    "modeling",
+    "model_match",
+    "analysis",
+    "numerical_match"
+  ],
+  "category": "reverse-engineering",
+  "tags": [
+    "reverse-engineering",
+    "concrete-frame",
+    "3d",
+    "dxf",
+    "zh"
+  ],
+  "message": "请根据所附结构DXF及工程说明建立计算模型并进行静力分析。几何、拓扑、支座及各层荷载均须从DXF读取，无法可靠识别时应询问，不得自行假设。",
+  "locale": "zh",
+  "maxRetries": 0,
+  "attachments": [
+    {
+      "fileId": "re-dxf-frame3d-concrete",
+      "originalName": "drawing-047.dxf",
+      "relPath": "fixtures/drawings/frame3d-concrete.dxf",
+      "mimeType": "application/dxf"
+    }
+  ],
+  "expect": {
+    "skills": {
+      "primary": "concrete-frame",
+      "mayAlsoMatch": [
+        "frame",
+        "generic"
+      ]
+    },
+    "assertions": [
+      {
+        "type": "structural_type",
+        "expected": "frame"
+      },
+      {
+        "type": "skill_match",
+        "primary": "concrete-frame",
+        "mayAlsoMatch": [
+          "frame",
+          "generic"
+        ]
+      },
+      {
+        "type": "model_matches",
+        "groundTruthId": "frame3d-concrete",
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05
+        }
+      },
+      {
+        "type": "numerical_matches",
+        "groundTruthId": "frame3d-concrete",
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05,
+          "numeric": 0.01,
+          "numericAbsolute": 1e-8
+        }
+      },
+      {
+        "type": "has_analysis"
+      }
+    ]
+  },
+  "engineeringSpecification": "材料 C30：E=30000 MPa，ν=0.2，密度=2500 kg/m3，fc=14.3 MPa。柱构件采用 C30 500x500（H=500 mm，B=500 mm；A=0.25 m2，Iy=0.0052 m4，Iz=0.0052 m4，J=0.0088021 m4，G=12500 MPa）。梁构件采用 C30 300x600（H=600 mm，B=300 mm；A=0.18 m2，Iy=0.0054 m4，Iz=0.00135 m4，J=0.00370786 m4，G=12500 MPa）。采用SI单位和全局Z轴向上的坐标约定。仅使用DXF标注的楼面荷载，不附加构件自重。分析荷载组合：ULS = 1 × D。",
+  "inputContract": {
+    "dxfProvides": [
+      "topology",
+      "dimensions",
+      "supports",
+      "loads"
+    ],
+    "specificationProvides": [
+      "materials",
+      "sections",
+      "analysis-settings"
+    ],
+    "completeness": "complete"
+  }
+}

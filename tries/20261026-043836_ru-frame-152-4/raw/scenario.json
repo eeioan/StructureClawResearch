@@ -1,0 +1,33 @@
+{
+  "id": "ru-frame-152-4",
+  "description": "Статически неопределимая рама из задания 152.4 (метод перемещений): эпюра M в узлах",
+  "split": "core",
+  "taskFamily": "standard_workflow",
+  "inputModality": "text",
+  "structureType": "frame",
+  "benchmarkStructureType": "steel-frame",
+  "difficulty": "L2",
+  "skillTarget": "frame",
+  "analysisSkillTarget": "opensees-static",
+  "analysisEngineTarget": "builtin-opensees",
+  "evaluationFocus": ["routing", "modeling", "model_match", "analysis", "engine_match", "numerical_match"],
+  "category": "university-task",
+  "tags": ["frame", "university", "ru", "l2"],
+  "message": "Выполни в OpenSees статический расчёт плоской рамы. Три колонны высотой 5 м, защемлённые в основании, стоят по осям x = 0, x = 4 м и x = 10 м; ригель на отметке 5 м перекрывает два пролёта: 4 м и 6 м. Момент инерции ригеля в 3 раза больше, чем у колонн (I2/I1 = 3). Ригель жёстко соединён с левой и средней колоннами. Правая колонна присоединена к ригелю шарнирно и вместе с горизонтальной связью образует шарнирно-неподвижную опору правого конца ригеля, сама она не изгибается — поэтому правый конец ригеля (x = 10 м, z = 5 м) моделируй как шарнирно-неподвижную опору, без правой колонны. Нагрузки: равномерно распределённая q = 5 кН/м вниз на левом пролёте ригеля (между x = 0 и x = 4 м); горизонтальная сосредоточенная сила F = 3 кН, направленная влево, приложена к средней колонне на высоте 2,5 м. Определи изгибающие моменты на концах всех стержней (в узлах рамы и в основаниях колонн) и опорные реакции.",
+  "locale": "en",
+  "maxRetries": 0,
+  "expect": {
+    "skills": {"primary": "frame", "mayAlsoMatch": ["generic"]},
+    "assertions": [
+      {"type": "structural_type", "expected": "frame"},
+      {"type": "skill_match", "primary": "frame", "mayAlsoMatch": ["generic"]},
+      {"type": "has_model", "minNodes": 6, "minElements": 5},
+      {"type": "model_matches", "groundTruthId": "ru-frame-152-4", "tolerances": {"load": 0.05, "coordinate": 0.05}},
+      {"type": "numerical_matches", "groundTruthId": "ru-frame-152-4", "tolerances": {"load": 0.05, "coordinate": 0.05, "numeric": 0.01, "numericAbsolute": 1e-8}, "engineId": "builtin-opensees"},
+      {"type": "has_analysis"},
+      {"type": "engine_match", "expected": "builtin-opensees", "skillId": "opensees-static"},
+      {"type": "natural_language", "description": "The final response or report must state the bending moments at the member ends (frame joints and column bases) and the support reactions, with values, signs or directions, units and locations consistent with the current analysis artifact. No independently invented or contradictory value is acceptable."}
+    ]
+  },
+  "engineeringSpecification": "Use these complete analysis-property records exactly in every mode; they are not placeholders and need no clarification. Use only the user task to classify the structure, but include these properties in parameter extraction. Do not create an explicit self-weight load. Reconstruct geometry, topology, supports, and load placement from the task.\nUnit system: SI\nCoordinate system: semantics=global-z-up, version=1, dimension=2d, plane=xz, dof_order=ux,uy,uz,rx,ry,rz\nMaterials: id=1, name=steel, E=206000, nu=0.3, rho=7850\nSections: id=COL, name=I1, type=beam, purpose=column, properties(A=1.0, Iy=0.0001, Iz=0.0001, J=0.0001, G=79000); id=BEAM, name=I2, type=beam, purpose=beam, properties(A=1.0, Iy=0.0003, Iz=0.0003, J=0.0001, G=79000). The large area A=1.0 is intentional: members are practically inextensible, as in the hand displacement-method solution.\nAnalysis load combinations: id=ULS, factors={LC1=1}"
+}

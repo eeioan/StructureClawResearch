@@ -1,0 +1,95 @@
+{
+  "id": "re-dxf-portal-simple-18m",
+  "description": "DXF reverse engineering: 18m portal frame",
+  "split": "auxiliary",
+  "taskFamily": "multimodal_reverse_engineering",
+  "inputModality": "dxf",
+  "structureType": "portal-frame",
+  "benchmarkStructureType": "portal-frame",
+  "difficulty": "L3",
+  "skillTarget": "portal-frame",
+  "evaluationFocus": [
+    "routing",
+    "modeling",
+    "model_match",
+    "analysis",
+    "numerical_match"
+  ],
+  "category": "reverse-engineering",
+  "tags": [
+    "reverse-engineering",
+    "portal-frame",
+    "dxf",
+    "en"
+  ],
+  "message": "Build a calculation model from the attached structural DXF and engineering specification, then run static analysis. Read geometry, topology, supports, and loads from the DXF instead of assuming them.",
+  "inputContract": {
+    "dxfProvides": [
+      "topology",
+      "dimensions",
+      "supports",
+      "loads"
+    ],
+    "specificationProvides": [
+      "materials",
+      "sections",
+      "analysis-settings"
+    ],
+    "completeness": "complete"
+  },
+  "locale": "en",
+  "maxRetries": 0,
+  "attachments": [
+    {
+      "fileId": "re-dxf-portal-simple",
+      "originalName": "drawing-049.dxf",
+      "relPath": "fixtures/drawings/portal-simple-18m.dxf",
+      "mimeType": "application/dxf"
+    }
+  ],
+  "expect": {
+    "skills": {
+      "primary": "portal-frame",
+      "mayAlsoMatch": [
+        "frame",
+        "generic"
+      ]
+    },
+    "assertions": [
+      {
+        "type": "structural_type",
+        "expected": "portal-frame"
+      },
+      {
+        "type": "skill_match",
+        "primary": "portal-frame",
+        "mayAlsoMatch": [
+          "frame",
+          "generic"
+        ]
+      },
+      {
+        "type": "model_matches",
+        "groundTruthId": "portal-simple-18m",
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05
+        }
+      },
+      {
+        "type": "numerical_matches",
+        "groundTruthId": "portal-simple-18m",
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05,
+          "numeric": 0.01,
+          "numericAbsolute": 1e-8
+        }
+      },
+      {
+        "type": "has_analysis"
+      }
+    ]
+  },
+  "engineeringSpecification": "Use these complete analysis-property records exactly in every mode; they are not placeholders and need no clarification. Use only the user task to classify the structure, but include these properties in parameter extraction. Do not create an explicit self-weight load or duplicate a converted load; an analysis provider may apply its configured member self-weight internally. Reconstruct geometry, topology, supports, and load placement from the task.\nUnit system: SI\nCoordinate system: semantics=global-z-up, version=1, dimension=2d, plane=xz, dof_order=ux,uy,uz,rx,ry,rz\nMaterials: id=1, name=Q345, grade=Q345, category=steel, E=206000, nu=0.3, rho=7850, fy=345\nSections: member=H600x250x10x16, id=1, name=H600x250x10x16, type=H, shape(kind=H, H=600, B=250, tw=10, tf=16), properties(A=0.01368, Iy=0.0008349913600000005, Iz=0.000041714, J=8.72e-7, G=79000)\nAnalysis load combinations: id=ULS, factors={LC1=1}"
+}

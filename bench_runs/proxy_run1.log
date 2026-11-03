@@ -1,0 +1,53 @@
+nothink proxy :18435 (http), :18436 (https) -> http://127.0.0.1:11434
+[nothink-proxy] "POST /v1/chat/completions HTTP/1.1" 200 -
+[nothink-proxy] "POST /v1/chat/completions HTTP/1.1" 200 -
+[nothink-proxy] "POST /v1/chat/completions HTTP/1.1" 200 -
+[nothink-proxy] "POST /v1/chat/completions HTTP/1.1" 200 -
+[nothink-proxy] "POST /v1/chat/completions HTTP/1.1" 200 -
+[nothink-proxy] "POST /v1/chat/completions HTTP/1.1" 200 -
+[nothink-proxy] "POST /v1/chat/completions HTTP/1.1" 200 -
+[nothink-proxy] "POST /v1/chat/completions HTTP/1.1" 200 -
+[nothink-proxy] "POST /v1/chat/completions HTTP/1.1" 200 -
+[nothink-proxy] "POST /v1/chat/completions HTTP/1.1" 200 -
+[nothink-proxy] "POST /v1/chat/completions HTTP/1.1" 200 -
+[nothink-proxy] "POST /v1/chat/completions HTTP/1.1" 200 -
+[nothink-proxy] "POST /v1/chat/completions HTTP/1.1" 200 -
+[nothink-proxy] "POST /v1/chat/completions HTTP/1.1" 200 -
+[nothink-proxy] "POST /v1/chat/completions HTTP/1.1" 200 -
+[nothink-proxy] "POST /v1/chat/completions HTTP/1.1" 200 -
+[nothink-proxy] "POST /v1/chat/completions HTTP/1.1" 200 -
+[nothink-proxy] "POST /v1/chat/completions HTTP/1.1" 200 -
+[nothink-proxy] "POST /v1/chat/completions HTTP/1.1" 200 -
+[nothink-proxy] "POST /v1/chat/completions HTTP/1.1" 200 -
+[nothink-proxy] "POST /v1/chat/completions HTTP/1.1" 200 -
+[nothink-proxy] "POST /v1/chat/completions HTTP/1.1" 200 -
+[nothink-proxy] "POST /v1/chat/completions HTTP/1.1" 200 -
+[nothink-proxy] "POST /v1/chat/completions HTTP/1.1" 200 -
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 15036)
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python310\lib\socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python310\lib\socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python310\lib\socketserver.py", line 747, in __init__
+    self.handle()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python310\lib\http\server.py", line 432, in handle
+    self.handle_one_request()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python310\lib\http\server.py", line 420, in handle_one_request
+    method()
+  File "C:\Users\user\PycharmProjects\MLTestovoe\ollama\nothink_proxy.py", line 54, in _forward
+    self.wfile.write(chunk)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python310\lib\socketserver.py", line 826, in write
+    self._sock.sendall(b)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python310\lib\ssl.py", line 1237, in sendall
+    v = self.send(byte_view[count:])
+  File "C:\Users\user\AppData\Local\Programs\Python\Python310\lib\ssl.py", line 1206, in send
+    return self._sslobj.write(data)
+ssl.SSLEOFError: EOF occurred in violation of protocol (_ssl.c:2396)
+----------------------------------------
+[nothink-proxy] "POST /v1/chat/completions HTTP/1.1" 200 -
+[nothink-proxy] "POST /v1/chat/completions HTTP/1.1" 200 -
+[nothink-proxy] "POST /v1/chat/completions HTTP/1.1" 200 -
+[nothink-proxy] "POST /v1/chat/completions HTTP/1.1" 200 -
+[nothink-proxy] "POST /v1/chat/completions HTTP/1.1" 200 -

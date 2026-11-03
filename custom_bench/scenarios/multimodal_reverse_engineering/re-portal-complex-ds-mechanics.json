@@ -1,0 +1,95 @@
+{
+  "id": "re-portal-complex-ds-mechanics",
+  "description": "反问题：力学简图重建双跨门刚",
+  "split": "auxiliary",
+  "taskFamily": "multimodal_reverse_engineering",
+  "inputModality": "image",
+  "structureType": "portal-frame",
+  "benchmarkStructureType": "portal-frame",
+  "difficulty": "L2",
+  "skillTarget": "portal-frame",
+  "evaluationFocus": [
+    "routing",
+    "modeling",
+    "model_match",
+    "analysis",
+    "numerical_match"
+  ],
+  "category": "reverse-engineering",
+  "tags": [
+    "reverse-engineering",
+    "portal-frame",
+    "mechanics-diagram",
+    "zh"
+  ],
+  "message": "附图为双跨门式刚架。请根据附图及工程说明建立计算模型并进行静力分析。无法可靠识别的图片信息请明确询问，不要自行假设。",
+  "locale": "zh",
+  "maxRetries": 0,
+  "attachments": [
+    {
+      "fileId": "re-portal-complex-ds-m",
+      "originalName": "drawing-029.png",
+      "relPath": "fixtures/drawings/portal-complex-ds-mechanics.png",
+      "mimeType": "image/png"
+    }
+  ],
+  "expect": {
+    "skills": {
+      "primary": "portal-frame",
+      "mayAlsoMatch": [
+        "frame",
+        "generic"
+      ]
+    },
+    "assertions": [
+      {
+        "type": "structural_type",
+        "expected": "portal-frame"
+      },
+      {
+        "type": "skill_match",
+        "primary": "portal-frame",
+        "mayAlsoMatch": [
+          "frame",
+          "generic"
+        ]
+      },
+      {
+        "type": "model_matches",
+        "groundTruthId": "portal-complex-ds",
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05
+        }
+      },
+      {
+        "type": "numerical_matches",
+        "groundTruthId": "portal-complex-ds",
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05,
+          "numeric": 0.01,
+          "numericAbsolute": 1e-8
+        }
+      },
+      {
+        "type": "has_analysis"
+      }
+    ]
+  },
+  "engineeringSpecification": "材料 Q345：E=206000 MPa，ν=0.3，密度=7850 kg/m3，fy=345 MPa。全部构件采用 H700x300x12x20（H=700 mm，B=300 mm，tw=12 mm，tf=20 mm；A=0.01992 m2，Iy=0.001675096 m4，Iz=0.00009009504 m4，J=0.00000198016 m4，G=79000 MPa）。采用SI单位和全局Z轴向上的坐标约定。仅使用图中标注的荷载工况与荷载值，不附加构件自重。分析荷载组合：ULS = 1 × LC1。",
+  "inputContract": {
+    "imageProvides": [
+      "topology",
+      "dimensions",
+      "supports",
+      "loads"
+    ],
+    "specificationProvides": [
+      "materials",
+      "sections",
+      "analysis-settings"
+    ],
+    "completeness": "complete"
+  }
+}

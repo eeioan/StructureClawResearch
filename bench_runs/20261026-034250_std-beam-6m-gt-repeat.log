@@ -1,0 +1,224 @@
+
+============================================================
+LangGraph Agent Benchmark: 1 scenario run(s)
+Mode: auto
+Execution: web-stream
+Case timeout: 1800000ms
+SUT root: C:\Users\user\PycharmProjects\MLTestovoe\structureclaw
+Model: qwen3.5:9b
+Base URL: http://localhost:18435/v1
+============================================================
+
+Running: std-beam-6m-gt-repeat#auto...
+[2026-10-26 03:42:57.112 +0300] [32mINFO[39m: [36mbuilding agent graph[39m
+    [35mtoolCount[39m: 20
+    [35mhasCheckpointer[39m: true
+[2026-10-26 03:42:57.115 +0300] [32mINFO[39m: [36mLangGraph agent stream started[39m
+    [35mtraceId[39m: "6f082c2e-bfca-4124-8fb2-c678241e6525"
+    [35mconversationId[39m: "bench-a9ab4288-82e1-4399-a2ee-451025b0349a"
+    [35mmessage[39m: "[用户任务]\n简支梁6m，全跨施加竖向向下均布荷载20kN/m。请在跨中设置与两侧梁单元连接的分析节点，输出跨中竖向挠度，并建立模型和分析。\n\n[工程说明]\n所有模式均须严格使用以下完整分析属性；这些"
+[2026-10-26 03:42:57.144 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "6f082c2e-bfca-4124-8fb2-c678241e6525"
+    [35mconversationId[39m: "bench-a9ab4288-82e1-4399-a2ee-451025b0349a"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 2
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 0
+    [35mcompacted[39m: false
+[2026-10-26 03:43:01.541 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "6f082c2e-bfca-4124-8fb2-c678241e6525"
+    [35mconversationId[39m: "bench-a9ab4288-82e1-4399-a2ee-451025b0349a"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 4397
+    [35mhasToolCalls[39m: true
+    [35mfinishReason[39m: "tool_calls"
+    [35mcontentLength[39m: 38
+    [35mreasoningContentLength[39m: 0
+[2026-10-26 03:43:07.263 +0300] [32mINFO[39m: [36mllm:qwen3.5:9b call completed[39m
+    [35mmodel[39m: "qwen3.5:9b"
+    [35mdurationMs[39m: 5707
+    [35msuccess[39m: true
+[2026-10-26 03:43:07.264 +0300] [32mINFO[39m: [36mtool:detect_structure_type completed[39m
+    [35mtraceId[39m: "6f082c2e-bfca-4124-8fb2-c678241e6525"
+    [35mconversationId[39m: "bench-a9ab4288-82e1-4399-a2ee-451025b0349a"
+    [35mtool[39m: "detect_structure_type"
+    [35mdurationMs[39m: 5712
+    [35msuccess[39m: true
+    [35mmatchedKey[39m: "beam"
+    [35mskillId[39m: "beam"
+    [35mroutingSource[39m: "llm-suggested"
+[2026-10-26 03:43:07.269 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "6f082c2e-bfca-4124-8fb2-c678241e6525"
+    [35mconversationId[39m: "bench-a9ab4288-82e1-4399-a2ee-451025b0349a"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 4
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 1
+    [35mcompacted[39m: false
+[2026-10-26 03:43:16.769 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "6f082c2e-bfca-4124-8fb2-c678241e6525"
+    [35mconversationId[39m: "bench-a9ab4288-82e1-4399-a2ee-451025b0349a"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 9500
+    [35mhasToolCalls[39m: true
+    [35mfinishReason[39m: "tool_calls"
+    [35mcontentLength[39m: 35
+    [35mreasoningContentLength[39m: 0
+[2026-10-26 03:43:16.775 +0300] [32mINFO[39m: [36mparam extractor started[39m
+    [35mtraceId[39m: "6f082c2e-bfca-4124-8fb2-c678241e6525"
+    [35mconversationId[39m: "bench-a9ab4288-82e1-4399-a2ee-451025b0349a"
+    [35mpluginId[39m: "beam"
+    [35mlocale[39m: "zh"
+[2026-10-26 03:43:41.763 +0300] [32mINFO[39m: [36mllm:qwen3.5:9b call completed[39m
+    [35mmodel[39m: "qwen3.5:9b"
+    [35mdurationMs[39m: 24987
+    [35msuccess[39m: true
+[2026-10-26 03:43:41.767 +0300] [32mINFO[39m: [36mtool:extract_draft_params completed[39m
+    [35mtraceId[39m: "6f082c2e-bfca-4124-8fb2-c678241e6525"
+    [35mconversationId[39m: "bench-a9ab4288-82e1-4399-a2ee-451025b0349a"
+    [35mtool[39m: "extract_draft_params"
+    [35mdurationMs[39m: 24995
+    [35msuccess[39m: true
+    [35mskillId[39m: "beam"
+    [35mextractionMode[39m: "llm"
+    [35mcriticalMissing[39m: 0
+    [35mroutingSource[39m: "current-state"
+[2026-10-26 03:43:41.770 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "6f082c2e-bfca-4124-8fb2-c678241e6525"
+    [35mconversationId[39m: "bench-a9ab4288-82e1-4399-a2ee-451025b0349a"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 6
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 2
+    [35mcompacted[39m: false
+[2026-10-26 03:43:46.343 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "6f082c2e-bfca-4124-8fb2-c678241e6525"
+    [35mconversationId[39m: "bench-a9ab4288-82e1-4399-a2ee-451025b0349a"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 4573
+    [35mhasToolCalls[39m: true
+    [35mfinishReason[39m: "tool_calls"
+    [35mcontentLength[39m: 26
+    [35mreasoningContentLength[39m: 0
+[2026-10-26 03:43:46.347 +0300] [32mINFO[39m: [36mtool:build_model completed[39m
+    [35mtraceId[39m: "6f082c2e-bfca-4124-8fb2-c678241e6525"
+    [35mconversationId[39m: "bench-a9ab4288-82e1-4399-a2ee-451025b0349a"
+    [35mtool[39m: "build_model"
+    [35mdurationMs[39m: 2
+    [35msuccess[39m: true
+    [35mnodeCount[39m: 3
+    [35melementCount[39m: 2
+    [35mschemaVersion[39m: "2.0.0"
+    [35mnextAction[39m: "run_analysis"
+    [35mmessage[39m: "模型已构建完成。下一步必须调用 run_analysis 执行结构分析。"
+[2026-10-26 03:43:46.349 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "6f082c2e-bfca-4124-8fb2-c678241e6525"
+    [35mconversationId[39m: "bench-a9ab4288-82e1-4399-a2ee-451025b0349a"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 8
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 3
+    [35mcompacted[39m: false
+[2026-10-26 03:43:48.577 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "6f082c2e-bfca-4124-8fb2-c678241e6525"
+    [35mconversationId[39m: "bench-a9ab4288-82e1-4399-a2ee-451025b0349a"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 2228
+    [35mhasToolCalls[39m: true
+    [35mfinishReason[39m: "tool_calls"
+    [35mcontentLength[39m: 23
+    [35mreasoningContentLength[39m: 0
+[2026-10-26 03:44:04.770 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "6f082c2e-bfca-4124-8fb2-c678241e6525"
+    [35mconversationId[39m: "bench-a9ab4288-82e1-4399-a2ee-451025b0349a"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 10
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 4
+    [35mcompacted[39m: false
+[2026-10-26 03:44:06.794 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "6f082c2e-bfca-4124-8fb2-c678241e6525"
+    [35mconversationId[39m: "bench-a9ab4288-82e1-4399-a2ee-451025b0349a"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 2024
+    [35mhasToolCalls[39m: true
+    [35mfinishReason[39m: "tool_calls"
+    [35mcontentLength[39m: 18
+    [35mreasoningContentLength[39m: 0
+[2026-10-26 03:44:08.292 +0300] [32mINFO[39m: [36mtool:run_analysis completed[39m
+    [35mtraceId[39m: "6f082c2e-bfca-4124-8fb2-c678241e6525"
+    [35mconversationId[39m: "bench-a9ab4288-82e1-4399-a2ee-451025b0349a"
+    [35mtool[39m: "run_analysis"
+    [35mdurationMs[39m: 1495
+    [35msuccess[39m: true
+    [35manalysisType[39m: "static"
+    [35mskillId[39m: "opensees-static"
+    [35mrequestedAnalysisSkillId[39m: "opensees-static"
+[2026-10-26 03:44:08.295 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "6f082c2e-bfca-4124-8fb2-c678241e6525"
+    [35mconversationId[39m: "bench-a9ab4288-82e1-4399-a2ee-451025b0349a"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 12
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 5
+    [35mcompacted[39m: false
+[2026-10-26 03:44:12.618 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "6f082c2e-bfca-4124-8fb2-c678241e6525"
+    [35mconversationId[39m: "bench-a9ab4288-82e1-4399-a2ee-451025b0349a"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 4323
+    [35mhasToolCalls[39m: true
+    [35mfinishReason[39m: "tool_calls"
+    [35mcontentLength[39m: 16
+    [35mreasoningContentLength[39m: 0
+[2026-10-26 03:44:12.622 +0300] [32mINFO[39m: [36mtool:generate_report completed[39m
+    [35mtraceId[39m: "6f082c2e-bfca-4124-8fb2-c678241e6525"
+    [35mconversationId[39m: "bench-a9ab4288-82e1-4399-a2ee-451025b0349a"
+    [35mtool[39m: "generate_report"
+    [35mdurationMs[39m: 2
+    [35msuccess[39m: true
+    [35manalysisType[39m: "static"
+    [35mlocale[39m: "zh"
+[2026-10-26 03:44:12.625 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "6f082c2e-bfca-4124-8fb2-c678241e6525"
+    [35mconversationId[39m: "bench-a9ab4288-82e1-4399-a2ee-451025b0349a"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 14
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 6
+    [35mcompacted[39m: false
+[2026-10-26 03:44:33.911 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "6f082c2e-bfca-4124-8fb2-c678241e6525"
+    [35mconversationId[39m: "bench-a9ab4288-82e1-4399-a2ee-451025b0349a"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 21286
+    [35mhasToolCalls[39m: false
+    [35mfinishReason[39m: "stop"
+    [35mcontentLength[39m: 793
+    [35mreasoningContentLength[39m: 0
+[2026-10-26 03:44:33.916 +0300] [32mINFO[39m: [36mLangGraph agent stream completed[39m
+    [35mtraceId[39m: "6f082c2e-bfca-4124-8fb2-c678241e6525"
+    [35mconversationId[39m: "bench-a9ab4288-82e1-4399-a2ee-451025b0349a"
+    [35mdurationMs[39m: 96810
+    [35mmode[39m: "stream"
+  error: LLM_JUDGE_INFRASTRUCTURE_ERROR: Judge error after 3 attempt(s): Judge API must use HTTPS, got: http:
+
+============================================================
+FAIL  std-beam-6m-gt-repeat#auto
+     简支梁6m标准真值匹配
+
+  ✗ execution          expected: case completes                 actual: LLM_JUDGE_INFRASTRUCTURE_ERROR: Judge error after 3 attempt(s): Judge API must use HTTPS, got: http:
+============================================================
+
+============================================================
+Benchmark Results: 0/1 (0.0%) pass, 1 failed
+Pass@1: 0/1 (0.0%)
+Average duration: 96.8s
+Failed: std-beam-6m-gt-repeat#auto
+Total time: 96.8s
+
+By metric:
+  execution                        0/1 (0.0%)
+============================================================
+
+Results written to C:/Users/user/PycharmProjects/MLTestovoe/bench_runs/20261026-034250_std-beam-6m-gt-repeat.json

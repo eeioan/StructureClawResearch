@@ -1,0 +1,48 @@
+
+============================================================
+LangGraph Agent Benchmark: 1 scenario run(s)
+Mode: auto
+Execution: web-stream
+Case timeout: 1800000ms
+SUT root: C:/Users/user/PycharmProjects/MLTestovoe/structureclaw
+Model: qwen3.5:9b
+Base URL: http://localhost:18435/v1
+============================================================
+
+Running: ru-truss-7e97#auto...
+[2026-10-26 08:39:36.071 +0300] [32mINFO[39m: [36mbuilding agent graph[39m
+    [35mtoolCount[39m: 20
+    [35mhasCheckpointer[39m: true
+[2026-10-26 08:39:36.075 +0300] [32mINFO[39m: [36mLangGraph agent stream started[39m
+    [35mtraceId[39m: "6cdb63c0-6bae-40a4-bee5-87bc32bb9a45"
+    [35mconversationId[39m: "bench-214b19e5-ae9c-419c-8b63-c805d883c22e"
+    [35mmessage[39m: "[User task]\nВыполни в OpenSees статический расчёт плоской фермы. Нижний пояс горизонтальный, 6 панел"
+[2026-10-26 08:39:36.102 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "6cdb63c0-6bae-40a4-bee5-87bc32bb9a45"
+    [35mconversationId[39m: "bench-214b19e5-ae9c-419c-8b63-c805d883c22e"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 2
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 0
+    [35mcompacted[39m: false
+  error: Connection error.
+
+============================================================
+FAIL  ru-truss-7e97#auto
+     Ферма 6 панелей из задания 2.1 (строительная механика): реакции и усилия во всех стержнях
+
+  ✗ execution          expected: case completes                 actual: Connection error.
+============================================================
+
+============================================================
+Benchmark Results: 0/1 (0.0%) pass, 1 failed
+Pass@1: 0/1 (0.0%)
+Average duration: 2.1s
+Failed: ru-truss-7e97#auto
+Total time: 2.1s
+
+By metric:
+  execution                        0/1 (0.0%)
+============================================================
+
+Results written to C:/Users/user/PycharmProjects/MLTestovoe/bench_runs/20261026-083932_ru-truss-7e97.json

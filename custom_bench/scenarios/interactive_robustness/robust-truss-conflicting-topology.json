@@ -1,0 +1,45 @@
+{
+  "id": "robust-truss-conflicting-topology",
+  "description": "Truss topology conflict",
+  "split": "core",
+  "taskFamily": "interactive_robustness",
+  "inputModality": "text",
+  "structureType": "truss",
+  "benchmarkStructureType": "truss",
+  "difficulty": "L3",
+  "skillTarget": "truss",
+  "evaluationFocus": [
+    "interaction"
+  ],
+  "category": "conflicting-requirements",
+  "tags": [
+    "truss",
+    "interactive",
+    "conflicting-requirements",
+    "l3",
+    "en"
+  ],
+  "message": "Please analyze a Pratt truss with no web members. It spans 15m, has 2.5m height, and 10kN nodal loads.",
+  "locale": "en",
+  "maxRetries": 0,
+  "benchmarkModes": [
+    "auto"
+  ],
+  "expect": {
+    "assertions": [
+      {
+        "type": "has_interaction_questions"
+      },
+      {
+        "type": "natural_language",
+        "description": "The agent must explicitly identify that a Pratt truss requires a web system while the request simultaneously forbids all web members, explain why the topology is contradictory, and ask which requirement to retain before building or analyzing. Merely asking for panel count or another missing parameter does not satisfy this criterion."
+      },
+      {
+        "type": "no_bad_model"
+      },
+      {
+        "type": "should_not_analyze"
+      }
+    ]
+  }
+}

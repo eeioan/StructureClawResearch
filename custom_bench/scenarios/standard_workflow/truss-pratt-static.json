@@ -1,0 +1,76 @@
+{
+  "id": "truss-pratt-static",
+  "description": "Pratt truss static analysis",
+  "split": "core",
+  "taskFamily": "standard_workflow",
+  "inputModality": "text",
+  "structureType": "truss",
+  "benchmarkStructureType": "truss",
+  "difficulty": "L1",
+  "skillTarget": "truss",
+  "evaluationFocus": [
+    "routing",
+    "modeling",
+    "model_match",
+    "analysis",
+    "numerical_match"
+  ],
+  "category": "static-analysis",
+  "tags": [
+    "truss",
+    "static",
+    "pratt",
+    "en"
+  ],
+  "message": "Build a 15m by 2.5m parallel-chord Pratt truss with five equal panels. Put top and bottom nodes at x=0, 3, 6, 9, 12, and 15m, with a vertical at every panel line. Add diagonals from top 0m to bottom 3m, top 3m to bottom 6m, top 6m to bottom 9m, bottom 9m to top 12m, and bottom 12m to top 15m. Use a pinned support at the left bottom node and a horizontal roller free in global X at the right bottom node. Apply 10kN downward at each of the four interior top nodes and run static analysis.",
+  "locale": "en",
+  "maxRetries": 0,
+  "expect": {
+    "skills": {
+      "primary": "truss",
+      "mayAlsoMatch": [
+        "generic"
+      ]
+    },
+    "assertions": [
+      {
+        "type": "structural_type",
+        "expected": "truss"
+      },
+      {
+        "type": "skill_match",
+        "primary": "truss",
+        "mayAlsoMatch": [
+          "generic"
+        ]
+      },
+      {
+        "type": "has_model",
+        "minNodes": 5,
+        "minElements": 8
+      },
+      {
+        "type": "model_matches",
+        "groundTruthId": "truss-pratt-15m-top10",
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05
+        }
+      },
+      {
+        "type": "numerical_matches",
+        "groundTruthId": "truss-pratt-15m-top10",
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05,
+          "numeric": 0.01,
+          "numericAbsolute": 1e-8
+        }
+      },
+      {
+        "type": "has_analysis"
+      }
+    ]
+  },
+  "engineeringSpecification": "Use these complete analysis-property records exactly in every mode; they are not placeholders and need no clarification. Use only the user task to classify the structure, but include these properties in parameter extraction. Do not create an explicit self-weight load or duplicate a converted load; an analysis provider may apply its configured member self-weight internally. Reconstruct geometry, topology, supports, and load placement from the task.\nUnit system: SI\nCoordinate system: semantics=global-z-up, version=1, dimension=2d, plane=xz, dof_order=ux,uy,uz,rx,ry,rz\nMaterials: id=1, name=steel, E=205000, nu=0.3, rho=7850\nSections: id=1, name=T1, type=rod, properties(A=0.01)\nAnalysis load combinations: id=ULS, factors={LC1=1}"
+}

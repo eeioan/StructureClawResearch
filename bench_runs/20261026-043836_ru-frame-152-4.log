@@ -1,0 +1,148 @@
+
+============================================================
+LangGraph Agent Benchmark: 1 scenario run(s)
+Mode: auto
+Execution: web-stream
+Case timeout: 1800000ms
+SUT root: C:/Users/user/PycharmProjects/MLTestovoe/structureclaw
+Model: qwen3.5:9b
+Base URL: http://localhost:18435/v1
+============================================================
+
+Running: ru-frame-152-4#auto...
+[2026-10-26 04:38:41.710 +0300] [32mINFO[39m: [36mbuilding agent graph[39m
+    [35mtoolCount[39m: 20
+    [35mhasCheckpointer[39m: true
+[2026-10-26 04:38:41.713 +0300] [32mINFO[39m: [36mLangGraph agent stream started[39m
+    [35mtraceId[39m: "a4b10489-bbf4-4006-a9e7-9d4783ec1ad6"
+    [35mconversationId[39m: "bench-d6d8536b-2a08-422f-a688-020f6e1311dd"
+    [35mmessage[39m: "[User task]\nВыполни в OpenSees статический расчёт плоской рамы. Три колонны высотой 5 м, защемлённые"
+[2026-10-26 04:38:41.735 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "a4b10489-bbf4-4006-a9e7-9d4783ec1ad6"
+    [35mconversationId[39m: "bench-d6d8536b-2a08-422f-a688-020f6e1311dd"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 2
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 0
+    [35mcompacted[39m: false
+[2026-10-26 04:39:01.270 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "a4b10489-bbf4-4006-a9e7-9d4783ec1ad6"
+    [35mconversationId[39m: "bench-d6d8536b-2a08-422f-a688-020f6e1311dd"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 19535
+    [35mhasToolCalls[39m: true
+    [35mfinishReason[39m: "tool_calls"
+    [35mcontentLength[39m: 178
+    [35mreasoningContentLength[39m: 0
+[2026-10-26 04:39:05.860 +0300] [32mINFO[39m: [36mllm:qwen3.5:9b call completed[39m
+    [35mmodel[39m: "qwen3.5:9b"
+    [35mdurationMs[39m: 4577
+    [35msuccess[39m: true
+[2026-10-26 04:39:05.861 +0300] [32mINFO[39m: [36mtool:detect_structure_type completed[39m
+    [35mtraceId[39m: "a4b10489-bbf4-4006-a9e7-9d4783ec1ad6"
+    [35mconversationId[39m: "bench-d6d8536b-2a08-422f-a688-020f6e1311dd"
+    [35mtool[39m: "detect_structure_type"
+    [35mdurationMs[39m: 4581
+    [35msuccess[39m: true
+    [35mmatchedKey[39m: "frame"
+    [35mskillId[39m: "frame"
+    [35mroutingSource[39m: "llm-suggested"
+[2026-10-26 04:39:05.867 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "a4b10489-bbf4-4006-a9e7-9d4783ec1ad6"
+    [35mconversationId[39m: "bench-d6d8536b-2a08-422f-a688-020f6e1311dd"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 4
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 1
+    [35mcompacted[39m: false
+[2026-10-26 04:39:22.657 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "a4b10489-bbf4-4006-a9e7-9d4783ec1ad6"
+    [35mconversationId[39m: "bench-d6d8536b-2a08-422f-a688-020f6e1311dd"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 16790
+    [35mhasToolCalls[39m: true
+    [35mfinishReason[39m: "tool_calls"
+    [35mcontentLength[39m: 109
+    [35mreasoningContentLength[39m: 0
+[2026-10-26 04:39:22.665 +0300] [32mINFO[39m: [36mparam extractor started[39m
+    [35mtraceId[39m: "a4b10489-bbf4-4006-a9e7-9d4783ec1ad6"
+    [35mconversationId[39m: "bench-d6d8536b-2a08-422f-a688-020f6e1311dd"
+    [35mpluginId[39m: "frame"
+    [35mlocale[39m: "en"
+[2026-10-26 04:40:27.432 +0300] [32mINFO[39m: [36mllm:qwen3.5:9b call completed[39m
+    [35mmodel[39m: "qwen3.5:9b"
+    [35mdurationMs[39m: 64765
+    [35msuccess[39m: true
+[2026-10-26 04:40:27.439 +0300] [32mINFO[39m: [36mtool:extract_draft_params completed[39m
+    [35mtraceId[39m: "a4b10489-bbf4-4006-a9e7-9d4783ec1ad6"
+    [35mconversationId[39m: "bench-d6d8536b-2a08-422f-a688-020f6e1311dd"
+    [35mtool[39m: "extract_draft_params"
+    [35mdurationMs[39m: 64777
+    [35msuccess[39m: true
+    [35mskillId[39m: "frame"
+    [35mextractionMode[39m: "llm"
+    [35mcriticalMissing[39m: 1
+    [35mroutingSource[39m: "current-state"
+[2026-10-26 04:40:27.445 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "a4b10489-bbf4-4006-a9e7-9d4783ec1ad6"
+    [35mconversationId[39m: "bench-d6d8536b-2a08-422f-a688-020f6e1311dd"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 6
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 2
+    [35mcompacted[39m: false
+[2026-10-26 04:40:42.606 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "a4b10489-bbf4-4006-a9e7-9d4783ec1ad6"
+    [35mconversationId[39m: "bench-d6d8536b-2a08-422f-a688-020f6e1311dd"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 15161
+    [35mhasToolCalls[39m: true
+    [35mfinishReason[39m: "tool_calls"
+    [35mcontentLength[39m: 103
+    [35mreasoningContentLength[39m: 0
+[2026-10-26 04:40:42.613 +0300] [32mINFO[39m: [36mLangGraph agent stream completed[39m
+    [35mtraceId[39m: "a4b10489-bbf4-4006-a9e7-9d4783ec1ad6"
+    [35mconversationId[39m: "bench-d6d8536b-2a08-422f-a688-020f6e1311dd"
+    [35mdurationMs[39m: 120909
+    [35mmode[39m: "stream"
+
+============================================================
+FAIL  ru-frame-152-4#auto
+     Статически неопределимая рама из задания 152.4 (метод перемещений): эпюра M в узлах
+
+  ✓ structural_type    expected: frame or steel-frame or concrete-frame or reinforced-concrete-frame actual: frame
+  ✓ skill_match        expected: frame                          actual: frame
+  ✗ has_model          expected: >= 6 nodes, >= 5 elements      actual: (none)
+  ✗ model_matches      expected: structurally faithful model with nodes/elements actual: (no model)
+  ✗ numerical_matches  expected: model and numerical ground truth 'ru-frame-152-4' actual: agent model missing
+  ✗ has_analysis       expected: analysis results present       actual: (none)
+  ✗ engine_match       expected: engine=builtin-opensees, skill=opensees-static actual: engine=(none), skill=(none)
+  ✗ natural_language   expected: The final response or report must state the bending moments at the member ends (frame joints and column bases) and the support reactions, with values, signs or directions, units and locations consistent with the current analysis artifact. No independently invented or contradictory value is acceptable. actual: not satisfied — The agent output does not state the bending moments at member ends or support reactions with values; it only asks for clarification and confirms parameters, failing to provide the required analysis results.
+  ✓ toolCalls          expected: (info, lower is better)        actual: 3
+  ✓ inputTokens        expected: (info, lower is better)        actual: 27318
+  ✓ outputTokens       expected: (info, lower is better)        actual: 2523
+  ✓ totalTokens        expected: (info, lower is better)        actual: 29841
+  ✓ duration           expected: (info)                         actual: 120.9s
+============================================================
+
+============================================================
+Benchmark Results: 0/1 (0.0%) pass, 1 failed
+Pass@1: 0/1 (0.0%)
+Average tool calls: 3.0
+Average primary-model tokens: 29841.0
+Average duration: 120.9s
+Failed: ru-frame-152-4#auto
+Total time: 120.9s
+
+By metric:
+  engine_match                     0/1 (0.0%)
+  has_analysis                     0/1 (0.0%)
+  has_model                        0/1 (0.0%)
+  model_matches                    0/1 (0.0%)
+  natural_language                 0/1 (0.0%)
+  numerical_matches                0/1 (0.0%)
+  skill_match                      1/1 (100.0%)
+  structural_type                  1/1 (100.0%)
+============================================================
+
+Results written to C:/Users/user/PycharmProjects/MLTestovoe/bench_runs/20261026-043836_ru-frame-152-4.json

@@ -1,0 +1,93 @@
+{
+  "id": "re-truss-simple-tri-mechanics",
+  "description": "Reverse engineering: mechanics diagram of parallel-chord triangulated truss",
+  "split": "auxiliary",
+  "taskFamily": "multimodal_reverse_engineering",
+  "inputModality": "image",
+  "structureType": "truss",
+  "benchmarkStructureType": "truss",
+  "difficulty": "L2",
+  "skillTarget": "truss",
+  "evaluationFocus": [
+    "routing",
+    "modeling",
+    "model_match",
+    "analysis",
+    "numerical_match"
+  ],
+  "category": "reverse-engineering",
+  "tags": [
+    "reverse-engineering",
+    "truss",
+    "mechanics-diagram",
+    "en"
+  ],
+  "message": "The drawing shows a parallel-chord truss with triangular web members. Build a calculation model from the attached drawing and engineering specification, then run static analysis. Ask for clarification instead of guessing any image information that cannot be identified reliably.",
+  "locale": "en",
+  "maxRetries": 0,
+  "attachments": [
+    {
+      "fileId": "re-truss-simple-tri-m",
+      "originalName": "drawing-035.png",
+      "relPath": "fixtures/drawings/truss-simple-tri-mechanics.png",
+      "mimeType": "image/png"
+    }
+  ],
+  "expect": {
+    "skills": {
+      "primary": "truss",
+      "mayAlsoMatch": [
+        "generic"
+      ]
+    },
+    "assertions": [
+      {
+        "type": "structural_type",
+        "expected": "truss"
+      },
+      {
+        "type": "skill_match",
+        "primary": "truss",
+        "mayAlsoMatch": [
+          "generic"
+        ]
+      },
+      {
+        "type": "model_matches",
+        "groundTruthId": "truss-simple-tri",
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05
+        }
+      },
+      {
+        "type": "numerical_matches",
+        "groundTruthId": "truss-simple-tri",
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05,
+          "numeric": 0.01,
+          "numericAbsolute": 1e-8
+        }
+      },
+      {
+        "type": "has_analysis"
+      }
+    ]
+  },
+  "engineeringSpecification": "Material steel: E=205000 MPa, nu=0.3, density=7850 kg/m3. All members use section T1 (A=0.01 m2). Use SI units and the global-z-up coordinate convention. Use only the load cases and load magnitudes annotated in the drawing; do not add member self-weight. Analyze load combination ULS = 1 x LC1.",
+  "inputContract": {
+    "imageProvides": [
+      "topology",
+      "dimensions",
+      "supports",
+      "loads"
+    ],
+    "specificationProvides": [
+      "materials",
+      "sections",
+      "analysis-settings"
+    ],
+    "completeness": "complete"
+  }
+}

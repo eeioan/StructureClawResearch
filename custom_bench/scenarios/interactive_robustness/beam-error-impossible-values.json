@@ -1,0 +1,56 @@
+{
+  "id": "beam-error-impossible-values",
+  "description": "Unrealistic beam values recovery - huge span and tiny section",
+  "split": "core",
+  "taskFamily": "interactive_robustness",
+  "inputModality": "text",
+  "structureType": "beam",
+  "benchmarkStructureType": "beam",
+  "difficulty": "L2",
+  "skillTarget": "beam",
+  "evaluationFocus": [
+    "routing",
+    "interaction",
+    "semantic",
+    "analysis"
+  ],
+  "category": "error-recovery",
+  "tags": [
+    "beam",
+    "error-recovery",
+    "en"
+  ],
+  "message": "A steel beam spans 100000m, has a 1mm section depth, and carries 999999999kN/m. Run static analysis.",
+  "locale": "en",
+  "maxRetries": 0,
+  "expect": {
+    "skills": {
+      "primary": "beam",
+      "mayAlsoMatch": [
+        "generic"
+      ]
+    },
+    "assertions": [
+      {
+        "type": "skill_match",
+        "primary": "beam",
+        "mayAlsoMatch": [
+          "generic"
+        ]
+      },
+      {
+        "type": "has_interaction_questions"
+      },
+      {
+        "type": "no_bad_model"
+      },
+      {
+        "type": "should_not_analyze"
+      },
+      {
+        "type": "natural_language",
+        "description": "The agent must identify the concrete ambiguity or physically implausible value in the request, explain why it prevents a trustworthy analysis, and ask for relevant confirmation or correction before building or analyzing. A generic or unrelated question does not satisfy this criterion."
+      }
+    ]
+  }
+}

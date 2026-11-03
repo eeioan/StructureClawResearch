@@ -1,0 +1,91 @@
+{
+  "id": "concrete-frame-2story-static",
+  "description": "2层混凝土框架静力分析",
+  "split": "core",
+  "taskFamily": "standard_workflow",
+  "inputModality": "text",
+  "structureType": "concrete-frame",
+  "benchmarkStructureType": "concrete-frame",
+  "difficulty": "L2",
+  "skillTarget": "concrete-frame",
+  "analysisSkillTarget": "opensees-static",
+  "analysisEngineTarget": "builtin-opensees",
+  "evaluationFocus": [
+    "routing",
+    "modeling",
+    "model_match",
+    "analysis",
+    "engine_match",
+    "semantic",
+    "numerical_match"
+  ],
+  "category": "static-analysis",
+  "tags": [
+    "concrete-frame",
+    "static",
+    "zh"
+  ],
+  "message": "2层单跨2D混凝土框架，层高3.6m，跨度6m，所有柱脚固定，C30混凝土，柱截面500mm×500mm，梁截面300mm×600mm。每层楼面荷载12kN/m2按6m等效受荷宽度折算为竖向向下梁线荷载72kN/m；仅施加折算后的梁线荷载，不重复施加面荷载。请使用OpenSees进行静力分析，并分别报告每层左右两个梁柱节点的全局X向位移（数值、符号、单位和节点/楼层）；如改报层间位移，必须注明采用的柱列或节点及相邻层差值。",
+  "locale": "zh",
+  "maxRetries": 0,
+  "expect": {
+    "skills": {
+      "primary": "concrete-frame",
+      "mayAlsoMatch": [
+        "frame",
+        "generic"
+      ]
+    },
+    "assertions": [
+      {
+        "type": "structural_type",
+        "expected": "frame"
+      },
+      {
+        "type": "skill_match",
+        "primary": "concrete-frame",
+        "mayAlsoMatch": [
+          "frame",
+          "generic"
+        ]
+      },
+      {
+        "type": "has_model",
+        "minNodes": 6,
+        "minElements": 6
+      },
+      {
+        "type": "model_matches",
+        "groundTruthId": "concrete-frame-2s1b-6m-12k",
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05
+        }
+      },
+      {
+        "type": "numerical_matches",
+        "groundTruthId": "concrete-frame-2s1b-6m-12k",
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05,
+          "numeric": 0.01,
+          "numericAbsolute": 1e-8
+        },
+        "engineId": "builtin-opensees"
+      },
+      {
+        "type": "has_analysis"
+      },
+      {
+        "type": "engine_match",
+        "expected": "builtin-opensees",
+        "skillId": "opensees-static"
+      },
+      {
+        "type": "natural_language",
+        "description": "The final response must report the global-X displacement at both left and right beam-column nodes on each floor of the 2-story concrete frame, with values, signs, units, node IDs, and story locations consistent with the current analysis artifact; alternatively, any inter-story displacement must identify the column line or nodes and the adjacent-level difference. No independently invented or contradictory value is acceptable."
+      }
+    ]
+  },
+  "engineeringSpecification": "所有模式均须严格使用以下完整分析属性；这些记录不是占位符，无需要求补充。结构分类只使用用户任务，参数提取须同时包含这些属性。不得显式创建构件自重荷载或重复施加折算荷载；分析后端可按自身配置在内部计入构件自重。几何、拓扑、支座和荷载位置仍由用户任务确定。\n单位制: SI\n坐标系: semantics=global-z-up, version=1, dimension=2d, plane=xz, dof_order=ux,uy,uz,rx,ry,rz\n材料: id=1, name=C30, grade=C30, category=concrete, E=30000, nu=0.2, rho=2500, fc=14.3\n截面: id=1, name=C30 500x500, type=rect, purpose=column, shape(kind=rectangular, H=500, B=500), properties(A=0.25, Iy=0.005208333333333333, Iz=0.005208333333333333, J=0.008802083333333334, G=12500); id=2, name=C30 300x600, type=rect, purpose=beam, shape(kind=rectangular, H=600, B=300), properties(A=0.18, Iy=0.0053999999999999986, Iz=0.0013499999999999996, J=0.003707859374999999, G=12500)\n分析荷载组合: id=ULS, factors={D=1}"
+}

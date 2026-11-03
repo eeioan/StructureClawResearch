@@ -1,0 +1,95 @@
+{
+  "id": "re-frame-complex-2s2b-mechanics",
+  "description": "反问题：力学简图重建2层2跨框架",
+  "split": "auxiliary",
+  "taskFamily": "multimodal_reverse_engineering",
+  "inputModality": "image",
+  "structureType": "frame",
+  "benchmarkStructureType": "steel-frame",
+  "difficulty": "L2",
+  "skillTarget": "frame",
+  "evaluationFocus": [
+    "routing",
+    "modeling",
+    "model_match",
+    "analysis",
+    "numerical_match"
+  ],
+  "category": "reverse-engineering",
+  "tags": [
+    "reverse-engineering",
+    "frame",
+    "mechanics-diagram",
+    "zh"
+  ],
+  "message": "请根据附图及工程说明建立计算模型并进行静力分析。无法可靠识别的图片信息请明确询问，不要自行假设。",
+  "locale": "zh",
+  "maxRetries": 0,
+  "attachments": [
+    {
+      "fileId": "re-frame-complex-2s2b-m",
+      "originalName": "drawing-019.png",
+      "relPath": "fixtures/drawings/frame-complex-2s2b-mechanics.png",
+      "mimeType": "image/png"
+    }
+  ],
+  "expect": {
+    "skills": {
+      "primary": "frame",
+      "mayAlsoMatch": [
+        "concrete-frame",
+        "generic"
+      ]
+    },
+    "assertions": [
+      {
+        "type": "structural_type",
+        "expected": "frame"
+      },
+      {
+        "type": "skill_match",
+        "primary": "frame",
+        "mayAlsoMatch": [
+          "concrete-frame",
+          "generic"
+        ]
+      },
+      {
+        "type": "model_matches",
+        "groundTruthId": "frame-complex-2s2b",
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05
+        }
+      },
+      {
+        "type": "numerical_matches",
+        "groundTruthId": "frame-complex-2s2b",
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05,
+          "numeric": 0.01,
+          "numericAbsolute": 1e-8
+        }
+      },
+      {
+        "type": "has_analysis"
+      }
+    ]
+  },
+  "engineeringSpecification": "材料 steel：E=205000 MPa，ν=0.3，密度=7850 kg/m3。柱构件采用 HW350x350（H=350 mm，B=350 mm，tw=12 mm，tf=19 mm；A=0.01739 m2，Iy=0.000403 m4，Iz=0.000136 m4，J=0.00000863 m4，G=79000 MPa）。梁构件采用 HN500x200（H=500 mm，B=200 mm，tw=10 mm，tf=16 mm；A=0.01143 m2，Iy=0.000502 m4，Iz=0.0000214 m4，J=0.00000124 m4，G=79000 MPa）。采用SI单位和全局Z轴向上的坐标约定。仅使用图中标注的荷载工况与荷载值，不附加构件自重。分析荷载组合：ULS = 1.2 × D + 1.4 × L。",
+  "inputContract": {
+    "imageProvides": [
+      "topology",
+      "dimensions",
+      "supports",
+      "loads"
+    ],
+    "specificationProvides": [
+      "materials",
+      "sections",
+      "analysis-settings"
+    ],
+    "completeness": "complete"
+  }
+}

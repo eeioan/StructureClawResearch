@@ -1,0 +1,54 @@
+{
+  "id": "robust-frame-unrealistic-height",
+  "description": "Single-story steel frame with unrealistic height and loads",
+  "split": "core",
+  "taskFamily": "interactive_robustness",
+  "inputModality": "text",
+  "structureType": "frame",
+  "benchmarkStructureType": "steel-frame",
+  "difficulty": "L2",
+  "skillTarget": "frame",
+  "evaluationFocus": [
+    "routing",
+    "interaction",
+    "analysis"
+  ],
+  "category": "unrealistic-values",
+  "tags": [
+    "frame",
+    "interactive",
+    "unrealistic-values",
+    "l2",
+    "en"
+  ],
+  "message": "A single-story steel frame has 300m story height, 2m span, 100x100mm columns, and 5000kN/m floor load. Please analyze it.",
+  "locale": "en",
+  "maxRetries": 0,
+  "benchmarkModes": [
+    "auto"
+  ],
+  "expect": {
+    "skills": {
+      "primary": "frame",
+      "mayAlsoMatch": [
+        "generic"
+      ]
+    },
+    "assertions": [
+      {
+        "type": "structural_type",
+        "expected": "frame"
+      },
+      {
+        "type": "skill_match",
+        "primary": "frame",
+        "mayAlsoMatch": [
+          "generic"
+        ]
+      },
+      {
+        "type": "analysis_or_interaction"
+      }
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+nothink proxy :18435 (http), :18436 (https) -> http://127.0.0.1:11434
+[nothink-proxy] "POST /v1/chat/completions HTTP/1.1" 200 -
+[nothink-proxy] http /v1/chat/completions req=21257B resp=1213B 0.0s
+[nothink-proxy] "POST /v1/chat/completions HTTP/1.1" 200 -
+[nothink-proxy] http /v1/chat/completions req=7941B resp=848B 0.0s
+[nothink-proxy] "POST /v1/chat/completions HTTP/1.1" 200 -
+[nothink-proxy] http /v1/chat/completions req=22943B resp=1822B 0.0s
+[nothink-proxy] "POST /v1/chat/completions HTTP/1.1" 200 -
+[nothink-proxy] http /v1/chat/completions req=27341B resp=264546B 60.6s
+[nothink-proxy] "POST /v1/chat/completions HTTP/1.1" 200 -
+[nothink-proxy] http /v1/chat/completions req=24830B resp=1144B 0.0s
+[nothink-proxy] "POST /v1/chat/completions HTTP/1.1" 200 -
+[nothink-proxy] http /v1/chat/completions req=26670B resp=71339B 19.9s
+[nothink-proxy] "POST /v1/chat/completions HTTP/1.1" 200 -
+[nothink-proxy] http /v1/chat/completions req=30443B resp=565B 0.0s
+[nothink-proxy] "POST /v1/chat/completions HTTP/1.1" 200 -
+[nothink-proxy] http /v1/chat/completions req=31010B resp=594B 0.0s
+[nothink-proxy] "POST /v1/chat/completions HTTP/1.1" 200 -
+[nothink-proxy] http /v1/chat/completions req=31651B resp=819B 0.0s
+[nothink-proxy] "POST /v1/chat/completions HTTP/1.1" 200 -
+[nothink-proxy] http /v1/chat/completions req=31092B resp=573B 0.0s
+[nothink-proxy] "POST /v1/chat/completions HTTP/1.1" 200 -
+[nothink-proxy] http /v1/chat/completions req=36609B resp=1224B 0.0s
+[nothink-proxy] "POST /v1/chat/completions HTTP/1.1" 200 -
+[nothink-proxy] https /v1/chat/completions req=12769B resp=917B 0.0s

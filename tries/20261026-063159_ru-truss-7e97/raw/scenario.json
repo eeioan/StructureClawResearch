@@ -1,0 +1,33 @@
+{
+  "id": "ru-truss-7e97",
+  "description": "Ферма 6 панелей из задания 2.1 (строительная механика): реакции и усилия во всех стержнях",
+  "split": "core",
+  "taskFamily": "standard_workflow",
+  "inputModality": "text",
+  "structureType": "truss",
+  "benchmarkStructureType": "truss",
+  "difficulty": "L2",
+  "skillTarget": "truss",
+  "analysisSkillTarget": "opensees-static",
+  "analysisEngineTarget": "builtin-opensees",
+  "evaluationFocus": ["routing", "modeling", "model_match", "analysis", "engine_match", "numerical_match"],
+  "category": "university-task",
+  "tags": ["truss", "university", "ru", "l2"],
+  "message": "Выполни в OpenSees статический расчёт плоской фермы. Нижний пояс горизонтальный, 6 панелей по l = 4,2 м (пролёт 25,2 м); узлы нижнего пояса слева направо: A, C, D, E, F, G, B. Над каждым узлом нижнего пояса стоит вертикальная стойка; узлы верхнего пояса H, I, J, K, L, M, N находятся соответственно над A, C, D, E, F, G, B. Высота фермы на опорах 2h = 6,4 м, в середине пролёта (узел K над E) 3h = 9,6 м (h = 3,2 м); между опорой и серединой верхний пояс прямолинейный. Раскосы: A–I, I–D, D–K, K–F, F–M, M–B. Опора A — шарнирно-неподвижная, опора B — шарнирно-подвижная. Узловые нагрузки, направленные вниз: F1 = 36 кН в узле J, F4 = 56 кН в узле K, F2 = 46 кН в узле N; F3 (узел H) = 0, F5 (узел L) = 0. Определи опорные реакции и продольные усилия во всех 25 стержнях; отдельно назови усилия в стержнях D–J, J–K, D–K, D–E и E–K (растяжение со знаком «+», сжатие «−»).",
+  "locale": "en",
+  "maxRetries": 0,
+  "expect": {
+    "skills": {"primary": "truss", "mayAlsoMatch": ["generic"]},
+    "assertions": [
+      {"type": "structural_type", "expected": "truss"},
+      {"type": "skill_match", "primary": "truss", "mayAlsoMatch": ["generic"]},
+      {"type": "has_model", "minNodes": 14, "minElements": 25},
+      {"type": "model_matches", "groundTruthId": "ru-truss-7e97", "tolerances": {"load": 0.05, "coordinate": 0.05}},
+      {"type": "numerical_matches", "groundTruthId": "ru-truss-7e97", "tolerances": {"load": 0.05, "coordinate": 0.05, "numeric": 0.01, "numericAbsolute": 0.1}, "engineId": "builtin-opensees"},
+      {"type": "has_analysis"},
+      {"type": "engine_match", "expected": "builtin-opensees", "skillId": "opensees-static"},
+      {"type": "natural_language", "description": "The final response or report must state the support reactions at A and B and the axial forces in members D–J, J–K, D–K, D–E and E–K, with values, signs (tension positive) and units consistent with the current analysis artifact. No independently invented or contradictory value is acceptable."}
+    ]
+  },
+  "engineeringSpecification": "Use these complete analysis-property records exactly in every mode; they are not placeholders and need no clarification. Use only the user task to classify the structure, but include these properties in parameter extraction. Do not create an explicit self-weight load. Reconstruct geometry, topology, supports, and load placement from the task.\nUnit system: SI\nCoordinate system: semantics=global-z-up, version=1, dimension=2d, plane=xz, dof_order=ux,uy,uz,rx,ry,rz\nMaterials: id=1, name=steel, E=205000, nu=0.3, rho=7850, fy=345\nSections: id=1, name=TRUSS_ROD, type=rod, purpose=all truss members, properties(A=0.01)\nAnalysis load combinations: id=ULS, factors={LC1=1}"
+}

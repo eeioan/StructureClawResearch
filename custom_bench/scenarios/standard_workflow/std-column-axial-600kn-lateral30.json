@@ -1,0 +1,72 @@
+{
+  "id": "std-column-axial-600kn-lateral30",
+  "description": "Reinforced concrete column with combined axial and lateral load",
+  "split": "core",
+  "taskFamily": "standard_workflow",
+  "inputModality": "text",
+  "structureType": "column",
+  "benchmarkStructureType": "column",
+  "difficulty": "L2",
+  "skillTarget": "column",
+  "evaluationFocus": [
+    "routing",
+    "modeling",
+    "model_match",
+    "analysis",
+    "numerical_match"
+  ],
+  "category": "standard-workflow",
+  "tags": [
+    "column",
+    "standard",
+    "l2",
+    "en"
+  ],
+  "message": "A standalone reinforced concrete column is fixed at its base, 4.2m high, and has a 450x450mm section. Apply 600kN downward axial compression and a 30kN global-X lateral load at the top, then run static analysis.",
+  "locale": "en",
+  "maxRetries": 0,
+  "expect": {
+    "skills": {
+      "primary": "column",
+      "mayAlsoMatch": []
+    },
+    "assertions": [
+      {
+        "type": "structural_type",
+        "expected": "column"
+      },
+      {
+        "type": "skill_match",
+        "primary": "column",
+        "mayAlsoMatch": []
+      },
+      {
+        "type": "has_model",
+        "minNodes": 2,
+        "minElements": 1
+      },
+      {
+        "type": "model_matches",
+        "groundTruthId": "column-concrete-4p2-600-30",
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05
+        }
+      },
+      {
+        "type": "numerical_matches",
+        "groundTruthId": "column-concrete-4p2-600-30",
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05,
+          "numeric": 0.01,
+          "numericAbsolute": 1e-8
+        }
+      },
+      {
+        "type": "has_analysis"
+      }
+    ]
+  },
+  "engineeringSpecification": "Use these complete analysis-property records exactly in every mode; they are not placeholders and need no clarification. Use only the user task to classify the structure, but include these properties in parameter extraction. Do not create an explicit self-weight load or duplicate a converted load; an analysis provider may apply its configured member self-weight internally. Reconstruct geometry, topology, supports, and load placement from the task.\nUnit system: SI\nCoordinate system: semantics=global-z-up, version=1, dimension=2d, plane=xz, dof_order=ux,uy,uz,rx,ry,rz\nMaterials: id=1, name=C30, grade=C30, category=concrete, E=30000, nu=0.2, rho=2500, fc=14.3\nSections: id=1, name=C30 450x450, type=rect, purpose=column, shape(kind=rectangular, H=450, B=450), properties(A=0.2025, Iy=0.0034171875000000005, Iz=0.0034171875000000005, J=0.005775046875000001, G=12500)\nAnalysis load combinations: id=ULS, factors={LC1=1}"
+}

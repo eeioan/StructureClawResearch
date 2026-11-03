@@ -1,0 +1,76 @@
+{
+  "id": "std-truss-tri-en",
+  "description": "Triangular truss analysis in English",
+  "split": "core",
+  "taskFamily": "standard_workflow",
+  "inputModality": "text",
+  "structureType": "truss",
+  "benchmarkStructureType": "truss",
+  "difficulty": "L2",
+  "skillTarget": "truss",
+  "evaluationFocus": [
+    "routing",
+    "modeling",
+    "model_match",
+    "analysis",
+    "numerical_match"
+  ],
+  "category": "standard-workflow",
+  "tags": [
+    "truss",
+    "standard",
+    "en",
+    "l2"
+  ],
+  "message": "A symmetric triangular roof truss spans 15m. Its bottom chord has five 3m panels, and its straight roof slopes pass through top nodes at (x,z) = (3,1), (6,2), (7.5,2.5), (9,2), and (12,1) m. Provide verticals at x = 3, 6, 9, and 12m; add diagonals from bottom x = 3m to top x = 6m, from bottom x = 6m and 9m to the apex, and from bottom x = 12m to top x = 9m. Use a pin at x = 0 and a roller at x = 15m. Apply a 10kN downward nodal load at each of the five top nodes and run static analysis.",
+  "locale": "en",
+  "maxRetries": 0,
+  "expect": {
+    "skills": {
+      "primary": "truss",
+      "mayAlsoMatch": [
+        "generic"
+      ]
+    },
+    "assertions": [
+      {
+        "type": "structural_type",
+        "expected": "truss"
+      },
+      {
+        "type": "skill_match",
+        "primary": "truss",
+        "mayAlsoMatch": [
+          "generic"
+        ]
+      },
+      {
+        "type": "has_model",
+        "minNodes": 6,
+        "minElements": 5
+      },
+      {
+        "type": "model_matches",
+        "groundTruthId": "truss-triangle-15m-2p5-10k",
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05
+        }
+      },
+      {
+        "type": "numerical_matches",
+        "groundTruthId": "truss-triangle-15m-2p5-10k",
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05,
+          "numeric": 0.01,
+          "numericAbsolute": 1e-8
+        }
+      },
+      {
+        "type": "has_analysis"
+      }
+    ]
+  },
+  "engineeringSpecification": "Use these complete analysis-property records exactly in every mode; they are not placeholders and need no clarification. Use only the user task to classify the structure, but include these properties in parameter extraction. Do not create an explicit self-weight load or duplicate a converted load; an analysis provider may apply its configured member self-weight internally. Reconstruct geometry, topology, supports, and load placement from the task.\nUnit system: SI\nCoordinate system: semantics=global-z-up, version=1, dimension=2d, plane=xz, dof_order=ux,uy,uz,rx,ry,rz\nMaterials: id=1, name=steel, E=205000, nu=0.3, rho=7850\nSections: id=1, name=T1, type=rod, properties(A=0.01)\nAnalysis load combinations: id=ULS, factors={LC1=1}"
+}

@@ -1,0 +1,114 @@
+{
+  "id": "robust-update-frame-add-wind",
+  "description": "Multi-turn: add wind load to steel frame",
+  "split": "core",
+  "taskFamily": "interactive_robustness",
+  "inputModality": "text",
+  "structureType": "frame",
+  "benchmarkStructureType": "steel-frame",
+  "difficulty": "L3",
+  "skillTarget": "frame",
+  "evaluationFocus": [
+    "routing",
+    "modeling",
+    "model_match",
+    "analysis",
+    "numerical_match",
+    "semantic",
+    "interaction"
+  ],
+  "category": "multi-turn-update",
+  "tags": [
+    "frame",
+    "interactive",
+    "multi-turn-update",
+    "l3",
+    "en"
+  ],
+  "locale": "en",
+  "maxRetries": 0,
+  "benchmarkModes": [
+    "auto"
+  ],
+  "turns": [
+    {
+      "message": "A two-story two-bay steel frame has fixed column bases, 3.6m story height, two 6m spans, and a 10kN/m downward line load on every floor beam. Please analyze it.",
+      "assertions": [
+        {
+          "type": "structural_type",
+          "expected": "frame"
+        },
+        {
+          "type": "skill_match",
+          "primary": "frame",
+          "mayAlsoMatch": [
+            "generic"
+          ]
+        },
+        {
+          "type": "has_model",
+          "minNodes": 6,
+          "minElements": 5
+        },
+        {
+          "type": "has_analysis"
+        },
+        {
+          "type": "model_matches",
+          "groundTruthId": "frame-2s2b-6m-10k",
+          "tolerances": {
+            "coordinate": 0.05,
+            "load": 0.05
+          }
+        },
+        {
+          "type": "numerical_matches",
+          "groundTruthId": "frame-2s2b-6m-10k",
+          "tolerances": {
+            "coordinate": 0.05,
+            "load": 0.05,
+            "numeric": 0.01,
+            "numericAbsolute": 1e-8
+          }
+        }
+      ],
+      "engineeringSpecification": "Use these complete analysis-property records exactly in every mode; they are not placeholders and need no clarification. Use only the user task to classify the structure, but include these properties in parameter extraction. Do not create an explicit self-weight load or duplicate a converted load; an analysis provider may apply its configured member self-weight internally. Reconstruct geometry, topology, supports, and load placement from the task.\nUnit system: SI\nCoordinate system: semantics=global-z-up, version=1, dimension=2d, plane=xz, dof_order=ux,uy,uz,rx,ry,rz\nMaterials: id=1, name=Q345, grade=Q345, category=steel, E=206000, nu=0.3, rho=7850, fy=345\nSections: id=1, name=HW350x350, type=H, purpose=column, shape(kind=H, H=350, B=350, tw=12, tf=19), properties(A=0.01739, Iy=0.000403, Iz=0.000136, J=0.00000863, G=79000); id=2, name=HN500x200, type=H, purpose=beam, shape(kind=H, H=500, B=200, tw=10, tf=16), properties(A=0.01143, Iy=0.000502, Iz=0.0000214, J=0.00000124, G=79000)\nAnalysis load combinations: id=ULS, factors={D=1}"
+    },
+    {
+      "message": "Now add global-X positive wind loads of 10kN at the right exterior joint of the first floor and 15kN at the right roof joint, then rerun the analysis.",
+      "assertions": [
+        {
+          "type": "has_model",
+          "minNodes": 6,
+          "minElements": 5
+        },
+        {
+          "type": "has_analysis"
+        },
+        {
+          "type": "model_matches",
+          "groundTruthId": "frame-2s2b-6m-10k-wind",
+          "tolerances": {
+            "coordinate": 0.05,
+            "load": 0.05
+          }
+        },
+        {
+          "type": "numerical_matches",
+          "groundTruthId": "frame-2s2b-6m-10k-wind",
+          "tolerances": {
+            "coordinate": 0.05,
+            "load": 0.05,
+            "numeric": 0.01,
+            "numericAbsolute": 1e-8
+          }
+        },
+        {
+          "type": "natural_language",
+          "description": "The updated analysis should include wind load effects in addition to gravity loads."
+        }
+      ],
+      "engineeringSpecification": "Use these complete analysis-property records exactly in every mode; they are not placeholders and need no clarification. Use only the user task to classify the structure, but include these properties in parameter extraction. Do not create an explicit self-weight load or duplicate a converted load; an analysis provider may apply its configured member self-weight internally. Reconstruct geometry, topology, supports, and load placement from the task.\nUnit system: SI\nCoordinate system: semantics=global-z-up, version=1, dimension=2d, plane=xz, dof_order=ux,uy,uz,rx,ry,rz\nMaterials: id=1, name=Q345, grade=Q345, category=steel, E=206000, nu=0.3, rho=7850, fy=345\nSections: id=1, name=HW350x350, type=H, purpose=column, shape(kind=H, H=350, B=350, tw=12, tf=19), properties(A=0.01739, Iy=0.000403, Iz=0.000136, J=0.00000863, G=79000); id=2, name=HN500x200, type=H, purpose=beam, shape(kind=H, H=500, B=200, tw=10, tf=16), properties(A=0.01143, Iy=0.000502, Iz=0.0000214, J=0.00000124, G=79000)\nAnalysis load combinations: id=ULS, factors={D=1, W=1}"
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "id": "std-frame3d-simple-pkpm-en",
+  "description": "Simple spatial steel frame analysis with PKPM",
+  "split": "core",
+  "taskFamily": "standard_workflow",
+  "inputModality": "text",
+  "structureType": "frame",
+  "benchmarkStructureType": "steel-frame",
+  "difficulty": "L2",
+  "skillTarget": "frame",
+  "analysisSkillTarget": "pkpm-static",
+  "analysisEngineTarget": "builtin-pkpm",
+  "evaluationFocus": [
+    "routing",
+    "modeling",
+    "model_match",
+    "analysis",
+    "engine_match",
+    "semantic",
+    "numerical_match"
+  ],
+  "category": "standard-workflow",
+  "tags": [
+    "frame",
+    "standard",
+    "en",
+    "l2",
+    "3d",
+    "pkpm",
+    "cross-engine"
+  ],
+  "message": "Use PKPM to run 3D static analysis for a 2-story spatial steel frame with one 6m bay in global X, one 5m bay in global Y, 3.6m story height, fixed column bases, and a 10kN/m2 downward floor load on each story.",
+  "locale": "en",
+  "maxRetries": 0,
+  "expect": {
+    "skills": {
+      "primary": "frame",
+      "mayAlsoMatch": [
+        "generic"
+      ]
+    },
+    "assertions": [
+      {
+        "type": "structural_type",
+        "expected": "frame"
+      },
+      {
+        "type": "skill_match",
+        "primary": "frame",
+        "mayAlsoMatch": [
+          "generic"
+        ]
+      },
+      {
+        "type": "has_model",
+        "minNodes": 8,
+        "minElements": 8
+      },
+      {
+        "type": "model_matches",
+        "groundTruthId": "frame3d-simple",
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05
+        }
+      },
+      {
+        "type": "numerical_matches",
+        "groundTruthId": "frame3d-simple",
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05,
+          "numeric": 0.01,
+          "numericAbsolute": 1e-8
+        },
+        "engineId": "builtin-pkpm"
+      },
+      {
+        "type": "has_analysis"
+      },
+      {
+        "type": "engine_match",
+        "expected": "builtin-pkpm",
+        "skillId": "pkpm-static"
+      },
+      {
+        "type": "natural_language",
+        "description": "The model must be a genuine spatial 3-D steel frame with nodes on at least two distinct global Y-coordinate planes, and the response must describe the requested PKPM analysis without inventing unsupported numerical or engineering conclusions."
+      }
+    ]
+  },
+  "engineeringSpecification": "Use these complete analysis-property records exactly in every mode; they are not placeholders and need no clarification. Use only the user task to classify the structure, but include these properties in parameter extraction. Do not create an explicit self-weight load or duplicate a converted load; an analysis provider may apply its configured member self-weight internally. Reconstruct geometry, topology, supports, and load placement from the task.\nUnit system: SI\nCoordinate system: semantics=global-z-up, version=1, dimension=3d, plane=null, dof_order=ux,uy,uz,rx,ry,rz\nMaterials: id=1, name=Q345, grade=Q345, category=steel, E=206000, nu=0.3, rho=7850, fy=345\nSections: id=1, name=HW350x350, type=H, purpose=column, shape(kind=H, H=350, B=350, tw=12, tf=19), properties(A=0.01739, Iy=0.000403, Iz=0.000136, J=0.00000863, G=79000); id=2, name=HN500x200, type=H, purpose=beam, shape(kind=H, H=500, B=200, tw=10, tf=16), properties(A=0.01143, Iy=0.000502, Iz=0.0000214, J=0.00000124, G=79000)\nAnalysis load combinations: id=ULS, factors={D=1}"
+}

@@ -1,0 +1,78 @@
+
+============================================================
+LangGraph Agent Benchmark: 1 scenario run(s)
+Mode: auto
+Execution: web-stream
+Case timeout: 1800000ms
+SUT root: C:\Users\user\PycharmProjects\MLTestovoe\structureclaw
+Model: qwen3.5:9b
+Base URL: http://localhost:18435/v1
+============================================================
+
+Running: robust-truss-unit-ton-or-kn#auto...
+[2026-10-26 03:53:03.603 +0300] [32mINFO[39m: [36mbuilding agent graph[39m
+    [35mtoolCount[39m: 20
+    [35mhasCheckpointer[39m: true
+[2026-10-26 03:53:03.609 +0300] [32mINFO[39m: [36mLangGraph agent stream started[39m
+    [35mtraceId[39m: "8171465d-ae18-4904-94ba-121758b892e1"
+    [35mconversationId[39m: "bench-db4978cb-8697-42d4-b95c-e521b7f96b02"
+    [35mmessage[39m: "This 15m truss has nodal loads of either 10 tons or 10kN; I am not sure. Please analyze it first."
+[2026-10-26 03:53:03.645 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "8171465d-ae18-4904-94ba-121758b892e1"
+    [35mconversationId[39m: "bench-db4978cb-8697-42d4-b95c-e521b7f96b02"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 2
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 0
+    [35mcompacted[39m: false
+[2026-10-26 03:54:15.255 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "8171465d-ae18-4904-94ba-121758b892e1"
+    [35mconversationId[39m: "bench-db4978cb-8697-42d4-b95c-e521b7f96b02"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 71610
+    [35mhasToolCalls[39m: true
+    [35mfinishReason[39m: "tool_calls"
+    [35mcontentLength[39m: 115
+    [35mreasoningContentLength[39m: 0
+[2026-10-26 03:54:15.268 +0300] [32mINFO[39m: [36mLangGraph agent stream completed[39m
+    [35mtraceId[39m: "8171465d-ae18-4904-94ba-121758b892e1"
+    [35mconversationId[39m: "bench-db4978cb-8697-42d4-b95c-e521b7f96b02"
+    [35mdurationMs[39m: 71680
+    [35mmode[39m: "stream"
+
+============================================================
+FAIL  robust-truss-unit-ton-or-kn#auto
+     Truss nodal load unit ambiguity
+
+  ✗ structural_type    expected: truss                          actual: (none)
+  ✗ skill_match        expected: truss                          actual: (none)
+  ✓ has_interaction_questions expected: agent asks a relevant clarification or capability-resolution question actual: questions found
+  ✓ no_bad_model       expected: no computable model for unsafe or incomplete input actual: (none)
+  ✓ should_not_analyze expected: no analysis result or run_analysis call actual: no analysis run
+  ✓ natural_language   expected: The agent must identify the concrete ambiguity or physically implausible value in the request, explain why it prevents a trustworthy analysis, and ask for relevant confirmation or correction before building or analyzing. A generic or unrelated question does not satisfy this criterion. actual: satisfied
+  ✓ toolCalls          expected: (info, lower is better)        actual: 1
+  ✓ inputTokens        expected: (info, lower is better)        actual: 4300
+  ✓ outputTokens       expected: (info, lower is better)        actual: 140
+  ✓ totalTokens        expected: (info, lower is better)        actual: 4440
+  ✓ duration           expected: (info)                         actual: 71.7s
+============================================================
+
+============================================================
+Benchmark Results: 0/1 (0.0%) pass, 1 failed
+Pass@1: 0/1 (0.0%)
+Average tool calls: 1.0
+Average primary-model tokens: 4440.0
+Average duration: 71.7s
+Failed: robust-truss-unit-ton-or-kn#auto
+Total time: 71.7s
+
+By metric:
+  has_interaction_questions        1/1 (100.0%)
+  natural_language                 1/1 (100.0%)
+  no_bad_model                     1/1 (100.0%)
+  should_not_analyze               1/1 (100.0%)
+  skill_match                      0/1 (0.0%)
+  structural_type                  0/1 (0.0%)
+============================================================
+
+Results written to C:/Users/user/PycharmProjects/MLTestovoe/bench_runs/20261026-035255_robust-truss-unit-ton-or-kn.json

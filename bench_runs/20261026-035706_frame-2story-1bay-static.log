@@ -1,0 +1,269 @@
+
+============================================================
+LangGraph Agent Benchmark: 1 scenario run(s)
+Mode: auto
+Execution: web-stream
+Case timeout: 1800000ms
+SUT root: C:\Users\user\PycharmProjects\MLTestovoe\structureclaw
+Model: qwen3.5:9b
+Base URL: http://localhost:18435/v1
+============================================================
+
+Running: frame-2story-1bay-static#auto...
+[2026-10-26 03:57:12.660 +0300] [32mINFO[39m: [36mbuilding agent graph[39m
+    [35mtoolCount[39m: 20
+    [35mhasCheckpointer[39m: true
+[2026-10-26 03:57:12.663 +0300] [32mINFO[39m: [36mLangGraph agent stream started[39m
+    [35mtraceId[39m: "bcfe9148-ff6b-48f7-a31e-9978149d4347"
+    [35mconversationId[39m: "bench-9eddd11d-81e7-459a-8b21-c2a0f193523f"
+    [35mmessage[39m: "[User task]\nUse OpenSees to run static analysis for a 2-story single-bay steel frame with 3.6m story"
+[2026-10-26 03:57:12.689 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "bcfe9148-ff6b-48f7-a31e-9978149d4347"
+    [35mconversationId[39m: "bench-9eddd11d-81e7-459a-8b21-c2a0f193523f"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 2
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 0
+    [35mcompacted[39m: false
+[2026-10-26 03:57:22.229 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "bcfe9148-ff6b-48f7-a31e-9978149d4347"
+    [35mconversationId[39m: "bench-9eddd11d-81e7-459a-8b21-c2a0f193523f"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 9540
+    [35mhasToolCalls[39m: true
+    [35mfinishReason[39m: "tool_calls"
+    [35mcontentLength[39m: 153
+    [35mreasoningContentLength[39m: 0
+[2026-10-26 03:57:27.884 +0300] [32mINFO[39m: [36mllm:qwen3.5:9b call completed[39m
+    [35mmodel[39m: "qwen3.5:9b"
+    [35mdurationMs[39m: 5640
+    [35msuccess[39m: true
+[2026-10-26 03:57:27.884 +0300] [32mINFO[39m: [36mtool:detect_structure_type completed[39m
+    [35mtraceId[39m: "bcfe9148-ff6b-48f7-a31e-9978149d4347"
+    [35mconversationId[39m: "bench-9eddd11d-81e7-459a-8b21-c2a0f193523f"
+    [35mtool[39m: "detect_structure_type"
+    [35mdurationMs[39m: 5645
+    [35msuccess[39m: true
+    [35mmatchedKey[39m: "steel-frame"
+    [35mskillId[39m: "frame"
+    [35mroutingSource[39m: "llm-suggested"
+[2026-10-26 03:57:27.890 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "bcfe9148-ff6b-48f7-a31e-9978149d4347"
+    [35mconversationId[39m: "bench-9eddd11d-81e7-459a-8b21-c2a0f193523f"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 4
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 1
+    [35mcompacted[39m: false
+[2026-10-26 03:57:50.173 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "bcfe9148-ff6b-48f7-a31e-9978149d4347"
+    [35mconversationId[39m: "bench-9eddd11d-81e7-459a-8b21-c2a0f193523f"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 22283
+    [35mhasToolCalls[39m: true
+    [35mfinishReason[39m: "tool_calls"
+    [35mcontentLength[39m: 130
+    [35mreasoningContentLength[39m: 0
+[2026-10-26 03:57:50.184 +0300] [32mINFO[39m: [36mparam extractor started[39m
+    [35mtraceId[39m: "bcfe9148-ff6b-48f7-a31e-9978149d4347"
+    [35mconversationId[39m: "bench-9eddd11d-81e7-459a-8b21-c2a0f193523f"
+    [35mpluginId[39m: "frame"
+    [35mlocale[39m: "en"
+[2026-10-26 03:58:51.416 +0300] [32mINFO[39m: [36mllm:qwen3.5:9b call completed[39m
+    [35mmodel[39m: "qwen3.5:9b"
+    [35mdurationMs[39m: 61231
+    [35msuccess[39m: true
+[2026-10-26 03:58:51.418 +0300] [33mWARN[39m: [36mtool:extract_draft_params failed[39m
+    [35mtraceId[39m: "bcfe9148-ff6b-48f7-a31e-9978149d4347"
+    [35mconversationId[39m: "bench-9eddd11d-81e7-459a-8b21-c2a0f193523f"
+    [35mtool[39m: "extract_draft_params"
+    [35mdurationMs[39m: 61239
+    [35msuccess[39m: false
+    error: "LLM_PARAM_EXTRACTOR_INVALID_OUTPUT: response was not a usable JSON draft patch; finishReason=unknown; contentLength=5477; reasoningContentLength=0"
+[2026-10-26 03:58:51.422 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "bcfe9148-ff6b-48f7-a31e-9978149d4347"
+    [35mconversationId[39m: "bench-9eddd11d-81e7-459a-8b21-c2a0f193523f"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 6
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 2
+    [35mcompacted[39m: false
+[2026-10-26 03:59:03.320 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "bcfe9148-ff6b-48f7-a31e-9978149d4347"
+    [35mconversationId[39m: "bench-9eddd11d-81e7-459a-8b21-c2a0f193523f"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 11898
+    [35mhasToolCalls[39m: true
+    [35mfinishReason[39m: "tool_calls"
+    [35mcontentLength[39m: 141
+    [35mreasoningContentLength[39m: 0
+[2026-10-26 03:59:03.333 +0300] [32mINFO[39m: [36mparam extractor started[39m
+    [35mtraceId[39m: "bcfe9148-ff6b-48f7-a31e-9978149d4347"
+    [35mconversationId[39m: "bench-9eddd11d-81e7-459a-8b21-c2a0f193523f"
+    [35mpluginId[39m: "frame"
+    [35mlocale[39m: "en"
+[2026-10-26 03:59:23.784 +0300] [32mINFO[39m: [36mllm:qwen3.5:9b call completed[39m
+    [35mmodel[39m: "qwen3.5:9b"
+    [35mdurationMs[39m: 20450
+    [35msuccess[39m: true
+[2026-10-26 03:59:23.789 +0300] [32mINFO[39m: [36mtool:extract_draft_params completed[39m
+    [35mtraceId[39m: "bcfe9148-ff6b-48f7-a31e-9978149d4347"
+    [35mconversationId[39m: "bench-9eddd11d-81e7-459a-8b21-c2a0f193523f"
+    [35mtool[39m: "extract_draft_params"
+    [35mdurationMs[39m: 20457
+    [35msuccess[39m: true
+    [35mskillId[39m: "frame"
+    [35mextractionMode[39m: "llm"
+    [35mcriticalMissing[39m: 0
+    [35mroutingSource[39m: "current-state"
+[2026-10-26 03:59:23.794 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "bcfe9148-ff6b-48f7-a31e-9978149d4347"
+    [35mconversationId[39m: "bench-9eddd11d-81e7-459a-8b21-c2a0f193523f"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 8
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 3
+    [35mcompacted[39m: false
+[2026-10-26 03:59:29.345 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "bcfe9148-ff6b-48f7-a31e-9978149d4347"
+    [35mconversationId[39m: "bench-9eddd11d-81e7-459a-8b21-c2a0f193523f"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 5551
+    [35mhasToolCalls[39m: true
+    [35mfinishReason[39m: "tool_calls"
+    [35mcontentLength[39m: 109
+    [35mreasoningContentLength[39m: 0
+[2026-10-26 03:59:29.352 +0300] [32mINFO[39m: [36mtool:build_model completed[39m
+    [35mtraceId[39m: "bcfe9148-ff6b-48f7-a31e-9978149d4347"
+    [35mconversationId[39m: "bench-9eddd11d-81e7-459a-8b21-c2a0f193523f"
+    [35mtool[39m: "build_model"
+    [35mdurationMs[39m: 3
+    [35msuccess[39m: true
+    [35mnodeCount[39m: 6
+    [35melementCount[39m: 6
+    [35mschemaVersion[39m: "2.0.0"
+    [35mnextAction[39m: "run_analysis"
+    [35mmessage[39m: "Model build is complete. Next, call run_analysis to execute the structural analysis."
+[2026-10-26 03:59:29.358 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "bcfe9148-ff6b-48f7-a31e-9978149d4347"
+    [35mconversationId[39m: "bench-9eddd11d-81e7-459a-8b21-c2a0f193523f"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 10
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 4
+    [35mcompacted[39m: false
+[2026-10-26 03:59:31.526 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "bcfe9148-ff6b-48f7-a31e-9978149d4347"
+    [35mconversationId[39m: "bench-9eddd11d-81e7-459a-8b21-c2a0f193523f"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 2168
+    [35mhasToolCalls[39m: true
+    [35mfinishReason[39m: "tool_calls"
+    [35mcontentLength[39m: 132
+    [35mreasoningContentLength[39m: 0
+[2026-10-26 03:59:32.440 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "bcfe9148-ff6b-48f7-a31e-9978149d4347"
+    [35mconversationId[39m: "bench-9eddd11d-81e7-459a-8b21-c2a0f193523f"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 12
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 5
+    [35mcompacted[39m: false
+[2026-10-26 03:59:37.855 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "bcfe9148-ff6b-48f7-a31e-9978149d4347"
+    [35mconversationId[39m: "bench-9eddd11d-81e7-459a-8b21-c2a0f193523f"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 5415
+    [35mhasToolCalls[39m: true
+    [35mfinishReason[39m: "tool_calls"
+    [35mcontentLength[39m: 169
+    [35mreasoningContentLength[39m: 0
+[2026-10-26 03:59:37.861 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "bcfe9148-ff6b-48f7-a31e-9978149d4347"
+    [35mconversationId[39m: "bench-9eddd11d-81e7-459a-8b21-c2a0f193523f"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 14
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 6
+    [35mcompacted[39m: false
+[2026-10-26 03:59:44.584 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "bcfe9148-ff6b-48f7-a31e-9978149d4347"
+    [35mconversationId[39m: "bench-9eddd11d-81e7-459a-8b21-c2a0f193523f"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 6723
+    [35mhasToolCalls[39m: true
+    [35mfinishReason[39m: "tool_calls"
+    [35mcontentLength[39m: 49
+    [35mreasoningContentLength[39m: 0
+[2026-10-26 03:59:46.069 +0300] [32mINFO[39m: [36mtool:run_analysis completed[39m
+    [35mtraceId[39m: "bcfe9148-ff6b-48f7-a31e-9978149d4347"
+    [35mconversationId[39m: "bench-9eddd11d-81e7-459a-8b21-c2a0f193523f"
+    [35mtool[39m: "run_analysis"
+    [35mdurationMs[39m: 1482
+    [35msuccess[39m: true
+    [35manalysisType[39m: "static"
+    [35mskillId[39m: "opensees-static"
+    [35mrequestedAnalysisSkillId[39m: "opensees-static"
+[2026-10-26 03:59:46.073 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "bcfe9148-ff6b-48f7-a31e-9978149d4347"
+    [35mconversationId[39m: "bench-9eddd11d-81e7-459a-8b21-c2a0f193523f"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 16
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 7
+    [35mcompacted[39m: false
+[2026-10-26 03:59:57.450 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "bcfe9148-ff6b-48f7-a31e-9978149d4347"
+    [35mconversationId[39m: "bench-9eddd11d-81e7-459a-8b21-c2a0f193523f"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 11377
+    [35mhasToolCalls[39m: true
+    [35mfinishReason[39m: "tool_calls"
+    [35mcontentLength[39m: 143
+    [35mreasoningContentLength[39m: 0
+[2026-10-26 03:59:57.458 +0300] [32mINFO[39m: [36mLangGraph agent stream completed[39m
+    [35mtraceId[39m: "bcfe9148-ff6b-48f7-a31e-9978149d4347"
+    [35mconversationId[39m: "bench-9eddd11d-81e7-459a-8b21-c2a0f193523f"
+    [35mdurationMs[39m: 164804
+    [35mmode[39m: "stream"
+
+============================================================
+FAIL  frame-2story-1bay-static#auto
+     2-story single-bay steel frame static analysis
+
+  ✓ structural_type    expected: frame or steel-frame or concrete-frame or reinforced-concrete-frame actual: steel-frame
+  ✓ skill_match        expected: frame                          actual: frame
+  ✓ has_model          expected: >= 6 nodes, >= 6 elements      actual: 6 nodes, 6 elements
+  ✓ model_matches      expected: strict engineering match 'frame-2s1b-6m-10k' (geometry, topology, restraints, assigned properties, loads) actual: dimension 2d/2d; nodes actual=6, expected=6, matched=6 (P=1.000, R=1.000); elements actual=6, expected=6, matched=6 (P=1.000, R=1.000); restraints 6/6; properties OK; element modifiers OK; loads actual=2, expected=2, matched=2 (P=1.000, R=1.000); load combinations OK; stories OK
+  ✓ numerical_matches  expected: 90 OpenSees response values within 1.0% actual: matched; max relative difference 0.000%
+  ✓ has_analysis       expected: analysis results with displacements, reactions, or forces actual: present
+  ✓ engine_match       expected: engine=builtin-opensees, skill=opensees-static actual: engine=builtin-opensees, skill=opensees-static, adapter=builtin-opensees
+  ✗ natural_language   expected: The final response or report must explicitly include the global-X displacement at both left and right beam-column nodes on each floor, with values, signs, units, node IDs, and story locations consistent with the current analysis artifact; alternatively, any inter-story displacement must identify the column line or nodes and the adjacent-level difference. No independently invented or contradictory value is acceptable. actual: not satisfied — The criterion requires explicit inclusion of global-X displacement values at both left and right beam-column nodes on each floor. The analysis result data shows ux=0 for all nodes (N0_0, N0_1, N1_0, N1_1, N2_0, N2_1). Since the model has a 6m bay width with loads applied in the global Z direction (downward), significant lateral displacement in the X direction is physically expected. The reported zero values are inconsistent with the applied load case and structural behavior, failing the criterion's requirement for consistent analysis results.
+  ✓ toolCalls          expected: (info, lower is better)        actual: 7
+  ✓ inputTokens        expected: (info, lower is better)        actual: 63529
+  ✓ outputTokens       expected: (info, lower is better)        actual: 2942
+  ✓ totalTokens        expected: (info, lower is better)        actual: 66471
+  ✓ duration           expected: (info)                         actual: 164.8s
+============================================================
+
+============================================================
+Benchmark Results: 0/1 (0.0%) pass, 1 failed
+Pass@1: 0/1 (0.0%)
+Average tool calls: 7.0
+Average primary-model tokens: 66471.0
+Average duration: 164.8s
+Failed: frame-2story-1bay-static#auto
+Total time: 164.8s
+
+By metric:
+  engine_match                     1/1 (100.0%)
+  has_analysis                     1/1 (100.0%)
+  has_model                        1/1 (100.0%)
+  model_matches                    1/1 (100.0%)
+  natural_language                 0/1 (0.0%)
+  numerical_matches                1/1 (100.0%)
+  skill_match                      1/1 (100.0%)
+  structural_type                  1/1 (100.0%)
+============================================================
+
+Results written to C:/Users/user/PycharmProjects/MLTestovoe/bench_runs/20261026-035706_frame-2story-1bay-static.json

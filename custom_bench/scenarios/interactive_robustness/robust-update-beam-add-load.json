@@ -1,0 +1,118 @@
+{
+  "id": "robust-update-beam-add-load",
+  "description": "多轮：梁追加集中力",
+  "split": "core",
+  "taskFamily": "interactive_robustness",
+  "inputModality": "text",
+  "structureType": "beam",
+  "benchmarkStructureType": "beam",
+  "difficulty": "L3",
+  "skillTarget": "beam",
+  "evaluationFocus": [
+    "routing",
+    "modeling",
+    "model_match",
+    "analysis",
+    "numerical_match",
+    "semantic",
+    "interaction"
+  ],
+  "category": "multi-turn-update",
+  "tags": [
+    "beam",
+    "interactive",
+    "multi-turn-update",
+    "zh",
+    "l3"
+  ],
+  "locale": "zh",
+  "maxRetries": 0,
+  "benchmarkModes": [
+    "auto"
+  ],
+  "turns": [
+    {
+      "message": "简支梁跨度6m，全跨施加竖向向下均布荷载20kN/m。请在跨中设置与两侧梁单元连接的分析节点，输出跨中竖向挠度并分析。",
+      "assertions": [
+        {
+          "type": "structural_type",
+          "expected": "beam"
+        },
+        {
+          "type": "skill_match",
+          "primary": "beam",
+          "mayAlsoMatch": [
+            "generic"
+          ]
+        },
+        {
+          "type": "has_model",
+          "minNodes": 2,
+          "minElements": 1
+        },
+        {
+          "type": "has_analysis"
+        },
+        {
+          "type": "model_matches",
+          "groundTruthId": "beam-simple-6m",
+          "tolerances": {
+            "coordinate": 0.05,
+            "load": 0.05
+          }
+        },
+        {
+          "type": "numerical_matches",
+          "groundTruthId": "beam-simple-6m",
+          "tolerances": {
+            "coordinate": 0.05,
+            "load": 0.05,
+            "numeric": 0.01,
+            "numericAbsolute": 1e-8
+          }
+        },
+        {
+          "type": "natural_language",
+          "description": "The final response must report the current midspan vertical deflection with its value, sign, unit, and location consistent with the current analysis artifact; no independently invented or contradictory value is acceptable."
+        }
+      ],
+      "engineeringSpecification": "所有模式均须严格使用以下完整分析属性；这些记录不是占位符，无需要求补充。结构分类只使用用户任务，参数提取须同时包含这些属性。不得显式创建构件自重荷载或重复施加折算荷载；分析后端可按自身配置在内部计入构件自重。几何、拓扑、支座和荷载位置仍由用户任务确定。\n单位制: SI\n坐标系: semantics=global-z-up, version=1, dimension=2d, plane=xz, dof_order=ux,uy,uz,rx,ry,rz\n材料: id=1, name=steel, E=205000, nu=0.3, rho=7850\n截面: id=1, name=B1, type=beam, properties(A=0.01, Iy=0.0001, Iz=0.0001, J=0.0001, G=79000)\n分析荷载组合: id=ULS, factors={LC1=1}"
+    },
+    {
+      "message": "在跨中再增加一个竖向向下30kN集中力，重新分析",
+      "assertions": [
+        {
+          "type": "has_model",
+          "minNodes": 2,
+          "minElements": 1
+        },
+        {
+          "type": "has_analysis"
+        },
+        {
+          "type": "model_matches",
+          "groundTruthId": "beam-simple-6m-udl20-point30",
+          "tolerances": {
+            "coordinate": 0.05,
+            "load": 0.05
+          }
+        },
+        {
+          "type": "numerical_matches",
+          "groundTruthId": "beam-simple-6m-udl20-point30",
+          "tolerances": {
+            "coordinate": 0.05,
+            "load": 0.05,
+            "numeric": 0.01,
+            "numericAbsolute": 1e-8
+          }
+        },
+        {
+          "type": "natural_language",
+          "description": "The updated analysis must reflect the added midspan point load, and the final response must report the updated midspan vertical deflection with its value, sign, unit, and location consistent with the current analysis artifact; no independently invented or contradictory value is acceptable."
+        }
+      ],
+      "engineeringSpecification": "所有模式均须严格使用以下完整分析属性；这些记录不是占位符，无需要求补充。结构分类只使用用户任务，参数提取须同时包含这些属性。不得显式创建构件自重荷载或重复施加折算荷载；分析后端可按自身配置在内部计入构件自重。几何、拓扑、支座和荷载位置仍由用户任务确定。\n单位制: SI\n坐标系: semantics=global-z-up, version=1, dimension=2d, plane=xz, dof_order=ux,uy,uz,rx,ry,rz\n材料: id=1, name=steel, E=205000, nu=0.3, rho=7850\n截面: id=1, name=B1, type=beam, properties(A=0.01, Iy=0.0001, Iz=0.0001, J=0.0001, G=79000)\n分析荷载组合: id=ULS, factors={LC1=1}"
+    }
+  ]
+}

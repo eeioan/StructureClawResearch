@@ -1,0 +1,55 @@
+{
+  "id": "robust-beam-unrealistic-length-section",
+  "description": "梁超大跨度超小截面",
+  "split": "core",
+  "taskFamily": "interactive_robustness",
+  "inputModality": "text",
+  "structureType": "beam",
+  "benchmarkStructureType": "beam",
+  "difficulty": "L2",
+  "skillTarget": "beam",
+  "evaluationFocus": [
+    "routing",
+    "interaction",
+    "semantic",
+    "analysis"
+  ],
+  "category": "unrealistic-values",
+  "tags": [
+    "beam",
+    "interactive",
+    "unrealistic-values",
+    "zh",
+    "l2"
+  ],
+  "message": "钢梁跨度100000m，截面高度1mm，均布荷载999999kN/m，请分析",
+  "locale": "zh",
+  "maxRetries": 0,
+  "benchmarkModes": [
+    "auto"
+  ],
+  "expect": {
+    "skills": {
+      "primary": "beam",
+      "mayAlsoMatch": [
+        "generic"
+      ]
+    },
+    "assertions": [
+      {
+        "type": "structural_type",
+        "expected": "beam"
+      },
+      {
+        "type": "skill_match",
+        "primary": "beam",
+        "mayAlsoMatch": [
+          "generic"
+        ]
+      },
+      {
+        "type": "analysis_or_interaction"
+      }
+    ]
+  }
+}

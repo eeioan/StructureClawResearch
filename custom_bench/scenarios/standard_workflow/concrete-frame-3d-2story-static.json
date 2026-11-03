@@ -1,0 +1,92 @@
+{
+  "id": "concrete-frame-3d-2story-static",
+  "description": "2层3D混凝土框架静力分析",
+  "split": "core",
+  "taskFamily": "standard_workflow",
+  "inputModality": "text",
+  "structureType": "concrete-frame",
+  "benchmarkStructureType": "concrete-frame",
+  "difficulty": "L2",
+  "skillTarget": "concrete-frame",
+  "analysisSkillTarget": "pkpm-static",
+  "analysisEngineTarget": "builtin-pkpm",
+  "evaluationFocus": [
+    "routing",
+    "modeling",
+    "model_match",
+    "analysis",
+    "engine_match",
+    "semantic",
+    "numerical_match"
+  ],
+  "category": "static-analysis",
+  "tags": [
+    "concrete-frame",
+    "static",
+    "zh",
+    "3d"
+  ],
+  "message": "2层3D混凝土框架，X向2跨跨度6m+6m，Y向1跨跨度5m，层高3.6m，所有柱脚固定，C30混凝土、HRB400钢筋，柱截面500mm×500mm，梁截面300mm×600mm，每层施加竖向向下楼面荷载12kN/m2，请使用PKPM进行3D静力分析。",
+  "locale": "zh",
+  "maxRetries": 0,
+  "expect": {
+    "skills": {
+      "primary": "concrete-frame",
+      "mayAlsoMatch": [
+        "frame",
+        "generic"
+      ]
+    },
+    "assertions": [
+      {
+        "type": "structural_type",
+        "expected": "frame"
+      },
+      {
+        "type": "skill_match",
+        "primary": "concrete-frame",
+        "mayAlsoMatch": [
+          "frame",
+          "generic"
+        ]
+      },
+      {
+        "type": "has_model",
+        "minNodes": 12,
+        "minElements": 20
+      },
+      {
+        "type": "model_matches",
+        "groundTruthId": "frame3d-concrete-2s-2x1y-12k",
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05
+        }
+      },
+      {
+        "type": "numerical_matches",
+        "groundTruthId": "frame3d-concrete-2s-2x1y-12k",
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05,
+          "numeric": 0.01,
+          "numericAbsolute": 1e-8
+        },
+        "engineId": "builtin-pkpm"
+      },
+      {
+        "type": "has_analysis"
+      },
+      {
+        "type": "engine_match",
+        "expected": "builtin-pkpm",
+        "skillId": "pkpm-static"
+      },
+      {
+        "type": "natural_language",
+        "description": "The model should be a spatial 3D concrete frame rather than a planar frame: its nodes should occupy at least two distinct global Y-coordinate planes, with at least one non-zero global Y coordinate"
+      }
+    ]
+  },
+  "engineeringSpecification": "所有模式均须严格使用以下完整分析属性；这些记录不是占位符，无需要求补充。结构分类只使用用户任务，参数提取须同时包含这些属性。不得显式创建构件自重荷载或重复施加折算荷载；分析后端可按自身配置在内部计入构件自重。几何、拓扑、支座和荷载位置仍由用户任务确定。\n单位制: SI\n坐标系: semantics=global-z-up, version=1, dimension=3d, plane=null, dof_order=ux,uy,uz,rx,ry,rz\n材料: id=1, name=C30, grade=C30, category=concrete, E=30000, nu=0.2, rho=2500, fc=14.3\n截面: id=1, name=C30 500x500, type=rect, purpose=column, shape(kind=rectangular, H=500, B=500), properties(A=0.25, Iy=0.005208333333333333, Iz=0.005208333333333333, J=0.008802083333333334, G=12500); id=2, name=C30 300x600, type=rect, purpose=beam, shape(kind=rectangular, H=600, B=300), properties(A=0.18, Iy=0.0053999999999999986, Iz=0.0013499999999999996, J=0.003707859374999999, G=12500)\n分析荷载组合: id=ULS, factors={D=1}"
+}

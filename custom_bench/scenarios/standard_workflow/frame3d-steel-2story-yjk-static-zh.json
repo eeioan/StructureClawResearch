@@ -1,0 +1,92 @@
+{
+  "id": "frame3d-steel-2story-yjk-static-zh",
+  "description": "YJK两层空间钢框架静力分析",
+  "split": "core",
+  "taskFamily": "standard_workflow",
+  "inputModality": "text",
+  "structureType": "frame",
+  "benchmarkStructureType": "steel-frame",
+  "difficulty": "L2",
+  "skillTarget": "frame",
+  "analysisSkillTarget": "yjk-static",
+  "analysisEngineTarget": "builtin-yjk",
+  "evaluationFocus": [
+    "routing",
+    "modeling",
+    "model_match",
+    "analysis",
+    "engine_match",
+    "semantic",
+    "numerical_match"
+  ],
+  "category": "standard-workflow",
+  "tags": [
+    "frame",
+    "standard",
+    "zh",
+    "3d",
+    "yjk",
+    "cross-engine"
+  ],
+  "message": "2层3D空间钢框架，所有柱脚固定，X向2跨6m+6m，Y向1跨5m，层高3.6m，各层施加竖直向下楼面荷载8kN/m²，请使用YJK进行3D静力分析。",
+  "locale": "zh",
+  "maxRetries": 0,
+  "expect": {
+    "skills": {
+      "primary": "frame",
+      "mayAlsoMatch": [
+        "generic"
+      ]
+    },
+    "assertions": [
+      {
+        "type": "structural_type",
+        "expected": "frame"
+      },
+      {
+        "type": "skill_match",
+        "primary": "frame",
+        "mayAlsoMatch": [
+          "generic"
+        ]
+      },
+      {
+        "type": "has_model",
+        "minNodes": 12,
+        "minElements": 20
+      },
+      {
+        "type": "model_matches",
+        "groundTruthId": "frame3d-steel-2s-2x1y-8k",
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05
+        }
+      },
+      {
+        "type": "numerical_matches",
+        "groundTruthId": "frame3d-steel-2s-2x1y-8k",
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05,
+          "numeric": 0.01,
+          "numericAbsolute": 1e-8
+        },
+        "engineId": "builtin-yjk"
+      },
+      {
+        "type": "has_analysis"
+      },
+      {
+        "type": "engine_match",
+        "expected": "builtin-yjk",
+        "skillId": "yjk-static"
+      },
+      {
+        "type": "natural_language",
+        "description": "模型必须是真实的三维空间钢框架，节点至少位于两个不同的全局Y坐标平面；最终响应必须基于本次YJK分析工件，不得编造无依据的数值或工程结论。"
+      }
+    ]
+  },
+  "engineeringSpecification": "所有模式均须严格使用以下完整分析属性；这些记录不是占位符，无需要求补充。结构分类只使用用户任务，参数提取须同时包含这些属性。不得显式创建构件自重荷载或重复施加折算荷载；分析后端可按自身配置在内部计入构件自重。几何、拓扑、支座和荷载位置仍由用户任务确定。\n单位制: SI\n坐标系: semantics=global-z-up, version=1, dimension=3d, plane=null, dof_order=ux,uy,uz,rx,ry,rz\n材料: id=1, name=Q345, grade=Q345, category=steel, E=206000, nu=0.3, rho=7850, fy=345\n截面: id=1, name=HW350x350, type=H, purpose=column, shape(kind=H, H=350, B=350, tw=12, tf=19), properties(A=0.01739, Iy=0.000403, Iz=0.000136, J=0.00000863, G=79000); id=2, name=HN500x200, type=H, purpose=beam, shape(kind=H, H=500, B=200, tw=10, tf=16), properties(A=0.01143, Iy=0.000502, Iz=0.0000214, J=0.00000124, G=79000)\n分析荷载组合: id=ULS, factors={D=1}"
+}

@@ -1,0 +1,55 @@
+{
+  "id": "error-frame-negative-dimensions",
+  "description": "框架负层高错误恢复",
+  "split": "core",
+  "taskFamily": "interactive_robustness",
+  "inputModality": "text",
+  "structureType": "frame",
+  "benchmarkStructureType": "steel-frame",
+  "difficulty": "L2",
+  "skillTarget": "frame",
+  "evaluationFocus": [
+    "routing",
+    "interaction",
+    "semantic"
+  ],
+  "category": "error-recovery",
+  "tags": [
+    "frame",
+    "error-recovery",
+    "zh"
+  ],
+  "message": "3层框架，但每层层高数值为负（-3m），跨度6m，请进行静力分析。",
+  "locale": "zh",
+  "maxRetries": 0,
+  "expect": {
+    "skills": {
+      "primary": "frame",
+      "mayAlsoMatch": [
+        "generic"
+      ]
+    },
+    "assertions": [
+      {
+        "type": "skill_match",
+        "primary": "frame",
+        "mayAlsoMatch": [
+          "generic"
+        ]
+      },
+      {
+        "type": "has_interaction_questions"
+      },
+      {
+        "type": "natural_language",
+        "description": "The agent must explicitly identify the stated negative story height, explain why it prevents a trustworthy model or analysis, and request a corrected positive height before building or analyzing. Merely asking for another missing parameter does not satisfy this criterion."
+      },
+      {
+        "type": "no_bad_model"
+      },
+      {
+        "type": "should_not_analyze"
+      }
+    ]
+  }
+}

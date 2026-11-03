@@ -1,0 +1,86 @@
+{
+  "id": "re-arch-frame-simple-1s1b",
+  "description": "建筑立面DXF反问题：单层单跨框架办公楼",
+  "split": "auxiliary",
+  "taskFamily": "multimodal_reverse_engineering",
+  "inputModality": "dxf",
+  "structureType": "frame",
+  "benchmarkStructureType": "steel-frame",
+  "difficulty": "L3",
+  "skillTarget": "frame",
+  "evaluationFocus": [
+    "routing",
+    "modeling",
+    "model_match",
+    "analysis",
+    "numerical_match"
+  ],
+  "category": "reverse-engineering",
+  "tags": [
+    "reverse-engineering",
+    "frame",
+    "architectural",
+    "architectural-elevation",
+    "dxf",
+    "zh"
+  ],
+  "message": "该建筑采用普通单层单跨平面刚接框架，不是门式刚架。请根据所附建筑立面DXF及工程说明提取结构构件，过滤墙体、门窗、轴网等非结构建筑元素，建立计算模型并进行静力分析。尺寸与拓扑须以图中可见证据为准，不得补猜。",
+  "engineeringSpecification": "材料 steel：E=205000 MPa，ν=0.3，密度=7850 kg/m3。柱构件采用 HW300x300（H=300 mm，B=300 mm，tw=10 mm，tf=15 mm；A=0.01192 m2，Iy=0.000204 m4，Iz=0.0000675 m4，J=0.00000423 m4，G=79000 MPa）。梁构件采用 HN400x200（H=400 mm，B=200 mm，tw=8 mm，tf=13 mm；A=0.00842 m2，Iy=0.000237 m4，Iz=0.0000174 m4，J=0.000000844 m4，G=79000 MPa）。该立面图的源X/Y轴映射为全局X/Z轴，全局Y=0。柱脚均固定，屋面梁施加全局Z负向48 kN/m线荷载。采用SI单位和全局Z轴向上的坐标约定，不附加构件自重，分析荷载组合为 ULS = 1 × D。",
+  "inputContract": {
+    "dxfProvides": ["topology", "dimensions"],
+    "specificationProvides": ["materials", "sections", "supports", "loads", "analysis-settings"],
+    "completeness": "complete"
+  },
+  "locale": "zh",
+  "maxRetries": 0,
+  "attachments": [
+    {
+      "fileId": "re-arch-frame-simple",
+      "originalName": "drawing-037.dxf",
+      "relPath": "fixtures/drawings/arch-frame-simple-1s1b.dxf",
+      "mimeType": "application/dxf"
+    }
+  ],
+  "expect": {
+    "skills": {
+      "primary": "frame",
+      "mayAlsoMatch": [
+        "generic"
+      ]
+    },
+    "assertions": [
+      {
+        "type": "structural_type",
+        "expected": "frame"
+      },
+      {
+        "type": "skill_match",
+        "primary": "frame",
+        "mayAlsoMatch": [
+          "generic"
+        ]
+      },
+      {
+        "type": "model_matches",
+        "groundTruthId": "frame-simple-1s1b",
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05
+        }
+      },
+      {
+        "type": "numerical_matches",
+        "groundTruthId": "frame-simple-1s1b",
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05,
+          "numeric": 0.01,
+          "numericAbsolute": 1e-8
+        }
+      },
+      {
+        "type": "has_analysis"
+      }
+    ]
+  }
+}

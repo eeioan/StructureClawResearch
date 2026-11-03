@@ -1,0 +1,51 @@
+
+============================================================
+LangGraph Agent Benchmark: 1 scenario run(s)
+Mode: auto
+Execution: web-stream
+Case timeout: 1800000ms
+SUT root: C:/Users/user/PycharmProjects/MLTestovoe/structureclaw
+Model: qwen3.5:9b
+Base URL: http://localhost:18435/v1
+============================================================
+
+Running: ru-truss-7e97-coach1#auto...
+[2026-10-26 08:38:06.763 +0300] [32mINFO[39m: [36mbuilding agent graph[39m
+    [35mtoolCount[39m: 20
+    [35mhasCheckpointer[39m: true
+[2026-10-26 08:38:06.766 +0300] [32mINFO[39m: [36mLangGraph agent stream started[39m
+    [35mtraceId[39m: "beb7e72e-9cc6-4059-99cd-be4efde996e6"
+    [35mconversationId[39m: "bench-98f653ae-7105-45ab-9b8b-38c9fbbca0ba"
+    [35mmessage[39m: "[User task]\nВыполни в OpenSees статический расчёт плоской фермы. Нижний пояс горизонтальный, 6 панел"
+[2026-10-26 08:38:06.791 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "beb7e72e-9cc6-4059-99cd-be4efde996e6"
+    [35mconversationId[39m: "bench-98f653ae-7105-45ab-9b8b-38c9fbbca0ba"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 2
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 0
+    [35mcompacted[39m: false
+  error: Connection error.
+
+============================================================
+FAIL  ru-truss-7e97-coach1#auto
+     Ферма 2.1 с наставником во втором ходе (подсказка без чисел: оси и равномерный шаг высот)
+
+  Turn 1: "Выполни в OpenSees статический расчёт пл..."
+    ✗ execution        Connection error.
+
+  ✓ duration           expected: (info)                         actual: 0.1s
+============================================================
+
+============================================================
+Benchmark Results: 0/1 (0.0%) pass, 1 failed
+Pass@1: 0/1 (0.0%)
+Average duration: 0.1s
+Failed: ru-truss-7e97-coach1#auto
+Total time: 0.1s
+
+By metric:
+  execution                        0/1 (0.0%)
+============================================================
+
+Results written to C:/Users/user/PycharmProjects/MLTestovoe/bench_runs/20261026-083802_ru-truss-7e97-coach1.json

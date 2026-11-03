@@ -1,0 +1,707 @@
+{
+  "timestamp": "2026-10-26T01:09:30.660Z",
+  "run": {
+    "schemaVersion": "structureclaw-benchmark-run/v3",
+    "runId": "41ffba95-3c5e-439f-8bd4-184c2407e045",
+    "repeatId": null,
+    "startedAt": "2026-10-26T01:07:41.488Z",
+    "plannedScenarioCount": 1,
+    "selection": {
+      "scenarioId": "std-beam-6m-gt-repeat",
+      "taskFamily": null,
+      "split": null,
+      "mode": "auto",
+      "execution": "web-stream",
+      "supervised": false,
+      "caseTimeoutMs": 1800000,
+      "repeatId": null,
+      "scenarioOrderSeed": null
+    },
+    "models": {
+      "primary": {
+        "configId": null,
+        "model": "qwen3.5:9b",
+        "endpoint": "http://localhost:18435/v1",
+        "temperature": 0,
+        "maxTokens": 16384,
+        "providerMaxRetries": 0,
+        "timeoutMs": 600000
+      },
+      "judge": {
+        "configId": null,
+        "model": "qwen3.5:9b",
+        "endpoint": "https://localhost:18436/v1",
+        "temperature": 0,
+        "maxTokens": 4096,
+        "maxAttempts": 3,
+        "timeoutMs": 120000
+      },
+      "vision": null
+    },
+    "revisions": {
+      "structureclaw": {
+        "revision": "44f487d5ab4a6e6483ca62219432d47a334a8d63",
+        "dirty": false
+      },
+      "benchmark": {
+        "revision": "4259fdd92a83f5d93976bc510ef82a0d2d7b9b57",
+        "dirty": false
+      }
+    },
+    "runtime": {
+      "node": "v24.14.0",
+      "platform": "win32",
+      "architecture": "x64",
+      "yjkVersion": null,
+      "pkpmVersion": null,
+      "openSees": {
+        "packageVersion": "3.7.1.2",
+        "runtimePackage": "openseespywin",
+        "runtimePackageVersion": "3.8.0.0",
+        "engineVersion": "3.8.0"
+      },
+      "llmRoutingAndExtractionOnly": true,
+      "runtimeId": null,
+      "backendPrebuilt": true
+    },
+    "measurement": {
+      "duration": "vision preprocessing plus agent execution; excludes judge evaluation and setup",
+      "primaryTokens": "provider usage attached to checkpointed agent and benchmark nested-call messages; includes nested routing and parameter extraction",
+      "visionTokens": "provider usage from benchmark vision preprocessing, reported separately",
+      "judgeTokens": "excluded from agent-efficiency metrics",
+      "totalApiCostAvailable": false
+    },
+    "protocol": {
+      "phase": "development",
+      "targeted": true,
+      "commonCoreComparison": true,
+      "automaticModelRetries": 0,
+      "solverGate": "off",
+      "yjkCooldownMs": 0,
+      "formalJobId": null,
+      "formalMatrixSha256": null
+    },
+    "fingerprints": {
+      "scenarioHash": "973545017d4456f989495e0279e9afc4509113ce5a9f8c87a63a33b7d2ed3463",
+      "scenarioOrderHash": "75c92e36c27ea03a6de128fe46178b835e6b792de1780ff0546eaf75f18a06a3",
+      "attachmentHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "promptAndToolHash": "6482a68ef016d00c0911843f07e50e9e67a53a8a11a93a116275ec982d8d368a",
+      "evaluationHash": "c1fde5a14f719ff7f09624a7a426edee9f956d057cc6491974b02b69c91934a2",
+      "runtimeConfigHash": "46d888eca3bb196bffb12afc0f7d5048a5dfdca567968a89aa2bda98b32f78ad"
+    },
+    "completedScenarioCount": 1,
+    "completed": true,
+    "finishedAt": "2026-10-26T01:09:30.660Z",
+    "validity": {
+      "phase": "development",
+      "paperEligible": false,
+      "reason": "development run; not eligible for paper results"
+    }
+  },
+  "totalScenarios": 1,
+  "passAt1": 1,
+  "passAtN": 1,
+  "passed": 1,
+  "failed": 0,
+  "passAt1Rate": 1,
+  "passAtNRate": 1,
+  "commonCorePassAt1": 1,
+  "commonCorePassed": 1,
+  "commonCoreFailed": 0,
+  "commonCorePassAt1Rate": 1,
+  "commonCorePassRate": 1,
+  "averageRetries": 0,
+  "averageToolCalls": 6,
+  "averageTotalTokens": 51772,
+  "totalTokens": 51772,
+  "averageVisionTotalTokens": null,
+  "visionTotalTokens": 0,
+  "averageDurationMs": 105373,
+  "totalDurationMs": 105373,
+  "averageEffectiveDurationMs": 105373,
+  "totalEffectiveDurationMs": 105373,
+  "solverQueueWaitMs": 0,
+  "solverExecutionMs": 0,
+  "solverCooldownMs": 0,
+  "by": {
+    "taskFamily": {
+      "standard_workflow": {
+        "total": 1,
+        "passAt1": 1,
+        "passAtN": 1,
+        "passed": 1,
+        "failed": 0,
+        "passAt1Rate": 1,
+        "passAtNRate": 1,
+        "commonCorePassAt1": 1,
+        "commonCorePassed": 1,
+        "commonCoreFailed": 0,
+        "commonCorePassAt1Rate": 1,
+        "commonCorePassRate": 1,
+        "averageRetries": 0,
+        "averageToolCalls": 6,
+        "averageTotalTokens": 51772,
+        "totalTokens": 51772,
+        "averageVisionTotalTokens": null,
+        "visionTotalTokens": 0,
+        "averageDurationMs": 105373,
+        "totalDurationMs": 105373,
+        "averageEffectiveDurationMs": 105373,
+        "totalEffectiveDurationMs": 105373,
+        "solverQueueWaitMs": 0,
+        "solverExecutionMs": 0,
+        "solverCooldownMs": 0
+      }
+    },
+    "mode": {
+      "auto": {
+        "total": 1,
+        "passAt1": 1,
+        "passAtN": 1,
+        "passed": 1,
+        "failed": 0,
+        "passAt1Rate": 1,
+        "passAtNRate": 1,
+        "commonCorePassAt1": 1,
+        "commonCorePassed": 1,
+        "commonCoreFailed": 0,
+        "commonCorePassAt1Rate": 1,
+        "commonCorePassRate": 1,
+        "averageRetries": 0,
+        "averageToolCalls": 6,
+        "averageTotalTokens": 51772,
+        "totalTokens": 51772,
+        "averageVisionTotalTokens": null,
+        "visionTotalTokens": 0,
+        "averageDurationMs": 105373,
+        "totalDurationMs": 105373,
+        "averageEffectiveDurationMs": 105373,
+        "totalEffectiveDurationMs": 105373,
+        "solverQueueWaitMs": 0,
+        "solverExecutionMs": 0,
+        "solverCooldownMs": 0
+      }
+    },
+    "split": {
+      "core": {
+        "total": 1,
+        "passAt1": 1,
+        "passAtN": 1,
+        "passed": 1,
+        "failed": 0,
+        "passAt1Rate": 1,
+        "passAtNRate": 1,
+        "commonCorePassAt1": 1,
+        "commonCorePassed": 1,
+        "commonCoreFailed": 0,
+        "commonCorePassAt1Rate": 1,
+        "commonCorePassRate": 1,
+        "averageRetries": 0,
+        "averageToolCalls": 6,
+        "averageTotalTokens": 51772,
+        "totalTokens": 51772,
+        "averageVisionTotalTokens": null,
+        "visionTotalTokens": 0,
+        "averageDurationMs": 105373,
+        "totalDurationMs": 105373,
+        "averageEffectiveDurationMs": 105373,
+        "totalEffectiveDurationMs": 105373,
+        "solverQueueWaitMs": 0,
+        "solverExecutionMs": 0,
+        "solverCooldownMs": 0
+      }
+    },
+    "category": {
+      "standard-workflow": {
+        "total": 1,
+        "passAt1": 1,
+        "passAtN": 1,
+        "passed": 1,
+        "failed": 0,
+        "passAt1Rate": 1,
+        "passAtNRate": 1,
+        "commonCorePassAt1": 1,
+        "commonCorePassed": 1,
+        "commonCoreFailed": 0,
+        "commonCorePassAt1Rate": 1,
+        "commonCorePassRate": 1,
+        "averageRetries": 0,
+        "averageToolCalls": 6,
+        "averageTotalTokens": 51772,
+        "totalTokens": 51772,
+        "averageVisionTotalTokens": null,
+        "visionTotalTokens": 0,
+        "averageDurationMs": 105373,
+        "totalDurationMs": 105373,
+        "averageEffectiveDurationMs": 105373,
+        "totalEffectiveDurationMs": 105373,
+        "solverQueueWaitMs": 0,
+        "solverExecutionMs": 0,
+        "solverCooldownMs": 0
+      }
+    },
+    "inputModality": {
+      "text": {
+        "total": 1,
+        "passAt1": 1,
+        "passAtN": 1,
+        "passed": 1,
+        "failed": 0,
+        "passAt1Rate": 1,
+        "passAtNRate": 1,
+        "commonCorePassAt1": 1,
+        "commonCorePassed": 1,
+        "commonCoreFailed": 0,
+        "commonCorePassAt1Rate": 1,
+        "commonCorePassRate": 1,
+        "averageRetries": 0,
+        "averageToolCalls": 6,
+        "averageTotalTokens": 51772,
+        "totalTokens": 51772,
+        "averageVisionTotalTokens": null,
+        "visionTotalTokens": 0,
+        "averageDurationMs": 105373,
+        "totalDurationMs": 105373,
+        "averageEffectiveDurationMs": 105373,
+        "totalEffectiveDurationMs": 105373,
+        "solverQueueWaitMs": 0,
+        "solverExecutionMs": 0,
+        "solverCooldownMs": 0
+      }
+    },
+    "inputCompleteness": {
+      "(unset)": {
+        "total": 1,
+        "passAt1": 1,
+        "passAtN": 1,
+        "passed": 1,
+        "failed": 0,
+        "passAt1Rate": 1,
+        "passAtNRate": 1,
+        "commonCorePassAt1": 1,
+        "commonCorePassed": 1,
+        "commonCoreFailed": 0,
+        "commonCorePassAt1Rate": 1,
+        "commonCorePassRate": 1,
+        "averageRetries": 0,
+        "averageToolCalls": 6,
+        "averageTotalTokens": 51772,
+        "totalTokens": 51772,
+        "averageVisionTotalTokens": null,
+        "visionTotalTokens": 0,
+        "averageDurationMs": 105373,
+        "totalDurationMs": 105373,
+        "averageEffectiveDurationMs": 105373,
+        "totalEffectiveDurationMs": 105373,
+        "solverQueueWaitMs": 0,
+        "solverExecutionMs": 0,
+        "solverCooldownMs": 0
+      }
+    },
+    "benchmarkStructureType": {
+      "beam": {
+        "total": 1,
+        "passAt1": 1,
+        "passAtN": 1,
+        "passed": 1,
+        "failed": 0,
+        "passAt1Rate": 1,
+        "passAtNRate": 1,
+        "commonCorePassAt1": 1,
+        "commonCorePassed": 1,
+        "commonCoreFailed": 0,
+        "commonCorePassAt1Rate": 1,
+        "commonCorePassRate": 1,
+        "averageRetries": 0,
+        "averageToolCalls": 6,
+        "averageTotalTokens": 51772,
+        "totalTokens": 51772,
+        "averageVisionTotalTokens": null,
+        "visionTotalTokens": 0,
+        "averageDurationMs": 105373,
+        "totalDurationMs": 105373,
+        "averageEffectiveDurationMs": 105373,
+        "totalEffectiveDurationMs": 105373,
+        "solverQueueWaitMs": 0,
+        "solverExecutionMs": 0,
+        "solverCooldownMs": 0
+      }
+    },
+    "structureType": {
+      "beam": {
+        "total": 1,
+        "passAt1": 1,
+        "passAtN": 1,
+        "passed": 1,
+        "failed": 0,
+        "passAt1Rate": 1,
+        "passAtNRate": 1,
+        "commonCorePassAt1": 1,
+        "commonCorePassed": 1,
+        "commonCoreFailed": 0,
+        "commonCorePassAt1Rate": 1,
+        "commonCorePassRate": 1,
+        "averageRetries": 0,
+        "averageToolCalls": 6,
+        "averageTotalTokens": 51772,
+        "totalTokens": 51772,
+        "averageVisionTotalTokens": null,
+        "visionTotalTokens": 0,
+        "averageDurationMs": 105373,
+        "totalDurationMs": 105373,
+        "averageEffectiveDurationMs": 105373,
+        "totalEffectiveDurationMs": 105373,
+        "solverQueueWaitMs": 0,
+        "solverExecutionMs": 0,
+        "solverCooldownMs": 0
+      }
+    },
+    "analysisEngineTarget": {
+      "builtin-opensees": {
+        "total": 1,
+        "passAt1": 1,
+        "passAtN": 1,
+        "passed": 1,
+        "failed": 0,
+        "passAt1Rate": 1,
+        "passAtNRate": 1,
+        "commonCorePassAt1": 1,
+        "commonCorePassed": 1,
+        "commonCoreFailed": 0,
+        "commonCorePassAt1Rate": 1,
+        "commonCorePassRate": 1,
+        "averageRetries": 0,
+        "averageToolCalls": 6,
+        "averageTotalTokens": 51772,
+        "totalTokens": 51772,
+        "averageVisionTotalTokens": null,
+        "visionTotalTokens": 0,
+        "averageDurationMs": 105373,
+        "totalDurationMs": 105373,
+        "averageEffectiveDurationMs": 105373,
+        "totalEffectiveDurationMs": 105373,
+        "solverQueueWaitMs": 0,
+        "solverExecutionMs": 0,
+        "solverCooldownMs": 0
+      }
+    }
+  },
+  "metrics": {
+    "structural_type": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0
+    },
+    "skill_match": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0
+    },
+    "has_model": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0
+    },
+    "model_matches": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0
+    },
+    "numerical_matches": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0
+    },
+    "has_analysis": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0
+    },
+    "natural_language": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0
+    }
+  },
+  "scenarios": [
+    {
+      "scenarioId": "std-beam-6m-gt-repeat#auto",
+      "baseScenarioId": "std-beam-6m-gt-repeat",
+      "description": "简支梁6m标准真值匹配",
+      "split": "core",
+      "taskFamily": "standard_workflow",
+      "inputModality": "text",
+      "inputCompleteness": null,
+      "structureType": "beam",
+      "benchmarkStructureType": "beam",
+      "difficulty": "L1",
+      "skillTarget": "beam",
+      "category": "standard-workflow",
+      "tags": [
+        "beam",
+        "standard",
+        "zh",
+        "l1"
+      ],
+      "locale": "zh",
+      "analysisSkillTarget": "opensees-static",
+      "analysisEngineTarget": "builtin-opensees",
+      "mode": "auto",
+      "evaluationFocus": [
+        "routing",
+        "modeling",
+        "model_match",
+        "analysis",
+        "numerical_match"
+      ],
+      "passed": 7,
+      "total": 7,
+      "allPassed": true,
+      "metrics": [
+        {
+          "metric": "structural_type",
+          "pass": true,
+          "expected": "beam",
+          "actual": "beam"
+        },
+        {
+          "metric": "skill_match",
+          "pass": true,
+          "expected": "beam",
+          "actual": "beam"
+        },
+        {
+          "metric": "has_model",
+          "pass": true,
+          "expected": ">= 3 nodes, >= 2 elements",
+          "actual": "3 nodes, 2 elements"
+        },
+        {
+          "metric": "model_matches",
+          "pass": true,
+          "expected": "strict engineering match 'beam-simple-6m' (geometry, topology, restraints, assigned properties, loads)",
+          "actual": "dimension 2d/2d; nodes actual=3, expected=3, matched=3 (P=1.000, R=1.000); elements actual=2, expected=2, matched=2 (P=1.000, R=1.000); restraints 3/3; properties OK; element modifiers OK; loads actual=2, expected=2, matched=2 (P=1.000, R=1.000); load combinations OK; stories OK",
+          "details": {
+            "pass": true,
+            "summary": "dimension 2d/2d; nodes actual=3, expected=3, matched=3 (P=1.000, R=1.000); elements actual=2, expected=2, matched=2 (P=1.000, R=1.000); restraints 3/3; properties OK; element modifiers OK; loads actual=2, expected=2, matched=2 (P=1.000, R=1.000); load combinations OK; stories OK",
+            "metrics": {
+              "nodes": {
+                "matched": 3,
+                "actualCount": 3,
+                "expectedCount": 3,
+                "precision": 1,
+                "recall": 1
+              },
+              "elements": {
+                "matched": 2,
+                "actualCount": 2,
+                "expectedCount": 2,
+                "precision": 1,
+                "recall": 1
+              },
+              "loads": {
+                "matched": 2,
+                "actualCount": 2,
+                "expectedCount": 2,
+                "precision": 1,
+                "recall": 1
+              },
+              "restraintFailures": 0,
+              "propertyFailures": 0,
+              "modifierFailures": 0,
+              "loadCombinationsMatch": true,
+              "storyFailures": 0
+            },
+            "failures": [],
+            "diagnostics": {
+              "restraintFailures": [],
+              "propertyFailures": [],
+              "modifierFailures": [],
+              "storyFailures": [],
+              "nodeMapping": {
+                "1": "1",
+                "2": "2",
+                "3": "3"
+              },
+              "elementMapping": {
+                "1": "1",
+                "2": "2"
+              },
+              "elementOrientation": {
+                "1": "same",
+                "2": "same"
+              }
+            }
+          }
+        },
+        {
+          "metric": "numerical_matches",
+          "pass": true,
+          "expected": "40 OpenSees response values within 1.0%",
+          "actual": "matched; max relative difference 0.000%",
+          "details": {
+            "pass": true,
+            "comparedValues": 40,
+            "maxAbsoluteDifference": 0,
+            "maxRelativeDifference": 0,
+            "tolerances": {
+              "absolute": 1e-8,
+              "relative": 0.01
+            },
+            "failures": []
+          }
+        },
+        {
+          "metric": "has_analysis",
+          "pass": true,
+          "expected": "analysis results with displacements, reactions, or forces",
+          "actual": "present"
+        },
+        {
+          "metric": "natural_language",
+          "pass": true,
+          "expected": "最终响应必须报告所要求的跨中竖向挠度，且数值、符号、单位和位置须与当前分析工件一致；不得给出独立臆造或相互矛盾的数值。",
+          "actual": "satisfied"
+        },
+        {
+          "metric": "toolCalls",
+          "pass": true,
+          "expected": "(info, lower is better)",
+          "actual": "6"
+        },
+        {
+          "metric": "inputTokens",
+          "pass": true,
+          "expected": "(info, lower is better)",
+          "actual": "49921"
+        },
+        {
+          "metric": "outputTokens",
+          "pass": true,
+          "expected": "(info, lower is better)",
+          "actual": "1851"
+        },
+        {
+          "metric": "totalTokens",
+          "pass": true,
+          "expected": "(info, lower is better)",
+          "actual": "51772"
+        },
+        {
+          "metric": "duration",
+          "pass": true,
+          "expected": "(info)",
+          "actual": "105.4s"
+        }
+      ],
+      "durationMs": 105373,
+      "executionProfile": {
+        "execution": "web-stream",
+        "mode": "auto",
+        "skillIds": [
+          "beam",
+          "column",
+          "concrete-frame",
+          "double-span-beam",
+          "frame",
+          "generic",
+          "portal-frame",
+          "truss",
+          "opensees-static",
+          "validation-structure-model",
+          "report-export-builtin"
+        ],
+        "enabledToolIds": [
+          "detect_structure_type",
+          "extract_draft_params",
+          "build_model",
+          "validate_model",
+          "run_analysis",
+          "generate_report",
+          "ask_user_clarification",
+          "set_session_config",
+          "analyze_file"
+        ],
+        "sourceDataDir": null,
+        "runtimeDataDir": null,
+        "visionModel": null,
+        "analysisSkillTarget": "opensees-static",
+        "caseTimeoutMs": 1800000,
+        "yjkCloseAfterRun": "1",
+        "conversationId": "bench-db78d87a-a990-4ce1-8bd0-bfc0f137c2fa",
+        "solverGate": {
+          "enabled": false,
+          "mode": "off",
+          "events": [],
+          "solverQueueWaitMs": 0,
+          "solverExecutionMs": 0,
+          "cooldownMs": 0
+        },
+        "effectiveDurationMs": 105373
+      },
+      "retries": {
+        "attempts": 1,
+        "maxRetries": 0,
+        "retriesUsed": 0,
+        "passAt1": true,
+        "passAtN": true,
+        "rounds": [
+          {
+            "attempt": 1,
+            "allPassed": true,
+            "metrics": [
+              {
+                "metric": "structural_type",
+                "pass": true
+              },
+              {
+                "metric": "skill_match",
+                "pass": true
+              },
+              {
+                "metric": "has_model",
+                "pass": true
+              },
+              {
+                "metric": "model_matches",
+                "pass": true
+              },
+              {
+                "metric": "numerical_matches",
+                "pass": true
+              },
+              {
+                "metric": "has_analysis",
+                "pass": true
+              },
+              {
+                "metric": "natural_language",
+                "pass": true
+              },
+              {
+                "metric": "toolCalls",
+                "pass": true
+              },
+              {
+                "metric": "inputTokens",
+                "pass": true
+              },
+              {
+                "metric": "outputTokens",
+                "pass": true
+              },
+              {
+                "metric": "totalTokens",
+                "pass": true
+              },
+              {
+                "metric": "duration",
+                "pass": true
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

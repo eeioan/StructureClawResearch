@@ -1,0 +1,294 @@
+
+============================================================
+LangGraph Agent Benchmark: 1 scenario run(s)
+Mode: auto
+Execution: web-stream
+Case timeout: 1800000ms
+SUT root: C:\Users\user\PycharmProjects\MLTestovoe\structureclaw
+Model: qwen3.5:9b
+Base URL: http://localhost:18435/v1
+============================================================
+
+Running: frame-2story-1bay-static#auto...
+[2026-10-26 04:09:36.059 +0300] [32mINFO[39m: [36mbuilding agent graph[39m
+    [35mtoolCount[39m: 20
+    [35mhasCheckpointer[39m: true
+[2026-10-26 04:09:36.062 +0300] [32mINFO[39m: [36mLangGraph agent stream started[39m
+    [35mtraceId[39m: "a7e41ae7-972b-45ad-a08c-d617bb0b48be"
+    [35mconversationId[39m: "bench-f49651fc-fcf0-4d29-a801-0635b0c60085"
+    [35mmessage[39m: "[User task]\nUse OpenSees to run static analysis for a 2-story single-bay steel frame with 3.6m story"
+[2026-10-26 04:09:36.084 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "a7e41ae7-972b-45ad-a08c-d617bb0b48be"
+    [35mconversationId[39m: "bench-f49651fc-fcf0-4d29-a801-0635b0c60085"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 2
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 0
+    [35mcompacted[39m: false
+[2026-10-26 04:09:47.567 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "a7e41ae7-972b-45ad-a08c-d617bb0b48be"
+    [35mconversationId[39m: "bench-f49651fc-fcf0-4d29-a801-0635b0c60085"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 11483
+    [35mhasToolCalls[39m: true
+    [35mfinishReason[39m: "tool_calls"
+    [35mcontentLength[39m: 153
+    [35mreasoningContentLength[39m: 0
+[2026-10-26 04:09:53.544 +0300] [32mINFO[39m: [36mllm:qwen3.5:9b call completed[39m
+    [35mmodel[39m: "qwen3.5:9b"
+    [35mdurationMs[39m: 5964
+    [35msuccess[39m: true
+[2026-10-26 04:09:53.545 +0300] [32mINFO[39m: [36mtool:detect_structure_type completed[39m
+    [35mtraceId[39m: "a7e41ae7-972b-45ad-a08c-d617bb0b48be"
+    [35mconversationId[39m: "bench-f49651fc-fcf0-4d29-a801-0635b0c60085"
+    [35mtool[39m: "detect_structure_type"
+    [35mdurationMs[39m: 5968
+    [35msuccess[39m: true
+    [35mmatchedKey[39m: "steel-frame"
+    [35mskillId[39m: "frame"
+    [35mroutingSource[39m: "llm-suggested"
+[2026-10-26 04:09:53.550 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "a7e41ae7-972b-45ad-a08c-d617bb0b48be"
+    [35mconversationId[39m: "bench-f49651fc-fcf0-4d29-a801-0635b0c60085"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 4
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 1
+    [35mcompacted[39m: false
+[2026-10-26 04:10:16.562 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "a7e41ae7-972b-45ad-a08c-d617bb0b48be"
+    [35mconversationId[39m: "bench-f49651fc-fcf0-4d29-a801-0635b0c60085"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 23012
+    [35mhasToolCalls[39m: true
+    [35mfinishReason[39m: "tool_calls"
+    [35mcontentLength[39m: 133
+    [35mreasoningContentLength[39m: 0
+[2026-10-26 04:10:16.569 +0300] [32mINFO[39m: [36mparam extractor started[39m
+    [35mtraceId[39m: "a7e41ae7-972b-45ad-a08c-d617bb0b48be"
+    [35mconversationId[39m: "bench-f49651fc-fcf0-4d29-a801-0635b0c60085"
+    [35mpluginId[39m: "frame"
+    [35mlocale[39m: "en"
+[2026-10-26 04:11:23.104 +0300] [32mINFO[39m: [36mllm:qwen3.5:9b call completed[39m
+    [35mmodel[39m: "qwen3.5:9b"
+    [35mdurationMs[39m: 66531
+    [35msuccess[39m: true
+[2026-10-26 04:11:23.106 +0300] [33mWARN[39m: [36mtool:extract_draft_params failed[39m
+    [35mtraceId[39m: "a7e41ae7-972b-45ad-a08c-d617bb0b48be"
+    [35mconversationId[39m: "bench-f49651fc-fcf0-4d29-a801-0635b0c60085"
+    [35mtool[39m: "extract_draft_params"
+    [35mdurationMs[39m: 66540
+    [35msuccess[39m: false
+    error: "LLM_PARAM_EXTRACTOR_INVALID_OUTPUT: response was not a usable JSON draft patch; finishReason=unknown; contentLength=5477; reasoningContentLength=0"
+[2026-10-26 04:11:23.110 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "a7e41ae7-972b-45ad-a08c-d617bb0b48be"
+    [35mconversationId[39m: "bench-f49651fc-fcf0-4d29-a801-0635b0c60085"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 6
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 2
+    [35mcompacted[39m: false
+[2026-10-26 04:11:35.577 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "a7e41ae7-972b-45ad-a08c-d617bb0b48be"
+    [35mconversationId[39m: "bench-f49651fc-fcf0-4d29-a801-0635b0c60085"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 12467
+    [35mhasToolCalls[39m: true
+    [35mfinishReason[39m: "tool_calls"
+    [35mcontentLength[39m: 141
+    [35mreasoningContentLength[39m: 0
+[2026-10-26 04:11:35.581 +0300] [32mINFO[39m: [36mparam extractor started[39m
+    [35mtraceId[39m: "a7e41ae7-972b-45ad-a08c-d617bb0b48be"
+    [35mconversationId[39m: "bench-f49651fc-fcf0-4d29-a801-0635b0c60085"
+    [35mpluginId[39m: "frame"
+    [35mlocale[39m: "en"
+[2026-10-26 04:12:02.077 +0300] [32mINFO[39m: [36mllm:qwen3.5:9b call completed[39m
+    [35mmodel[39m: "qwen3.5:9b"
+    [35mdurationMs[39m: 26494
+    [35msuccess[39m: true
+[2026-10-26 04:12:02.082 +0300] [32mINFO[39m: [36mtool:extract_draft_params completed[39m
+    [35mtraceId[39m: "a7e41ae7-972b-45ad-a08c-d617bb0b48be"
+    [35mconversationId[39m: "bench-f49651fc-fcf0-4d29-a801-0635b0c60085"
+    [35mtool[39m: "extract_draft_params"
+    [35mdurationMs[39m: 26501
+    [35msuccess[39m: true
+    [35mskillId[39m: "frame"
+    [35mextractionMode[39m: "llm"
+    [35mcriticalMissing[39m: 0
+    [35mroutingSource[39m: "current-state"
+[2026-10-26 04:12:02.086 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "a7e41ae7-972b-45ad-a08c-d617bb0b48be"
+    [35mconversationId[39m: "bench-f49651fc-fcf0-4d29-a801-0635b0c60085"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 8
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 3
+    [35mcompacted[39m: false
+[2026-10-26 04:12:07.729 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "a7e41ae7-972b-45ad-a08c-d617bb0b48be"
+    [35mconversationId[39m: "bench-f49651fc-fcf0-4d29-a801-0635b0c60085"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 5642
+    [35mhasToolCalls[39m: true
+    [35mfinishReason[39m: "tool_calls"
+    [35mcontentLength[39m: 98
+    [35mreasoningContentLength[39m: 0
+[2026-10-26 04:12:07.737 +0300] [32mINFO[39m: [36mtool:build_model completed[39m
+    [35mtraceId[39m: "a7e41ae7-972b-45ad-a08c-d617bb0b48be"
+    [35mconversationId[39m: "bench-f49651fc-fcf0-4d29-a801-0635b0c60085"
+    [35mtool[39m: "build_model"
+    [35mdurationMs[39m: 4
+    [35msuccess[39m: true
+    [35mnodeCount[39m: 6
+    [35melementCount[39m: 6
+    [35mschemaVersion[39m: "2.0.0"
+    [35mnextAction[39m: "run_analysis"
+    [35mmessage[39m: "Model build is complete. Next, call run_analysis to execute the structural analysis."
+[2026-10-26 04:12:07.741 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "a7e41ae7-972b-45ad-a08c-d617bb0b48be"
+    [35mconversationId[39m: "bench-f49651fc-fcf0-4d29-a801-0635b0c60085"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 10
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 4
+    [35mcompacted[39m: false
+[2026-10-26 04:12:09.996 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "a7e41ae7-972b-45ad-a08c-d617bb0b48be"
+    [35mconversationId[39m: "bench-f49651fc-fcf0-4d29-a801-0635b0c60085"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 2255
+    [35mhasToolCalls[39m: true
+    [35mfinishReason[39m: "tool_calls"
+    [35mcontentLength[39m: 132
+    [35mreasoningContentLength[39m: 0
+[2026-10-26 04:12:10.785 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "a7e41ae7-972b-45ad-a08c-d617bb0b48be"
+    [35mconversationId[39m: "bench-f49651fc-fcf0-4d29-a801-0635b0c60085"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 12
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 5
+    [35mcompacted[39m: false
+[2026-10-26 04:12:16.402 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "a7e41ae7-972b-45ad-a08c-d617bb0b48be"
+    [35mconversationId[39m: "bench-f49651fc-fcf0-4d29-a801-0635b0c60085"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 5617
+    [35mhasToolCalls[39m: true
+    [35mfinishReason[39m: "tool_calls"
+    [35mcontentLength[39m: 169
+    [35mreasoningContentLength[39m: 0
+[2026-10-26 04:12:16.409 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "a7e41ae7-972b-45ad-a08c-d617bb0b48be"
+    [35mconversationId[39m: "bench-f49651fc-fcf0-4d29-a801-0635b0c60085"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 14
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 6
+    [35mcompacted[39m: false
+[2026-10-26 04:12:23.232 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "a7e41ae7-972b-45ad-a08c-d617bb0b48be"
+    [35mconversationId[39m: "bench-f49651fc-fcf0-4d29-a801-0635b0c60085"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 6823
+    [35mhasToolCalls[39m: true
+    [35mfinishReason[39m: "tool_calls"
+    [35mcontentLength[39m: 49
+    [35mreasoningContentLength[39m: 0
+[2026-10-26 04:12:24.632 +0300] [32mINFO[39m: [36mtool:run_analysis completed[39m
+    [35mtraceId[39m: "a7e41ae7-972b-45ad-a08c-d617bb0b48be"
+    [35mconversationId[39m: "bench-f49651fc-fcf0-4d29-a801-0635b0c60085"
+    [35mtool[39m: "run_analysis"
+    [35mdurationMs[39m: 1397
+    [35msuccess[39m: true
+    [35manalysisType[39m: "static"
+    [35mskillId[39m: "opensees-static"
+    [35mrequestedAnalysisSkillId[39m: "opensees-static"
+[2026-10-26 04:12:24.635 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "a7e41ae7-972b-45ad-a08c-d617bb0b48be"
+    [35mconversationId[39m: "bench-f49651fc-fcf0-4d29-a801-0635b0c60085"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 16
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 7
+    [35mcompacted[39m: false
+[2026-10-26 04:12:36.527 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "a7e41ae7-972b-45ad-a08c-d617bb0b48be"
+    [35mconversationId[39m: "bench-f49651fc-fcf0-4d29-a801-0635b0c60085"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 11892
+    [35mhasToolCalls[39m: true
+    [35mfinishReason[39m: "tool_calls"
+    [35mcontentLength[39m: 156
+    [35mreasoningContentLength[39m: 0
+[2026-10-26 04:12:36.535 +0300] [32mINFO[39m: [36mtool:generate_report completed[39m
+    [35mtraceId[39m: "a7e41ae7-972b-45ad-a08c-d617bb0b48be"
+    [35mconversationId[39m: "bench-f49651fc-fcf0-4d29-a801-0635b0c60085"
+    [35mtool[39m: "generate_report"
+    [35mdurationMs[39m: 4
+    [35msuccess[39m: true
+    [35manalysisType[39m: "static"
+    [35mlocale[39m: "en"
+[2026-10-26 04:12:36.538 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "a7e41ae7-972b-45ad-a08c-d617bb0b48be"
+    [35mconversationId[39m: "bench-f49651fc-fcf0-4d29-a801-0635b0c60085"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 18
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 8
+    [35mcompacted[39m: false
+[2026-10-26 04:13:32.320 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "a7e41ae7-972b-45ad-a08c-d617bb0b48be"
+    [35mconversationId[39m: "bench-f49651fc-fcf0-4d29-a801-0635b0c60085"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 55782
+    [35mhasToolCalls[39m: false
+    [35mfinishReason[39m: "stop"
+    [35mcontentLength[39m: 3078
+    [35mreasoningContentLength[39m: 0
+[2026-10-26 04:13:32.325 +0300] [32mINFO[39m: [36mLangGraph agent stream completed[39m
+    [35mtraceId[39m: "a7e41ae7-972b-45ad-a08c-d617bb0b48be"
+    [35mconversationId[39m: "bench-f49651fc-fcf0-4d29-a801-0635b0c60085"
+    [35mdurationMs[39m: 236272
+    [35mmode[39m: "stream"
+
+============================================================
+FAIL  frame-2story-1bay-static#auto
+     2-story single-bay steel frame static analysis
+
+  ✓ structural_type    expected: frame or steel-frame or concrete-frame or reinforced-concrete-frame actual: steel-frame
+  ✓ skill_match        expected: frame                          actual: frame
+  ✓ has_model          expected: >= 6 nodes, >= 6 elements      actual: 6 nodes, 6 elements
+  ✓ model_matches      expected: strict engineering match 'frame-2s1b-6m-10k' (geometry, topology, restraints, assigned properties, loads) actual: dimension 2d/2d; nodes actual=6, expected=6, matched=6 (P=1.000, R=1.000); elements actual=6, expected=6, matched=6 (P=1.000, R=1.000); restraints 6/6; properties OK; element modifiers OK; loads actual=2, expected=2, matched=2 (P=1.000, R=1.000); load combinations OK; stories OK
+  ✓ numerical_matches  expected: 90 OpenSees response values within 1.0% actual: matched; max relative difference 0.000%
+  ✓ has_analysis       expected: analysis results with displacements, reactions, or forces actual: present
+  ✓ engine_match       expected: engine=builtin-opensees, skill=opensees-static actual: engine=builtin-opensees, skill=opensees-static, adapter=builtin-opensees
+  ✗ natural_language   expected: The final response or report must explicitly include the global-X displacement at both left and right beam-column nodes on each floor, with values, signs, units, node IDs, and story locations consistent with the current analysis artifact; alternatively, any inter-story displacement must identify the column line or nodes and the adjacent-level difference. No independently invented or contradictory value is acceptable. actual: not satisfied — The criterion requires reporting global-X displacement at both left and right beam-column nodes on each floor. The agent output provides UX values for all 6 nodes (N0_0, N0_1, N1_0, N1_1, N2_0, N2_1) with correct signs, units, node IDs, and story locations consistent with the analysis artifact. However, the criterion also states 'alternatively, any inter-story displacement must identify the column line or nodes and the adjacent-level difference.' The agent output includes an 'Inter-Story Displacement Analysis' section that explicitly calculates these differences (ΔUX) for both stories and identifies the column lines (left/right). All required data points are present and consistent. Therefore, the criterion is satisfied.
+  ✓ toolCalls          expected: (info, lower is better)        actual: 8
+  ✓ inputTokens        expected: (info, lower is better)        actual: 79405
+  ✓ outputTokens       expected: (info, lower is better)        actual: 4746
+  ✓ totalTokens        expected: (info, lower is better)        actual: 84151
+  ✓ duration           expected: (info)                         actual: 236.3s
+============================================================
+
+============================================================
+Benchmark Results: 0/1 (0.0%) pass, 1 failed
+Pass@1: 0/1 (0.0%)
+Average tool calls: 8.0
+Average primary-model tokens: 84151.0
+Average duration: 236.3s
+Failed: frame-2story-1bay-static#auto
+Total time: 236.3s
+
+By metric:
+  engine_match                     1/1 (100.0%)
+  has_analysis                     1/1 (100.0%)
+  has_model                        1/1 (100.0%)
+  model_matches                    1/1 (100.0%)
+  natural_language                 0/1 (0.0%)
+  numerical_matches                1/1 (100.0%)
+  skill_match                      1/1 (100.0%)
+  structural_type                  1/1 (100.0%)
+============================================================
+
+Results written to C:/Users/user/PycharmProjects/MLTestovoe/bench_runs/20261026-040930_frame-2story-1bay-static.json

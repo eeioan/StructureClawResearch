@@ -1,0 +1,86 @@
+{
+  "id": "concrete-frame-3story-opensees-static-en",
+  "description": "3-story concrete frame OpenSees static analysis",
+  "split": "core",
+  "taskFamily": "standard_workflow",
+  "inputModality": "text",
+  "structureType": "concrete-frame",
+  "benchmarkStructureType": "concrete-frame",
+  "difficulty": "L2",
+  "skillTarget": "concrete-frame",
+  "analysisSkillTarget": "opensees-static",
+  "analysisEngineTarget": "builtin-opensees",
+  "evaluationFocus": [
+    "routing",
+    "modeling",
+    "model_match",
+    "analysis",
+    "engine_match",
+    "numerical_match"
+  ],
+  "category": "static-analysis",
+  "tags": [
+    "concrete-frame",
+    "static",
+    "en"
+  ],
+  "message": "Use OpenSees to run static analysis for a 3-story single-bay 2D concrete frame with 3.3m story height, 6m bay width, fixed column bases, C35 concrete, 500mm × 500mm columns, and 300mm × 600mm beams. Convert the 10kN/m2 floor load using a 6m tributary width and apply only the resulting 60kN/m downward beam line load; do not also apply the area load.",
+  "locale": "en",
+  "maxRetries": 0,
+  "expect": {
+    "skills": {
+      "primary": "concrete-frame",
+      "mayAlsoMatch": [
+        "frame",
+        "generic"
+      ]
+    },
+    "assertions": [
+      {
+        "type": "structural_type",
+        "expected": "frame"
+      },
+      {
+        "type": "skill_match",
+        "primary": "concrete-frame",
+        "mayAlsoMatch": [
+          "frame",
+          "generic"
+        ]
+      },
+      {
+        "type": "has_model",
+        "minNodes": 8,
+        "minElements": 9
+      },
+      {
+        "type": "model_matches",
+        "groundTruthId": "concrete-frame-3s1b-6m-10k",
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05
+        }
+      },
+      {
+        "type": "numerical_matches",
+        "groundTruthId": "concrete-frame-3s1b-6m-10k",
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05,
+          "numeric": 0.01,
+          "numericAbsolute": 1e-8
+        },
+        "engineId": "builtin-opensees"
+      },
+      {
+        "type": "has_analysis"
+      },
+      {
+        "type": "engine_match",
+        "expected": "builtin-opensees",
+        "skillId": "opensees-static"
+      }
+    ]
+  },
+  "engineeringSpecification": "Use these complete analysis-property records exactly in every mode; they are not placeholders and need no clarification. Use only the user task to classify the structure, but include these properties in parameter extraction. Do not create an explicit self-weight load or duplicate a converted load; an analysis provider may apply its configured member self-weight internally. Reconstruct geometry, topology, supports, and load placement from the task.\nUnit system: SI\nCoordinate system: semantics=global-z-up, version=1, dimension=2d, plane=xz, dof_order=ux,uy,uz,rx,ry,rz\nMaterials: id=1, name=C35, grade=C35, category=concrete, E=31500, nu=0.2, rho=2500, fc=16.7\nSections: id=1, name=C35 500x500, type=rect, purpose=column, shape(kind=rectangular, H=500, B=500), properties(A=0.25, Iy=0.005208333333333333, Iz=0.005208333333333333, J=0.008802083333333334, G=12500); id=2, name=C35 300x600, type=rect, purpose=beam, shape(kind=rectangular, H=600, B=300), properties(A=0.18, Iy=0.0053999999999999986, Iz=0.0013499999999999996, J=0.003707859374999999, G=12500)\nAnalysis load combinations: id=ULS, factors={D=1}"
+}

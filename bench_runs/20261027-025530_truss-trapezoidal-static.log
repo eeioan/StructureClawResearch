@@ -1,0 +1,239 @@
+
+============================================================
+LangGraph Agent Benchmark: 1 scenario run(s)
+Mode: auto
+Execution: web-stream
+Case timeout: 1800000ms
+SUT root: C:\Users\user\PycharmProjects\MLTestovoe\structureclaw
+Model: gemma4:31b-cloud
+Base URL: http://localhost:18435/v1
+============================================================
+
+Running: truss-trapezoidal-static#auto...
+[2026-10-27 02:55:38.101 +0300] [32mINFO[39m: [36mbuilding agent graph[39m
+    [35mtoolCount[39m: 20
+    [35mhasCheckpointer[39m: true
+[2026-10-27 02:55:38.104 +0300] [32mINFO[39m: [36mLangGraph agent stream started[39m
+    [35mtraceId[39m: "00505266-1f98-4738-9184-173b844b5e67"
+    [35mconversationId[39m: "bench-45fafefc-df68-41da-9574-a07d6de1a00c"
+    [35mmessage[39m: "[用户任务]\n对称双坡上弦梯形桁架跨度18m，下弦水平并分为6个3m节间；上弦端高1.6m、跨中高2.5m，两侧坡度绝对值为1/10。每个下弦节间点与同一x坐标的上弦节点之间均设置竖杆，包括两端竖杆B"
+[2026-10-27 02:55:38.125 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "00505266-1f98-4738-9184-173b844b5e67"
+    [35mconversationId[39m: "bench-45fafefc-df68-41da-9574-a07d6de1a00c"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 2
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 0
+    [35mcompacted[39m: false
+[2026-10-27 02:55:39.400 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "00505266-1f98-4738-9184-173b844b5e67"
+    [35mconversationId[39m: "bench-45fafefc-df68-41da-9574-a07d6de1a00c"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 1275
+    [35mhasToolCalls[39m: true
+    [35mfinishReason[39m: "tool_calls"
+    [35mcontentLength[39m: 0
+    [35mreasoningContentLength[39m: 0
+[2026-10-27 02:55:40.243 +0300] [32mINFO[39m: [36mllm:gemma4:31b-cloud call completed[39m
+    [35mmodel[39m: "gemma4:31b-cloud"
+    [35mdurationMs[39m: 834
+    [35msuccess[39m: true
+[2026-10-27 02:55:40.244 +0300] [32mINFO[39m: [36mtool:detect_structure_type completed[39m
+    [35mtraceId[39m: "00505266-1f98-4738-9184-173b844b5e67"
+    [35mconversationId[39m: "bench-45fafefc-df68-41da-9574-a07d6de1a00c"
+    [35mtool[39m: "detect_structure_type"
+    [35mdurationMs[39m: 837
+    [35msuccess[39m: true
+    [35mmatchedKey[39m: "truss"
+    [35mskillId[39m: "truss"
+    [35mroutingSource[39m: "llm-suggested"
+[2026-10-27 02:55:40.248 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "00505266-1f98-4738-9184-173b844b5e67"
+    [35mconversationId[39m: "bench-45fafefc-df68-41da-9574-a07d6de1a00c"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 4
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 1
+    [35mcompacted[39m: false
+[2026-10-27 02:55:41.259 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "00505266-1f98-4738-9184-173b844b5e67"
+    [35mconversationId[39m: "bench-45fafefc-df68-41da-9574-a07d6de1a00c"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 1011
+    [35mhasToolCalls[39m: true
+    [35mfinishReason[39m: "tool_calls"
+    [35mcontentLength[39m: 0
+    [35mreasoningContentLength[39m: 0
+[2026-10-27 02:55:41.265 +0300] [32mINFO[39m: [36mparam extractor started[39m
+    [35mtraceId[39m: "00505266-1f98-4738-9184-173b844b5e67"
+    [35mconversationId[39m: "bench-45fafefc-df68-41da-9574-a07d6de1a00c"
+    [35mpluginId[39m: "truss"
+    [35mlocale[39m: "zh"
+[2026-10-27 02:55:46.936 +0300] [32mINFO[39m: [36mllm:gemma4:31b-cloud call completed[39m
+    [35mmodel[39m: "gemma4:31b-cloud"
+    [35mdurationMs[39m: 5671
+    [35msuccess[39m: true
+[2026-10-27 02:55:46.940 +0300] [32mINFO[39m: [36mtool:extract_draft_params completed[39m
+    [35mtraceId[39m: "00505266-1f98-4738-9184-173b844b5e67"
+    [35mconversationId[39m: "bench-45fafefc-df68-41da-9574-a07d6de1a00c"
+    [35mtool[39m: "extract_draft_params"
+    [35mdurationMs[39m: 5678
+    [35msuccess[39m: true
+    [35mskillId[39m: "truss"
+    [35mextractionMode[39m: "llm"
+    [35mcriticalMissing[39m: 0
+    [35mroutingSource[39m: "current-state"
+[2026-10-27 02:55:46.945 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "00505266-1f98-4738-9184-173b844b5e67"
+    [35mconversationId[39m: "bench-45fafefc-df68-41da-9574-a07d6de1a00c"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 6
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 2
+    [35mcompacted[39m: false
+[2026-10-27 02:55:47.826 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "00505266-1f98-4738-9184-173b844b5e67"
+    [35mconversationId[39m: "bench-45fafefc-df68-41da-9574-a07d6de1a00c"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 881
+    [35mhasToolCalls[39m: true
+    [35mfinishReason[39m: "tool_calls"
+    [35mcontentLength[39m: 0
+    [35mreasoningContentLength[39m: 0
+[2026-10-27 02:55:47.830 +0300] [32mINFO[39m: [36mtool:build_model completed[39m
+    [35mtraceId[39m: "00505266-1f98-4738-9184-173b844b5e67"
+    [35mconversationId[39m: "bench-45fafefc-df68-41da-9574-a07d6de1a00c"
+    [35mtool[39m: "build_model"
+    [35mdurationMs[39m: 2
+    [35msuccess[39m: true
+    [35mnodeCount[39m: 14
+    [35melementCount[39m: 25
+    [35mschemaVersion[39m: "2.0.0"
+    [35mnextAction[39m: "run_analysis"
+    [35mmessage[39m: "模型已构建完成。下一步必须调用 run_analysis 执行结构分析。"
+[2026-10-27 02:55:47.832 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "00505266-1f98-4738-9184-173b844b5e67"
+    [35mconversationId[39m: "bench-45fafefc-df68-41da-9574-a07d6de1a00c"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 8
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 3
+    [35mcompacted[39m: false
+[2026-10-27 02:55:48.264 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "00505266-1f98-4738-9184-173b844b5e67"
+    [35mconversationId[39m: "bench-45fafefc-df68-41da-9574-a07d6de1a00c"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 432
+    [35mhasToolCalls[39m: true
+    [35mfinishReason[39m: "tool_calls"
+    [35mcontentLength[39m: 0
+    [35mreasoningContentLength[39m: 0
+[2026-10-27 02:55:49.129 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "00505266-1f98-4738-9184-173b844b5e67"
+    [35mconversationId[39m: "bench-45fafefc-df68-41da-9574-a07d6de1a00c"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 10
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 4
+    [35mcompacted[39m: false
+[2026-10-27 02:55:49.600 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "00505266-1f98-4738-9184-173b844b5e67"
+    [35mconversationId[39m: "bench-45fafefc-df68-41da-9574-a07d6de1a00c"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 471
+    [35mhasToolCalls[39m: true
+    [35mfinishReason[39m: "tool_calls"
+    [35mcontentLength[39m: 0
+    [35mreasoningContentLength[39m: 0
+[2026-10-27 02:55:50.867 +0300] [32mINFO[39m: [36mtool:run_analysis completed[39m
+    [35mtraceId[39m: "00505266-1f98-4738-9184-173b844b5e67"
+    [35mconversationId[39m: "bench-45fafefc-df68-41da-9574-a07d6de1a00c"
+    [35mtool[39m: "run_analysis"
+    [35mdurationMs[39m: 1264
+    [35msuccess[39m: true
+    [35manalysisType[39m: "static"
+    [35mskillId[39m: "opensees-static"
+    [35mrequestedAnalysisSkillId[39m: "opensees-static"
+[2026-10-27 02:55:50.870 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "00505266-1f98-4738-9184-173b844b5e67"
+    [35mconversationId[39m: "bench-45fafefc-df68-41da-9574-a07d6de1a00c"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 12
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 5
+    [35mcompacted[39m: false
+[2026-10-27 02:55:51.832 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "00505266-1f98-4738-9184-173b844b5e67"
+    [35mconversationId[39m: "bench-45fafefc-df68-41da-9574-a07d6de1a00c"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 962
+    [35mhasToolCalls[39m: true
+    [35mfinishReason[39m: "tool_calls"
+    [35mcontentLength[39m: 0
+    [35mreasoningContentLength[39m: 0
+[2026-10-27 02:55:51.836 +0300] [32mINFO[39m: [36mtool:generate_report completed[39m
+    [35mtraceId[39m: "00505266-1f98-4738-9184-173b844b5e67"
+    [35mconversationId[39m: "bench-45fafefc-df68-41da-9574-a07d6de1a00c"
+    [35mtool[39m: "generate_report"
+    [35mdurationMs[39m: 2
+    [35msuccess[39m: true
+    [35manalysisType[39m: "static"
+    [35mlocale[39m: "zh"
+[2026-10-27 02:55:51.838 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "00505266-1f98-4738-9184-173b844b5e67"
+    [35mconversationId[39m: "bench-45fafefc-df68-41da-9574-a07d6de1a00c"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 14
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 6
+    [35mcompacted[39m: false
+[2026-10-27 02:55:55.168 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "00505266-1f98-4738-9184-173b844b5e67"
+    [35mconversationId[39m: "bench-45fafefc-df68-41da-9574-a07d6de1a00c"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 3330
+    [35mhasToolCalls[39m: false
+    [35mfinishReason[39m: "stop"
+    [35mcontentLength[39m: 1395
+    [35mreasoningContentLength[39m: 0
+[2026-10-27 02:55:55.175 +0300] [32mINFO[39m: [36mLangGraph agent stream completed[39m
+    [35mtraceId[39m: "00505266-1f98-4738-9184-173b844b5e67"
+    [35mconversationId[39m: "bench-45fafefc-df68-41da-9574-a07d6de1a00c"
+    [35mdurationMs[39m: 17079
+    [35mmode[39m: "stream"
+
+============================================================
+PASS  truss-trapezoidal-static#auto
+     梯形桁架静力分析
+
+  ✓ structural_type    expected: truss                          actual: truss
+  ✓ skill_match        expected: truss                          actual: truss
+  ✓ has_model          expected: >= 4 nodes, >= 5 elements      actual: 14 nodes, 25 elements
+  ✓ model_matches      expected: strict engineering match 'truss-complex-trap' (geometry, topology, restraints, assigned properties, loads) actual: dimension 2d/2d; nodes actual=14, expected=14, matched=14 (P=1.000, R=1.000); elements actual=25, expected=25, matched=25 (P=1.000, R=1.000); restraints 14/14; properties OK; element modifiers OK; loads actual=5, expected=5, matched=5 (P=1.000, R=1.000); load combinations OK; stories OK
+  ✓ numerical_matches  expected: 138 OpenSees response values within 1.0% actual: matched; max relative difference 0.000%
+  ✓ has_analysis       expected: analysis results with displacements, reactions, or forces actual: present
+  ✓ toolCalls          expected: (info, lower is better)        actual: 6
+  ✓ inputTokens        expected: (info, lower is better)        actual: 70935
+  ✓ outputTokens       expected: (info, lower is better)        actual: 3310
+  ✓ totalTokens        expected: (info, lower is better)        actual: 74245
+  ✓ duration           expected: (info)                         actual: 17.1s
+============================================================
+
+============================================================
+Benchmark Results: 1/1 (100.0%) pass
+Pass@1: 1/1 (100.0%)
+Average tool calls: 6.0
+Average primary-model tokens: 74245.0
+Average duration: 17.1s
+Total time: 17.1s
+
+By metric:
+  has_analysis                     1/1 (100.0%)
+  has_model                        1/1 (100.0%)
+  model_matches                    1/1 (100.0%)
+  numerical_matches                1/1 (100.0%)
+  skill_match                      1/1 (100.0%)
+  structural_type                  1/1 (100.0%)
+============================================================
+
+Results written to C:/Users/user/PycharmProjects/MLTestovoe/bench_runs/20261027-025530_truss-trapezoidal-static.json

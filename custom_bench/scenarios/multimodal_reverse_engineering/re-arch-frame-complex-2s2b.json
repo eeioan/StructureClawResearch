@@ -1,0 +1,88 @@
+{
+  "id": "re-arch-frame-complex-2s2b",
+  "description": "Architectural elevation DXF reverse engineering: 2-story 2-bay frame building",
+  "split": "auxiliary",
+  "taskFamily": "multimodal_reverse_engineering",
+  "inputModality": "dxf",
+  "structureType": "frame",
+  "benchmarkStructureType": "steel-frame",
+  "difficulty": "L3",
+  "skillTarget": "frame",
+  "evaluationFocus": [
+    "routing",
+    "modeling",
+    "model_match",
+    "analysis",
+    "numerical_match"
+  ],
+  "category": "reverse-engineering",
+  "tags": [
+    "reverse-engineering",
+    "frame",
+    "architectural",
+    "architectural-elevation",
+    "dxf",
+    "en"
+  ],
+  "message": "Extract the structural members from the attached architectural elevation DXF and engineering specification, filter out non-structural building elements, build the calculation model, and run static analysis. Use visible dimensions and structural layers; do not infer missing engineering information.",
+  "engineeringSpecification": "Material steel: E=205000 MPa, nu=0.3, density=7850 kg/m3. Column members use section HW350x350 (H=350 mm, B=350 mm, tw=12 mm, tf=19 mm; A=0.01739 m2, Iy=0.000403 m4, Iz=0.000136 m4, J=0.00000863 m4, G=79000 MPa). Beam members use section HN500x200 (H=500 mm, B=200 mm, tw=10 mm, tf=16 mm; A=0.01143 m2, Iy=0.000502 m4, Iz=0.0000214 m4, J=0.00000124 m4, G=79000 MPa). Map this elevation's source X/Y axes to global X/Z with global Y=0. Use fixed column bases. Apply separate global-Z downward line loads D=10 kN/m and L=8 kN/m to every floor beam. Use SI units and the global-Z-up coordinate convention, do not add member self-weight, and analyze load combination ULS = 1.2 x D + 1.4 x L.",
+  "inputContract": {
+    "dxfProvides": ["topology", "dimensions"],
+    "specificationProvides": ["materials", "sections", "supports", "loads", "analysis-settings"],
+    "completeness": "complete"
+  },
+  "locale": "en",
+  "maxRetries": 0,
+  "attachments": [
+    {
+      "fileId": "re-arch-frame-complex",
+      "originalName": "drawing-036.dxf",
+      "relPath": "fixtures/drawings/arch-frame-complex-2s2b.dxf",
+      "mimeType": "application/dxf"
+    }
+  ],
+  "expect": {
+    "skills": {
+      "primary": "frame",
+      "mayAlsoMatch": [
+        "concrete-frame",
+        "generic"
+      ]
+    },
+    "assertions": [
+      {
+        "type": "structural_type",
+        "expected": "frame"
+      },
+      {
+        "type": "skill_match",
+        "primary": "frame",
+        "mayAlsoMatch": [
+          "concrete-frame",
+          "generic"
+        ]
+      },
+      {
+        "type": "model_matches",
+        "groundTruthId": "frame-complex-2s2b",
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05
+        }
+      },
+      {
+        "type": "numerical_matches",
+        "groundTruthId": "frame-complex-2s2b",
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05,
+          "numeric": 0.01,
+          "numericAbsolute": 1e-8
+        }
+      },
+      {
+        "type": "has_analysis"
+      }
+    ]
+  }
+}

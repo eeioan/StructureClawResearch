@@ -1,0 +1,147 @@
+diff --git a/backend/src/agent-runtime/engineering-draft.ts b/backend/src/agent-runtime/engineering-draft.ts
+index cb1c2d3..08db17d 100644
+--- a/backend/src/agent-runtime/engineering-draft.ts
++++ b/backend/src/agent-runtime/engineering-draft.ts
+@@ -426,7 +426,12 @@ export function mergeEngineeringDraft(
+   return {
+     structureType,
+     geometry,
+-    topology: { ...(existing.topology ?? {}), ...(patch.topology ?? {}) },
++    // Merge field by field: a correction that resends only nodes must not erase the members
++    // (normalizeEngineeringTopology returns members: undefined, which a plain spread copies).
++    topology: {
++      nodes: patch.topology?.nodes ?? existing.topology?.nodes,
++      members: patch.topology?.members ?? existing.topology?.members,
++    },
+     material: { ...(existing.material ?? {}), ...(patch.material ?? {}) },
+     sections: { ...(existing.sections ?? {}), ...(patch.sections ?? {}) },
+     boundary: { ...(existing.boundary ?? {}), ...(patch.boundary ?? {}) },
+@@ -469,14 +474,21 @@ function loadLocationMergeValue(
+   return Object.values(rest).some((value) => value !== undefined) ? rest : undefined;
+ }
+ 
++// "J", "B1", "node J", "joint T3", "узел J", "节点 B2" — a reference to one node id.
++const SINGLE_NODE_TARGET = /^(?:(?:node|joint|узел|节点)\s*)?[A-Za-z]{1,3}\d{0,3}$/iu;
++
+ function engineeringLoadMergeKey(
+   load: EngineeringDraftLoad,
+   draft: Pick<EngineeringDraft, 'structureType' | 'geometry' | 'analysis'>,
+ ): string {
+   const location = loadLocationMergeValue(load, draft);
++  // A node role alone ("top") names a group of nodes, so it cannot replace a target that
++  // points at one specific node ("node J"): loads on J, K and N must stay distinct.
++  const targetsSingleNode = isPointLikeLoad(load)
++    && SINGLE_NODE_TARGET.test(load.target?.trim() ?? '');
+   const hasStructuredPointLocation = isPointLikeLoad(load)
+     && Boolean(
+-      location?.nodeRole
++      (location?.nodeRole && !targetsSingleNode)
+       || location?.xM !== undefined
+       || location?.story !== undefined,
+     );
+diff --git a/backend/src/agent-runtime/model-builder.ts b/backend/src/agent-runtime/model-builder.ts
+index 3f96c71..bfaf573 100644
+--- a/backend/src/agent-runtime/model-builder.ts
++++ b/backend/src/agent-runtime/model-builder.ts
+@@ -490,10 +490,18 @@ function buildExplicitTrussLoads(
+       .map((node) => String(node.id));
+   }
+ 
++  function explicitNodeId(target: string | undefined): string | undefined {
++    if (!target) return undefined;
++    if (nodeIds.has(target)) return target;
++    // "node J", "joint J", "узел J", "节点 J" -> "J"
++    const stripped = target.replace(/^(?:node|joint|узел|节点)\s*/iu, '').trim();
++    return nodeIds.has(stripped) ? stripped : undefined;
++  }
++
+   return (state.engineeringDraft?.loads ?? []).flatMap((load) => {
+-    const target = load.target?.trim();
+     if (load.kind !== 'point' && load.kind !== 'nodal') return [];
+-    const targets = target && nodeIds.has(target) ? [target] : semanticTargetIds(load);
++    const explicitTarget = explicitNodeId(load.target?.trim());
++    const targets = explicitTarget ? [explicitTarget] : semanticTargetIds(load);
+     if (targets.length === 0) return [];
+     const component = load.direction === 'globalX' ? 'fx' : load.direction === 'globalY' ? 'fy' : 'fz';
+     const sign = component === 'fz' ? -1 : 1;
+diff --git a/backend/src/agent-skills/structure-type/truss/__tests__/handler.test.mjs b/backend/src/agent-skills/structure-type/truss/__tests__/handler.test.mjs
+index b145a8f..30b90bc 100644
+--- a/backend/src/agent-skills/structure-type/truss/__tests__/handler.test.mjs
++++ b/backend/src/agent-skills/structure-type/truss/__tests__/handler.test.mjs
+@@ -414,6 +414,76 @@ describe('truss handler', () => {
+     ]);
+   });
+ 
++  test('keeps distinct node-prefixed loads that share only a chord role', () => {
++    const nodes = [
++      { id: 'A', x: 0, y: 0, z: 0, restraints: [true, true, true, false, false, false] },
++      { id: 'B', x: 8, y: 0, z: 0, restraints: [false, true, true, false, false, false] },
++      { id: 'J', x: 2, y: 0, z: 2 },
++      { id: 'K', x: 4, y: 0, z: 3 },
++      { id: 'N', x: 6, y: 0, z: 2 },
++    ];
++    const members = [['AB', 'A', 'B'], ['AJ', 'A', 'J'], ['JK', 'J', 'K'], ['KN', 'K', 'N'], ['NB', 'N', 'B'], ['JB', 'J', 'B'], ['KB', 'K', 'B']]
++      .map(([id, start, end]) => ({ id, nodes: [start, end] }));
++    const topLoad = (magnitude, node) => ({
++      kind: 'nodal',
++      magnitude,
++      unit: 'kN',
++      direction: 'gravity',
++      target: `node ${node}`,
++      location: { nodeRole: 'top' },
++      caseId: 'LC1',
++    });
++    const patch = handler.extractDraft({
++      message: '',
++      llmDraftPatch: {
++        engineeringDraft: {
++          structureType: 'truss',
++          geometry: { lengthM: 8 },
++          topology: { nodes, members },
++          loads: [topLoad(36, 'J'), topLoad(56, 'K'), topLoad(46, 'N')],
++        },
++      },
++    });
++    const model = handler.buildModel(handler.mergeState(undefined, patch));
++
++    expect(model.load_cases[0].loads).toEqual([
++      { node: 'J', fz: -36, reference_frame: 'global' },
++      { node: 'K', fz: -56, reference_frame: 'global' },
++      { node: 'N', fz: -46, reference_frame: 'global' },
++    ]);
++  });
++
++  test('keeps explicit members when a follow-up turn corrects only node coordinates', () => {
++    const members = [['AB', 'A', 'B'], ['AK', 'A', 'K'], ['KB', 'K', 'B']]
++      .map(([id, start, end]) => ({ id, nodes: [start, end] }));
++    const nodesAt = (kz) => [
++      { id: 'A', x: 0, y: 0, z: 0, restraints: [true, true, true, false, false, false] },
++      { id: 'B', x: 8, y: 0, z: 0, restraints: [false, true, true, false, false, false] },
++      { id: 'K', x: 4, y: 0, z: kz },
++    ];
++    const first = handler.extractDraft({
++      message: '',
++      llmDraftPatch: {
++        engineeringDraft: {
++          structureType: 'truss',
++          geometry: { lengthM: 8 },
++          topology: { nodes: nodesAt(2), members },
++          loads: [{ kind: 'nodal', magnitude: 10, unit: 'kN', direction: 'gravity', target: 'K' }],
++        },
++      },
++    });
++    const state = handler.mergeState(undefined, first);
++    const correction = handler.extractDraft({
++      message: '',
++      existingState: state,
++      llmDraftPatch: { engineeringDraft: { structureType: 'truss', topology: { nodes: nodesAt(3) } } },
++    });
++    const model = handler.buildModel(handler.mergeState(state, correction));
++
++    expect(model.elements.map((element) => element.id)).toEqual(['AB', 'AK', 'KB']);
++    expect(model.nodes.find((node) => node.id === 'K').z).toBe(3);
++  });
++
+   test('defaults missing truss height from span while preserving model match scale', () => {
+     const patch = handler.extractDraft({
+       message: 'A triangular roof truss spans 15m with 5 panels and 10kN vertical nodal loads. Run static analysis.',

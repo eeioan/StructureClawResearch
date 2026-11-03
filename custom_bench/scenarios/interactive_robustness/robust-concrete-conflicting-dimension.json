@@ -1,0 +1,45 @@
+{
+  "id": "robust-concrete-conflicting-dimension",
+  "description": "混凝土框架维度冲突",
+  "split": "core",
+  "taskFamily": "interactive_robustness",
+  "inputModality": "text",
+  "structureType": "concrete-frame",
+  "benchmarkStructureType": "concrete-frame",
+  "difficulty": "L3",
+  "skillTarget": "concrete-frame",
+  "evaluationFocus": [
+    "interaction"
+  ],
+  "category": "conflicting-requirements",
+  "tags": [
+    "concrete-frame",
+    "interactive",
+    "conflicting-requirements",
+    "zh",
+    "l3"
+  ],
+  "message": "三层混凝土框架，X向2跨；我同时要求模型既按2D平面框架又按3D空间框架分析，但未提供任何Y向跨度或宽度。请直接分析。",
+  "locale": "zh",
+  "maxRetries": 0,
+  "benchmarkModes": [
+    "auto"
+  ],
+  "expect": {
+    "assertions": [
+      {
+        "type": "has_interaction_questions"
+      },
+      {
+        "type": "natural_language",
+        "description": "The agent must explicitly identify the mutually exclusive 2D and 3D requirements and the missing Y-direction geometry needed for a 3D model, then ask the user to choose a dimension or provide the required 3D geometry before building or analyzing. Merely asking for another missing parameter does not satisfy this criterion."
+      },
+      {
+        "type": "no_bad_model"
+      },
+      {
+        "type": "should_not_analyze"
+      }
+    ]
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "id": "re-frame-simple-1s1b-construction",
+  "description": "反问题：施工图重建单层单跨框架",
+  "split": "auxiliary",
+  "taskFamily": "multimodal_reverse_engineering",
+  "inputModality": "image",
+  "structureType": "frame",
+  "benchmarkStructureType": "steel-frame",
+  "difficulty": "L2",
+  "skillTarget": "frame",
+  "evaluationFocus": [
+    "routing",
+    "modeling",
+    "model_match",
+    "analysis",
+    "numerical_match"
+  ],
+  "category": "reverse-engineering",
+  "tags": [
+    "reverse-engineering",
+    "frame",
+    "construction-plan",
+    "zh"
+  ],
+  "message": "附图为普通单层单跨平面刚接框架（不是门式刚架）。请根据附图及工程说明建立计算模型并进行静力分析。无法可靠识别的图片信息请明确询问，不要自行假设。",
+  "locale": "zh",
+  "maxRetries": 0,
+  "attachments": [
+    {
+      "fileId": "re-frame-simple-1s1b-c",
+      "originalName": "drawing-020.png",
+      "relPath": "fixtures/drawings/frame-simple-1s1b-construction.png",
+      "mimeType": "image/png"
+    }
+  ],
+  "expect": {
+    "skills": {
+      "primary": "frame",
+      "mayAlsoMatch": [
+        "generic"
+      ]
+    },
+    "assertions": [
+      {
+        "type": "structural_type",
+        "expected": "frame"
+      },
+      {
+        "type": "skill_match",
+        "primary": "frame",
+        "mayAlsoMatch": [
+          "generic"
+        ]
+      },
+      {
+        "type": "model_matches",
+        "groundTruthId": "frame-simple-1s1b",
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05
+        }
+      },
+      {
+        "type": "numerical_matches",
+        "groundTruthId": "frame-simple-1s1b",
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05,
+          "numeric": 0.01,
+          "numericAbsolute": 1e-8
+        }
+      },
+      {
+        "type": "has_analysis"
+      }
+    ]
+  },
+  "engineeringSpecification": "材料 steel：E=205000 MPa，ν=0.3，密度=7850 kg/m3。柱构件采用 HW300x300（H=300 mm，B=300 mm，tw=10 mm，tf=15 mm；A=0.01192 m2，Iy=0.000204 m4，Iz=0.0000675 m4，J=0.00000423 m4，G=79000 MPa）。梁构件采用 HN400x200（H=400 mm，B=200 mm，tw=8 mm，tf=13 mm；A=0.00842 m2，Iy=0.000237 m4，Iz=0.0000174 m4，J=0.000000844 m4，G=79000 MPa）。采用SI单位和全局Z轴向上的坐标约定。仅使用图中标注的荷载工况与荷载值，不附加构件自重。分析荷载组合：ULS = 1 × D。",
+  "inputContract": {
+    "imageProvides": [
+      "topology",
+      "dimensions",
+      "supports",
+      "loads"
+    ],
+    "specificationProvides": [
+      "materials",
+      "sections",
+      "analysis-settings"
+    ],
+    "completeness": "complete"
+  }
+}

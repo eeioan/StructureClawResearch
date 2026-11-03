@@ -1,0 +1,193 @@
+
+============================================================
+LangGraph Agent Benchmark: 1 scenario run(s)
+Mode: auto
+Execution: web-stream
+Case timeout: 1800000ms
+SUT root: C:\Users\user\PycharmProjects\MLTestovoe\structureclaw
+Model: qwen3.5:9b
+Base URL: http://localhost:11434/v1
+============================================================
+
+Running: std-beam-6m-gt-repeat#auto...
+[2026-10-26 03:23:50.184 +0300] [32mINFO[39m: [36mbuilding agent graph[39m
+    [35mtoolCount[39m: 20
+    [35mhasCheckpointer[39m: true
+[2026-10-26 03:23:50.187 +0300] [32mINFO[39m: [36mLangGraph agent stream started[39m
+    [35mtraceId[39m: "9bdc490a-2d8e-42a6-adda-9cb7b608aba8"
+    [35mconversationId[39m: "bench-059758f6-baec-4bc9-ae77-6f970b585f8e"
+    [35mmessage[39m: "[用户任务]\n简支梁6m，全跨施加竖向向下均布荷载20kN/m。请在跨中设置与两侧梁单元连接的分析节点，输出跨中竖向挠度，并建立模型和分析。\n\n[工程说明]\n所有模式均须严格使用以下完整分析属性；这些"
+[2026-10-26 03:23:50.209 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "9bdc490a-2d8e-42a6-adda-9cb7b608aba8"
+    [35mconversationId[39m: "bench-059758f6-baec-4bc9-ae77-6f970b585f8e"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 2
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 0
+    [35mcompacted[39m: false
+[2026-10-26 03:24:20.389 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "9bdc490a-2d8e-42a6-adda-9cb7b608aba8"
+    [35mconversationId[39m: "bench-059758f6-baec-4bc9-ae77-6f970b585f8e"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 30180
+    [35mhasToolCalls[39m: true
+    [35mfinishReason[39m: "tool_calls"
+    [35mcontentLength[39m: 0
+    [35mreasoningContentLength[39m: 0
+  error: Error: LLM_STRUCTURAL_ROUTER_INFRASTRUCTURE_ERROR: network error: Request timed out.
+ Please fix your mistakes.
+
+============================================================
+FAIL  std-beam-6m-gt-repeat#auto
+     简支梁6m标准真值匹配
+
+  ✗ execution          expected: case completes                 actual: Error: LLM_STRUCTURAL_ROUTER_INFRASTRUCTURE_ERROR: network error: Request timed out.
+ Please fix your mistakes.
+============================================================
+
+============================================================
+Benchmark Results: 0/1 (0.0%) pass, 1 failed
+Pass@1: 0/1 (0.0%)
+Average duration: 210.2s
+Failed: std-beam-6m-gt-repeat#auto
+Total time: 210.2s
+
+By metric:
+  execution                        0/1 (0.0%)
+============================================================
+
+Results written to C:/Users/user/PycharmProjects/MLTestovoe/bench_runs/20261026-032343_std-beam-6m-gt-repeat.json
+[2026-10-26 03:27:20.407 +0300] [33mWARN[39m: [36mllm:qwen3.5:9b call failed[39m
+    [35mmodel[39m: "qwen3.5:9b"
+    [35mdurationMs[39m: 180006
+    [35msuccess[39m: false
+[2026-10-26 03:27:20.407 +0300] [33mWARN[39m: [36mtool:detect_structure_type failed[39m
+    [35mtraceId[39m: "9bdc490a-2d8e-42a6-adda-9cb7b608aba8"
+    [35mconversationId[39m: "bench-059758f6-baec-4bc9-ae77-6f970b585f8e"
+    [35mtool[39m: "detect_structure_type"
+    [35mdurationMs[39m: 180011
+    [35msuccess[39m: false
+    error: "LLM_STRUCTURAL_ROUTER_INFRASTRUCTURE_ERROR: network error: Request timed out."
+[2026-10-26 03:27:20.411 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "9bdc490a-2d8e-42a6-adda-9cb7b608aba8"
+    [35mconversationId[39m: "bench-059758f6-baec-4bc9-ae77-6f970b585f8e"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 4
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 1
+    [35mcompacted[39m: false
+[2026-10-26 03:27:20.412 +0300] [32mINFO[39m: [36mLangGraph agent stream completed[39m
+    [35mtraceId[39m: "9bdc490a-2d8e-42a6-adda-9cb7b608aba8"
+    [35mconversationId[39m: "bench-059758f6-baec-4bc9-ae77-6f970b585f8e"
+    [35mdurationMs[39m: 210233
+    [35mmode[39m: "stream"
+[2026-10-26 03:27:24.178 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "9bdc490a-2d8e-42a6-adda-9cb7b608aba8"
+    [35mconversationId[39m: "bench-059758f6-baec-4bc9-ae77-6f970b585f8e"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 3766
+    [35mhasToolCalls[39m: true
+    [35mfinishReason[39m: "tool_calls"
+    [35mcontentLength[39m: 0
+    [35mreasoningContentLength[39m: 0
+[2026-10-26 03:30:24.187 +0300] [33mWARN[39m: [36mllm:qwen3.5:9b call failed[39m
+    [35mmodel[39m: "qwen3.5:9b"
+    [35mdurationMs[39m: 180003
+    [35msuccess[39m: false
+[2026-10-26 03:30:24.187 +0300] [33mWARN[39m: [36mtool:detect_structure_type failed[39m
+    [35mtraceId[39m: "9bdc490a-2d8e-42a6-adda-9cb7b608aba8"
+    [35mconversationId[39m: "bench-059758f6-baec-4bc9-ae77-6f970b585f8e"
+    [35mtool[39m: "detect_structure_type"
+    [35mdurationMs[39m: 180004
+    [35msuccess[39m: false
+    error: "LLM_STRUCTURAL_ROUTER_INFRASTRUCTURE_ERROR: network error: Request timed out."
+[2026-10-26 03:30:24.189 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "9bdc490a-2d8e-42a6-adda-9cb7b608aba8"
+    [35mconversationId[39m: "bench-059758f6-baec-4bc9-ae77-6f970b585f8e"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 6
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 2
+    [35mcompacted[39m: false
+[2026-10-26 03:30:28.124 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "9bdc490a-2d8e-42a6-adda-9cb7b608aba8"
+    [35mconversationId[39m: "bench-059758f6-baec-4bc9-ae77-6f970b585f8e"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 3934
+    [35mhasToolCalls[39m: true
+    [35mfinishReason[39m: "tool_calls"
+    [35mcontentLength[39m: 0
+    [35mreasoningContentLength[39m: 0
+[2026-10-26 03:33:28.133 +0300] [33mWARN[39m: [36mllm:qwen3.5:9b call failed[39m
+    [35mmodel[39m: "qwen3.5:9b"
+    [35mdurationMs[39m: 180004
+    [35msuccess[39m: false
+[2026-10-26 03:33:28.133 +0300] [33mWARN[39m: [36mtool:detect_structure_type failed[39m
+    [35mtraceId[39m: "9bdc490a-2d8e-42a6-adda-9cb7b608aba8"
+    [35mconversationId[39m: "bench-059758f6-baec-4bc9-ae77-6f970b585f8e"
+    [35mtool[39m: "detect_structure_type"
+    [35mdurationMs[39m: 180005
+    [35msuccess[39m: false
+    error: "LLM_STRUCTURAL_ROUTER_INFRASTRUCTURE_ERROR: network error: Request timed out."
+[2026-10-26 03:33:28.136 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "9bdc490a-2d8e-42a6-adda-9cb7b608aba8"
+    [35mconversationId[39m: "bench-059758f6-baec-4bc9-ae77-6f970b585f8e"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 8
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 3
+    [35mcompacted[39m: false
+[2026-10-26 03:33:41.352 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "9bdc490a-2d8e-42a6-adda-9cb7b608aba8"
+    [35mconversationId[39m: "bench-059758f6-baec-4bc9-ae77-6f970b585f8e"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 13216
+    [35mhasToolCalls[39m: true
+    [35mfinishReason[39m: "tool_calls"
+    [35mcontentLength[39m: 0
+    [35mreasoningContentLength[39m: 0
+[2026-10-26 03:36:41.362 +0300] [33mWARN[39m: [36mllm:qwen3.5:9b call failed[39m
+    [35mmodel[39m: "qwen3.5:9b"
+    [35mdurationMs[39m: 180004
+    [35msuccess[39m: false
+[2026-10-26 03:36:41.363 +0300] [33mWARN[39m: [36mtool:extract_draft_params failed[39m
+    [35mtraceId[39m: "9bdc490a-2d8e-42a6-adda-9cb7b608aba8"
+    [35mconversationId[39m: "bench-059758f6-baec-4bc9-ae77-6f970b585f8e"
+    [35mtool[39m: "extract_draft_params"
+    [35mdurationMs[39m: 180006
+    [35msuccess[39m: false
+    error: "LLM_STRUCTURAL_ROUTER_INFRASTRUCTURE_ERROR: network error: Request timed out."
+[2026-10-26 03:36:41.371 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "9bdc490a-2d8e-42a6-adda-9cb7b608aba8"
+    [35mconversationId[39m: "bench-059758f6-baec-4bc9-ae77-6f970b585f8e"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 10
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 4
+    [35mcompacted[39m: false
+[2026-10-26 03:36:43.398 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "9bdc490a-2d8e-42a6-adda-9cb7b608aba8"
+    [35mconversationId[39m: "bench-059758f6-baec-4bc9-ae77-6f970b585f8e"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 2027
+    [35mhasToolCalls[39m: true
+    [35mfinishReason[39m: "tool_calls"
+    [35mcontentLength[39m: 0
+    [35mreasoningContentLength[39m: 0
+[2026-10-26 03:36:43.405 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "9bdc490a-2d8e-42a6-adda-9cb7b608aba8"
+    [35mconversationId[39m: "bench-059758f6-baec-4bc9-ae77-6f970b585f8e"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 12
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 5
+    [35mcompacted[39m: false
+[2026-10-26 03:36:53.524 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "9bdc490a-2d8e-42a6-adda-9cb7b608aba8"
+    [35mconversationId[39m: "bench-059758f6-baec-4bc9-ae77-6f970b585f8e"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 10119
+    [35mhasToolCalls[39m: true
+    [35mfinishReason[39m: "tool_calls"
+    [35mcontentLength[39m: 0
+    [35mreasoningContentLength[39m: 0

@@ -1,0 +1,76 @@
+{
+  "id": "truss-roof-en",
+  "description": "Steel roof truss static analysis",
+  "split": "core",
+  "taskFamily": "standard_workflow",
+  "inputModality": "text",
+  "structureType": "truss",
+  "benchmarkStructureType": "truss",
+  "difficulty": "L2",
+  "skillTarget": "truss",
+  "evaluationFocus": [
+    "routing",
+    "modeling",
+    "model_match",
+    "analysis",
+    "numerical_match"
+  ],
+  "category": "static-analysis",
+  "tags": [
+    "truss",
+    "static",
+    "en",
+    "roof"
+  ],
+  "message": "A steel roof truss spans 18m with 6 equal panels and a constant 3m height. Provide verticals at every panel point and alternating web diagonals: left-bottom to right-top in panels 1, 3, and 5, and left-top to right-bottom in panels 2, 4, and 6. Use a pinned support at the left bottom node and a horizontal roller free in global X at the right bottom node. Apply a 12kN downward load at each interior top-chord node and run static analysis.",
+  "locale": "en",
+  "maxRetries": 0,
+  "expect": {
+    "skills": {
+      "primary": "truss",
+      "mayAlsoMatch": [
+        "generic"
+      ]
+    },
+    "assertions": [
+      {
+        "type": "structural_type",
+        "expected": "truss"
+      },
+      {
+        "type": "skill_match",
+        "primary": "truss",
+        "mayAlsoMatch": [
+          "generic"
+        ]
+      },
+      {
+        "type": "has_model",
+        "minNodes": 7,
+        "minElements": 6
+      },
+      {
+        "type": "model_matches",
+        "groundTruthId": "truss-roof-18m-3m-12k",
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05
+        }
+      },
+      {
+        "type": "numerical_matches",
+        "groundTruthId": "truss-roof-18m-3m-12k",
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05,
+          "numeric": 0.01,
+          "numericAbsolute": 1e-8
+        }
+      },
+      {
+        "type": "has_analysis"
+      }
+    ]
+  },
+  "engineeringSpecification": "Use these complete analysis-property records exactly in every mode; they are not placeholders and need no clarification. Use only the user task to classify the structure, but include these properties in parameter extraction. Do not create an explicit self-weight load or duplicate a converted load; an analysis provider may apply its configured member self-weight internally. Reconstruct geometry, topology, supports, and load placement from the task.\nUnit system: SI\nCoordinate system: semantics=global-z-up, version=1, dimension=2d, plane=xz, dof_order=ux,uy,uz,rx,ry,rz\nMaterials: id=1, name=steel, E=205000, nu=0.3, rho=7850\nSections: id=1, name=T1, type=rod, properties(A=0.01)\nAnalysis load combinations: id=ULS, factors={LC1=1}"
+}

@@ -1,0 +1,89 @@
+{
+  "id": "std-frame-3s2b-wind",
+  "description": "3-story 2-bay steel frame with equivalent wind nodal loads",
+  "split": "core",
+  "taskFamily": "standard_workflow",
+  "inputModality": "text",
+  "structureType": "frame",
+  "benchmarkStructureType": "steel-frame",
+  "difficulty": "L2",
+  "skillTarget": "frame",
+  "analysisSkillTarget": "opensees-static",
+  "analysisEngineTarget": "builtin-opensees",
+  "evaluationFocus": [
+    "routing",
+    "modeling",
+    "model_match",
+    "analysis",
+    "engine_match",
+    "numerical_match"
+  ],
+  "category": "standard-workflow",
+  "tags": [
+    "frame",
+    "standard",
+    "l2",
+    "en"
+  ],
+  "message": "Use OpenSees to run static analysis for a 3-story 2-bay steel frame with fixed column bases, 3.6m story height, 6m bays, 10kN/m downward floor line load on each beam, and global-X positive wind nodal loads of 10kN, 15kN, and 20kN at the right-side joints of stories 1, 2, and 3.",
+  "locale": "en",
+  "maxRetries": 0,
+  "expect": {
+    "skills": {
+      "primary": "frame",
+      "mayAlsoMatch": [
+        "generic"
+      ]
+    },
+    "assertions": [
+      {
+        "type": "structural_type",
+        "expected": "frame"
+      },
+      {
+        "type": "skill_match",
+        "primary": "frame",
+        "mayAlsoMatch": [
+          "generic"
+        ]
+      },
+      {
+        "type": "has_model",
+        "minNodes": 9,
+        "minElements": 8
+      },
+      {
+        "type": "model_matches",
+        "groundTruthId": "frame-3s2b-6m-10k-wind",
+        "loadAxes": [
+          "x",
+          "z"
+        ],
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05
+        }
+      },
+      {
+        "type": "numerical_matches",
+        "groundTruthId": "frame-3s2b-6m-10k-wind",
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05,
+          "numeric": 0.01,
+          "numericAbsolute": 1e-8
+        },
+        "engineId": "builtin-opensees"
+      },
+      {
+        "type": "has_analysis"
+      },
+      {
+        "type": "engine_match",
+        "expected": "builtin-opensees",
+        "skillId": "opensees-static"
+      }
+    ]
+  },
+  "engineeringSpecification": "Use these complete analysis-property records exactly in every mode; they are not placeholders and need no clarification. Use only the user task to classify the structure, but include these properties in parameter extraction. Do not create an explicit self-weight load or duplicate a converted load; an analysis provider may apply its configured member self-weight internally. Reconstruct geometry, topology, supports, and load placement from the task.\nUnit system: SI\nCoordinate system: semantics=global-z-up, version=1, dimension=2d, plane=xz, dof_order=ux,uy,uz,rx,ry,rz\nMaterials: id=1, name=Q345, grade=Q345, category=steel, E=206000, nu=0.3, rho=7850, fy=345\nSections: id=1, name=HW350x350, type=H, purpose=column, shape(kind=H, H=350, B=350, tw=12, tf=19), properties(A=0.01739, Iy=0.000403, Iz=0.000136, J=0.00000863, G=79000); id=2, name=HN500x200, type=H, purpose=beam, shape(kind=H, H=500, B=200, tw=10, tf=16), properties(A=0.01143, Iy=0.000502, Iz=0.0000214, J=0.00000124, G=79000)\nAnalysis load combinations: id=ULS, factors={D=1, W=1}"
+}

@@ -1,0 +1,74 @@
+{
+  "id": "std-generic-single-bay-lateral",
+  "description": "通用单跨平面结构水平荷载分析",
+  "split": "core",
+  "taskFamily": "standard_workflow",
+  "inputModality": "text",
+  "structureType": "generic",
+  "benchmarkStructureType": "generic",
+  "difficulty": "L3",
+  "skillTarget": "generic",
+  "evaluationFocus": [
+    "routing",
+    "modeling",
+    "model_match",
+    "analysis",
+    "numerical_match"
+  ],
+  "category": "standard-workflow",
+  "tags": [
+    "generic",
+    "standard",
+    "zh",
+    "l3"
+  ],
+  "message": "建立一个单层单跨平面刚接框架，宽6m，高4m，两个柱脚固定，在右上节点施加全局X正向50kN水平荷载，请进行静力分析",
+  "locale": "zh",
+  "maxRetries": 0,
+  "expect": {
+    "skills": {
+      "primary": "generic",
+      "mayAlsoMatch": [
+        "frame",
+        "portal-frame"
+      ]
+    },
+    "assertions": [
+      {
+        "type": "skill_match",
+        "primary": "generic",
+        "mayAlsoMatch": [
+          "frame",
+          "portal-frame"
+        ]
+      },
+      {
+        "type": "has_model",
+        "minNodes": 4,
+        "minElements": 3
+      },
+      {
+        "type": "model_matches",
+        "groundTruthId": "generic-single-bay-6m-4m-lateral50",
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05
+        }
+      },
+      {
+        "type": "numerical_matches",
+        "groundTruthId": "generic-single-bay-6m-4m-lateral50",
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05,
+          "numeric": 0.01,
+          "numericAbsolute": 1e-8
+        }
+      },
+      {
+        "type": "has_analysis"
+      }
+    ]
+  },
+  "engineeringSpecification": "所有模式均须严格使用以下完整分析属性；这些记录不是占位符，无需要求补充。结构分类只使用用户任务，参数提取须同时包含这些属性。不得显式创建构件自重荷载或重复施加折算荷载；分析后端可按自身配置在内部计入构件自重。几何、拓扑、支座和荷载位置仍由用户任务确定。\n单位制: SI\n坐标系: semantics=global-z-up, version=1, dimension=2d, plane=xz, dof_order=ux,uy,uz,rx,ry,rz\n材料: id=1, name=Q345, grade=Q345, category=steel, E=206000, nu=0.3, rho=7850, fy=345\n截面: id=1, name=HW350x350, type=H, purpose=column, shape(kind=H, H=350, B=350, tw=12, tf=19), properties(A=0.01739, Iy=0.000403, Iz=0.000136, J=0.00000863, G=79000); id=2, name=HN500x200, type=H, purpose=beam, shape(kind=H, H=500, B=200, tw=10, tf=16), properties(A=0.01143, Iy=0.000502, Iz=0.0000214, J=0.00000124, G=79000)\n分析荷载组合: id=ULS, factors={H=1}"
+}

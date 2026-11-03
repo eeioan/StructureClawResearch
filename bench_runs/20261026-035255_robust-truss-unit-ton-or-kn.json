@@ -1,0 +1,629 @@
+{
+  "timestamp": "2026-10-26T00:54:16.530Z",
+  "run": {
+    "schemaVersion": "structureclaw-benchmark-run/v3",
+    "runId": "8b05ceff-5512-49ee-a877-9997c54c5610",
+    "repeatId": null,
+    "startedAt": "2026-10-26T00:53:03.040Z",
+    "plannedScenarioCount": 1,
+    "selection": {
+      "scenarioId": "robust-truss-unit-ton-or-kn",
+      "taskFamily": null,
+      "split": null,
+      "mode": "auto",
+      "execution": "web-stream",
+      "supervised": false,
+      "caseTimeoutMs": 1800000,
+      "repeatId": null,
+      "scenarioOrderSeed": null
+    },
+    "models": {
+      "primary": {
+        "configId": null,
+        "model": "qwen3.5:9b",
+        "endpoint": "http://localhost:18435/v1",
+        "temperature": 0,
+        "maxTokens": 16384,
+        "providerMaxRetries": 0,
+        "timeoutMs": 600000
+      },
+      "judge": {
+        "configId": null,
+        "model": "qwen3.5:9b",
+        "endpoint": "https://localhost:18436/v1",
+        "temperature": 0,
+        "maxTokens": 4096,
+        "maxAttempts": 3,
+        "timeoutMs": 120000
+      },
+      "vision": null
+    },
+    "revisions": {
+      "structureclaw": {
+        "revision": "44f487d5ab4a6e6483ca62219432d47a334a8d63",
+        "dirty": false
+      },
+      "benchmark": {
+        "revision": "4259fdd92a83f5d93976bc510ef82a0d2d7b9b57",
+        "dirty": false
+      }
+    },
+    "runtime": {
+      "node": "v24.14.0",
+      "platform": "win32",
+      "architecture": "x64",
+      "yjkVersion": null,
+      "pkpmVersion": null,
+      "openSees": {
+        "packageVersion": "3.7.1.2",
+        "runtimePackage": "openseespywin",
+        "runtimePackageVersion": "3.8.0.0",
+        "engineVersion": "3.8.0"
+      },
+      "llmRoutingAndExtractionOnly": true,
+      "runtimeId": null,
+      "backendPrebuilt": true
+    },
+    "measurement": {
+      "duration": "vision preprocessing plus agent execution; excludes judge evaluation and setup",
+      "primaryTokens": "provider usage attached to checkpointed agent and benchmark nested-call messages; includes nested routing and parameter extraction",
+      "visionTokens": "provider usage from benchmark vision preprocessing, reported separately",
+      "judgeTokens": "excluded from agent-efficiency metrics",
+      "totalApiCostAvailable": false
+    },
+    "protocol": {
+      "phase": "development",
+      "targeted": true,
+      "commonCoreComparison": true,
+      "automaticModelRetries": 0,
+      "solverGate": "off",
+      "yjkCooldownMs": 0,
+      "formalJobId": null,
+      "formalMatrixSha256": null
+    },
+    "fingerprints": {
+      "scenarioHash": "26d4cb9b0706426a56a9330f59599eac48a5d7caa7157b01ace8a4f1a27d23cf",
+      "scenarioOrderHash": "151bd6ac1a665478ddc432fca7e90e5d7a77a70ffaa05813ff568d38708a2102",
+      "attachmentHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "promptAndToolHash": "6482a68ef016d00c0911843f07e50e9e67a53a8a11a93a116275ec982d8d368a",
+      "evaluationHash": "c1fde5a14f719ff7f09624a7a426edee9f956d057cc6491974b02b69c91934a2",
+      "runtimeConfigHash": "202ee3399a81cf39530117a006c75380fff582fc1710a8a3d5e05165f95efb5c"
+    },
+    "completedScenarioCount": 1,
+    "completed": true,
+    "finishedAt": "2026-10-26T00:54:16.530Z",
+    "validity": {
+      "phase": "development",
+      "paperEligible": false,
+      "reason": "development run; not eligible for paper results"
+    }
+  },
+  "totalScenarios": 1,
+  "passAt1": 0,
+  "passAtN": 0,
+  "passed": 0,
+  "failed": 1,
+  "passAt1Rate": 0,
+  "passAtNRate": 0,
+  "commonCorePassAt1": 1,
+  "commonCorePassed": 1,
+  "commonCoreFailed": 0,
+  "commonCorePassAt1Rate": 1,
+  "commonCorePassRate": 1,
+  "averageRetries": 0,
+  "averageToolCalls": 1,
+  "averageTotalTokens": 4440,
+  "totalTokens": 4440,
+  "averageVisionTotalTokens": null,
+  "visionTotalTokens": 0,
+  "averageDurationMs": 71684,
+  "totalDurationMs": 71684,
+  "averageEffectiveDurationMs": 71684,
+  "totalEffectiveDurationMs": 71684,
+  "solverQueueWaitMs": 0,
+  "solverExecutionMs": 0,
+  "solverCooldownMs": 0,
+  "by": {
+    "taskFamily": {
+      "interactive_robustness": {
+        "total": 1,
+        "passAt1": 0,
+        "passAtN": 0,
+        "passed": 0,
+        "failed": 1,
+        "passAt1Rate": 0,
+        "passAtNRate": 0,
+        "commonCorePassAt1": 1,
+        "commonCorePassed": 1,
+        "commonCoreFailed": 0,
+        "commonCorePassAt1Rate": 1,
+        "commonCorePassRate": 1,
+        "averageRetries": 0,
+        "averageToolCalls": 1,
+        "averageTotalTokens": 4440,
+        "totalTokens": 4440,
+        "averageVisionTotalTokens": null,
+        "visionTotalTokens": 0,
+        "averageDurationMs": 71684,
+        "totalDurationMs": 71684,
+        "averageEffectiveDurationMs": 71684,
+        "totalEffectiveDurationMs": 71684,
+        "solverQueueWaitMs": 0,
+        "solverExecutionMs": 0,
+        "solverCooldownMs": 0
+      }
+    },
+    "mode": {
+      "auto": {
+        "total": 1,
+        "passAt1": 0,
+        "passAtN": 0,
+        "passed": 0,
+        "failed": 1,
+        "passAt1Rate": 0,
+        "passAtNRate": 0,
+        "commonCorePassAt1": 1,
+        "commonCorePassed": 1,
+        "commonCoreFailed": 0,
+        "commonCorePassAt1Rate": 1,
+        "commonCorePassRate": 1,
+        "averageRetries": 0,
+        "averageToolCalls": 1,
+        "averageTotalTokens": 4440,
+        "totalTokens": 4440,
+        "averageVisionTotalTokens": null,
+        "visionTotalTokens": 0,
+        "averageDurationMs": 71684,
+        "totalDurationMs": 71684,
+        "averageEffectiveDurationMs": 71684,
+        "totalEffectiveDurationMs": 71684,
+        "solverQueueWaitMs": 0,
+        "solverExecutionMs": 0,
+        "solverCooldownMs": 0
+      }
+    },
+    "split": {
+      "core": {
+        "total": 1,
+        "passAt1": 0,
+        "passAtN": 0,
+        "passed": 0,
+        "failed": 1,
+        "passAt1Rate": 0,
+        "passAtNRate": 0,
+        "commonCorePassAt1": 1,
+        "commonCorePassed": 1,
+        "commonCoreFailed": 0,
+        "commonCorePassAt1Rate": 1,
+        "commonCorePassRate": 1,
+        "averageRetries": 0,
+        "averageToolCalls": 1,
+        "averageTotalTokens": 4440,
+        "totalTokens": 4440,
+        "averageVisionTotalTokens": null,
+        "visionTotalTokens": 0,
+        "averageDurationMs": 71684,
+        "totalDurationMs": 71684,
+        "averageEffectiveDurationMs": 71684,
+        "totalEffectiveDurationMs": 71684,
+        "solverQueueWaitMs": 0,
+        "solverExecutionMs": 0,
+        "solverCooldownMs": 0
+      }
+    },
+    "category": {
+      "unit-ambiguity": {
+        "total": 1,
+        "passAt1": 0,
+        "passAtN": 0,
+        "passed": 0,
+        "failed": 1,
+        "passAt1Rate": 0,
+        "passAtNRate": 0,
+        "commonCorePassAt1": 1,
+        "commonCorePassed": 1,
+        "commonCoreFailed": 0,
+        "commonCorePassAt1Rate": 1,
+        "commonCorePassRate": 1,
+        "averageRetries": 0,
+        "averageToolCalls": 1,
+        "averageTotalTokens": 4440,
+        "totalTokens": 4440,
+        "averageVisionTotalTokens": null,
+        "visionTotalTokens": 0,
+        "averageDurationMs": 71684,
+        "totalDurationMs": 71684,
+        "averageEffectiveDurationMs": 71684,
+        "totalEffectiveDurationMs": 71684,
+        "solverQueueWaitMs": 0,
+        "solverExecutionMs": 0,
+        "solverCooldownMs": 0
+      }
+    },
+    "inputModality": {
+      "text": {
+        "total": 1,
+        "passAt1": 0,
+        "passAtN": 0,
+        "passed": 0,
+        "failed": 1,
+        "passAt1Rate": 0,
+        "passAtNRate": 0,
+        "commonCorePassAt1": 1,
+        "commonCorePassed": 1,
+        "commonCoreFailed": 0,
+        "commonCorePassAt1Rate": 1,
+        "commonCorePassRate": 1,
+        "averageRetries": 0,
+        "averageToolCalls": 1,
+        "averageTotalTokens": 4440,
+        "totalTokens": 4440,
+        "averageVisionTotalTokens": null,
+        "visionTotalTokens": 0,
+        "averageDurationMs": 71684,
+        "totalDurationMs": 71684,
+        "averageEffectiveDurationMs": 71684,
+        "totalEffectiveDurationMs": 71684,
+        "solverQueueWaitMs": 0,
+        "solverExecutionMs": 0,
+        "solverCooldownMs": 0
+      }
+    },
+    "inputCompleteness": {
+      "(unset)": {
+        "total": 1,
+        "passAt1": 0,
+        "passAtN": 0,
+        "passed": 0,
+        "failed": 1,
+        "passAt1Rate": 0,
+        "passAtNRate": 0,
+        "commonCorePassAt1": 1,
+        "commonCorePassed": 1,
+        "commonCoreFailed": 0,
+        "commonCorePassAt1Rate": 1,
+        "commonCorePassRate": 1,
+        "averageRetries": 0,
+        "averageToolCalls": 1,
+        "averageTotalTokens": 4440,
+        "totalTokens": 4440,
+        "averageVisionTotalTokens": null,
+        "visionTotalTokens": 0,
+        "averageDurationMs": 71684,
+        "totalDurationMs": 71684,
+        "averageEffectiveDurationMs": 71684,
+        "totalEffectiveDurationMs": 71684,
+        "solverQueueWaitMs": 0,
+        "solverExecutionMs": 0,
+        "solverCooldownMs": 0
+      }
+    },
+    "benchmarkStructureType": {
+      "truss": {
+        "total": 1,
+        "passAt1": 0,
+        "passAtN": 0,
+        "passed": 0,
+        "failed": 1,
+        "passAt1Rate": 0,
+        "passAtNRate": 0,
+        "commonCorePassAt1": 1,
+        "commonCorePassed": 1,
+        "commonCoreFailed": 0,
+        "commonCorePassAt1Rate": 1,
+        "commonCorePassRate": 1,
+        "averageRetries": 0,
+        "averageToolCalls": 1,
+        "averageTotalTokens": 4440,
+        "totalTokens": 4440,
+        "averageVisionTotalTokens": null,
+        "visionTotalTokens": 0,
+        "averageDurationMs": 71684,
+        "totalDurationMs": 71684,
+        "averageEffectiveDurationMs": 71684,
+        "totalEffectiveDurationMs": 71684,
+        "solverQueueWaitMs": 0,
+        "solverExecutionMs": 0,
+        "solverCooldownMs": 0
+      }
+    },
+    "structureType": {
+      "truss": {
+        "total": 1,
+        "passAt1": 0,
+        "passAtN": 0,
+        "passed": 0,
+        "failed": 1,
+        "passAt1Rate": 0,
+        "passAtNRate": 0,
+        "commonCorePassAt1": 1,
+        "commonCorePassed": 1,
+        "commonCoreFailed": 0,
+        "commonCorePassAt1Rate": 1,
+        "commonCorePassRate": 1,
+        "averageRetries": 0,
+        "averageToolCalls": 1,
+        "averageTotalTokens": 4440,
+        "totalTokens": 4440,
+        "averageVisionTotalTokens": null,
+        "visionTotalTokens": 0,
+        "averageDurationMs": 71684,
+        "totalDurationMs": 71684,
+        "averageEffectiveDurationMs": 71684,
+        "totalEffectiveDurationMs": 71684,
+        "solverQueueWaitMs": 0,
+        "solverExecutionMs": 0,
+        "solverCooldownMs": 0
+      }
+    },
+    "analysisEngineTarget": {
+      "builtin-opensees": {
+        "total": 1,
+        "passAt1": 0,
+        "passAtN": 0,
+        "passed": 0,
+        "failed": 1,
+        "passAt1Rate": 0,
+        "passAtNRate": 0,
+        "commonCorePassAt1": 1,
+        "commonCorePassed": 1,
+        "commonCoreFailed": 0,
+        "commonCorePassAt1Rate": 1,
+        "commonCorePassRate": 1,
+        "averageRetries": 0,
+        "averageToolCalls": 1,
+        "averageTotalTokens": 4440,
+        "totalTokens": 4440,
+        "averageVisionTotalTokens": null,
+        "visionTotalTokens": 0,
+        "averageDurationMs": 71684,
+        "totalDurationMs": 71684,
+        "averageEffectiveDurationMs": 71684,
+        "totalEffectiveDurationMs": 71684,
+        "solverQueueWaitMs": 0,
+        "solverExecutionMs": 0,
+        "solverCooldownMs": 0
+      }
+    }
+  },
+  "metrics": {
+    "structural_type": {
+      "total": 1,
+      "passed": 0,
+      "failed": 1
+    },
+    "skill_match": {
+      "total": 1,
+      "passed": 0,
+      "failed": 1
+    },
+    "has_interaction_questions": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0
+    },
+    "no_bad_model": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0
+    },
+    "should_not_analyze": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0
+    },
+    "natural_language": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0
+    }
+  },
+  "scenarios": [
+    {
+      "scenarioId": "robust-truss-unit-ton-or-kn#auto",
+      "baseScenarioId": "robust-truss-unit-ton-or-kn",
+      "description": "Truss nodal load unit ambiguity",
+      "split": "core",
+      "taskFamily": "interactive_robustness",
+      "inputModality": "text",
+      "inputCompleteness": null,
+      "structureType": "truss",
+      "benchmarkStructureType": "truss",
+      "difficulty": "L2",
+      "skillTarget": "truss",
+      "category": "unit-ambiguity",
+      "tags": [
+        "truss",
+        "interactive",
+        "unit-ambiguity",
+        "l2",
+        "en"
+      ],
+      "locale": "en",
+      "analysisSkillTarget": "opensees-static",
+      "analysisEngineTarget": "builtin-opensees",
+      "mode": "auto",
+      "evaluationFocus": [
+        "routing",
+        "interaction",
+        "semantic",
+        "analysis"
+      ],
+      "passed": 4,
+      "total": 6,
+      "allPassed": false,
+      "metrics": [
+        {
+          "metric": "structural_type",
+          "pass": false,
+          "expected": "truss",
+          "actual": "(none)"
+        },
+        {
+          "metric": "skill_match",
+          "pass": false,
+          "expected": "truss",
+          "actual": "(none)"
+        },
+        {
+          "metric": "has_interaction_questions",
+          "pass": true,
+          "expected": "agent asks a relevant clarification or capability-resolution question",
+          "actual": "questions found"
+        },
+        {
+          "metric": "no_bad_model",
+          "pass": true,
+          "expected": "no computable model for unsafe or incomplete input",
+          "actual": "(none)"
+        },
+        {
+          "metric": "should_not_analyze",
+          "pass": true,
+          "expected": "no analysis result or run_analysis call",
+          "actual": "no analysis run"
+        },
+        {
+          "metric": "natural_language",
+          "pass": true,
+          "expected": "The agent must identify the concrete ambiguity or physically implausible value in the request, explain why it prevents a trustworthy analysis, and ask for relevant confirmation or correction before building or analyzing. A generic or unrelated question does not satisfy this criterion.",
+          "actual": "satisfied"
+        },
+        {
+          "metric": "toolCalls",
+          "pass": true,
+          "expected": "(info, lower is better)",
+          "actual": "1"
+        },
+        {
+          "metric": "inputTokens",
+          "pass": true,
+          "expected": "(info, lower is better)",
+          "actual": "4300"
+        },
+        {
+          "metric": "outputTokens",
+          "pass": true,
+          "expected": "(info, lower is better)",
+          "actual": "140"
+        },
+        {
+          "metric": "totalTokens",
+          "pass": true,
+          "expected": "(info, lower is better)",
+          "actual": "4440"
+        },
+        {
+          "metric": "duration",
+          "pass": true,
+          "expected": "(info)",
+          "actual": "71.7s"
+        }
+      ],
+      "durationMs": 71684,
+      "executionProfile": {
+        "execution": "web-stream",
+        "mode": "auto",
+        "skillIds": [
+          "beam",
+          "column",
+          "concrete-frame",
+          "double-span-beam",
+          "frame",
+          "generic",
+          "portal-frame",
+          "truss",
+          "opensees-static",
+          "validation-structure-model",
+          "report-export-builtin"
+        ],
+        "enabledToolIds": [
+          "detect_structure_type",
+          "extract_draft_params",
+          "build_model",
+          "validate_model",
+          "run_analysis",
+          "generate_report",
+          "ask_user_clarification",
+          "set_session_config",
+          "analyze_file"
+        ],
+        "sourceDataDir": null,
+        "runtimeDataDir": null,
+        "visionModel": null,
+        "analysisSkillTarget": "opensees-static",
+        "caseTimeoutMs": 1800000,
+        "yjkCloseAfterRun": "1",
+        "conversationId": "bench-db4978cb-8697-42d4-b95c-e521b7f96b02",
+        "solverGate": {
+          "enabled": false,
+          "mode": "off",
+          "events": [],
+          "solverQueueWaitMs": 0,
+          "solverExecutionMs": 0,
+          "cooldownMs": 0
+        },
+        "effectiveDurationMs": 71684
+      },
+      "retries": {
+        "attempts": 1,
+        "maxRetries": 0,
+        "retriesUsed": 0,
+        "passAt1": false,
+        "passAtN": false,
+        "rounds": [
+          {
+            "attempt": 1,
+            "allPassed": false,
+            "metrics": [
+              {
+                "metric": "structural_type",
+                "pass": false
+              },
+              {
+                "metric": "skill_match",
+                "pass": false
+              },
+              {
+                "metric": "has_interaction_questions",
+                "pass": true
+              },
+              {
+                "metric": "no_bad_model",
+                "pass": true
+              },
+              {
+                "metric": "should_not_analyze",
+                "pass": true
+              },
+              {
+                "metric": "natural_language",
+                "pass": true
+              },
+              {
+                "metric": "toolCalls",
+                "pass": true
+              },
+              {
+                "metric": "inputTokens",
+                "pass": true
+              },
+              {
+                "metric": "outputTokens",
+                "pass": true
+              },
+              {
+                "metric": "totalTokens",
+                "pass": true
+              },
+              {
+                "metric": "duration",
+                "pass": true
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

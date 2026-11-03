@@ -1,0 +1,49 @@
+{
+  "id": "robust-unsupported-tower",
+  "description": "复杂塔架暂不支持",
+  "split": "core",
+  "taskFamily": "interactive_robustness",
+  "inputModality": "text",
+  "structureType": "generic",
+  "benchmarkStructureType": "generic",
+  "difficulty": "L3",
+  "skillTarget": "generic",
+  "evaluationFocus": [
+    "interaction"
+  ],
+  "category": "unsupported",
+  "tags": [
+    "generic",
+    "interactive",
+    "unsupported",
+    "zh",
+    "l3"
+  ],
+  "message": "请分析一个120m通信塔，包含风振和地震时程",
+  "locale": "zh",
+  "maxRetries": 0,
+  "benchmarkModes": [
+    "auto"
+  ],
+  "expect": {
+    "skills": {
+      "primary": "generic",
+      "mayAlsoMatch": []
+    },
+    "assertions": [
+      {
+        "type": "has_interaction_questions"
+      },
+      {
+        "type": "no_bad_model"
+      },
+      {
+        "type": "should_not_analyze"
+      },
+      {
+        "type": "natural_language",
+        "description": "智能体必须明确说明当前 StructureClaw 的技能或适配器不能忠实建模并执行所要求的通信塔风振与地震时程分析，并在求解器执行前拒绝建模或分析。可以建议受支持的简化方案或外部塔架分析流程；仅继续追问塔架几何、材料、风或地震参数不能满足该标准。"
+      }
+    ]
+  }
+}

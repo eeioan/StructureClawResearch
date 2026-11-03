@@ -1,0 +1,329 @@
+
+============================================================
+LangGraph Agent Benchmark: 1 scenario run(s)
+Mode: auto
+Execution: web-stream
+Case timeout: 1800000ms
+SUT root: C:/Users/user/PycharmProjects/MLTestovoe/structureclaw
+Model: qwen3.5:9b
+Base URL: http://localhost:18435/v1
+============================================================
+
+Running: ru-truss-7e97-coach1#auto...
+[2026-10-26 08:46:09.618 +0300] INFO: building agent graph
+    toolCount: 20
+    hasCheckpointer: true
+[2026-10-26 08:46:09.622 +0300] INFO: LangGraph agent stream started
+    traceId: "4786afa6-df9a-4dca-bf3a-0b3d7cc355a2"
+    conversationId: "bench-314cc9fc-b51b-42bb-8235-0d39e39cfa2a"
+    message: "[User task]\nВыполни в OpenSees статический расчёт плоской фермы. Нижний пояс горизонтальный, 6 панел"
+[2026-10-26 08:46:09.651 +0300] INFO: agent node invoking LLM
+    traceId: "4786afa6-df9a-4dca-bf3a-0b3d7cc355a2"
+    conversationId: "bench-314cc9fc-b51b-42bb-8235-0d39e39cfa2a"
+    node: "agent"
+    messageCount: 2
+    activeToolCount: 9
+    toolCallCount: 0
+    compacted: false
+[2026-10-26 08:46:29.144 +0300] INFO: agent node LLM response received
+    traceId: "4786afa6-df9a-4dca-bf3a-0b3d7cc355a2"
+    conversationId: "bench-314cc9fc-b51b-42bb-8235-0d39e39cfa2a"
+    node: "agent"
+    durationMs: 19492
+    hasToolCalls: true
+    finishReason: "tool_calls"
+    contentLength: 171
+    reasoningContentLength: 0
+[2026-10-26 08:46:33.708 +0300] INFO: llm:qwen3.5:9b call completed
+    model: "qwen3.5:9b"
+    durationMs: 4555
+    success: true
+[2026-10-26 08:46:33.709 +0300] INFO: tool:detect_structure_type completed
+    traceId: "4786afa6-df9a-4dca-bf3a-0b3d7cc355a2"
+    conversationId: "bench-314cc9fc-b51b-42bb-8235-0d39e39cfa2a"
+    tool: "detect_structure_type"
+    durationMs: 4559
+    success: true
+    matchedKey: "truss"
+    skillId: "truss"
+    routingSource: "llm-suggested"
+[2026-10-26 08:46:33.715 +0300] INFO: agent node invoking LLM
+    traceId: "4786afa6-df9a-4dca-bf3a-0b3d7cc355a2"
+    conversationId: "bench-314cc9fc-b51b-42bb-8235-0d39e39cfa2a"
+    node: "agent"
+    messageCount: 4
+    activeToolCount: 9
+    toolCallCount: 1
+    compacted: false
+[2026-10-26 08:46:50.751 +0300] INFO: agent node LLM response received
+    traceId: "4786afa6-df9a-4dca-bf3a-0b3d7cc355a2"
+    conversationId: "bench-314cc9fc-b51b-42bb-8235-0d39e39cfa2a"
+    node: "agent"
+    durationMs: 17036
+    hasToolCalls: true
+    finishReason: "tool_calls"
+    contentLength: 111
+    reasoningContentLength: 0
+[2026-10-26 08:46:50.758 +0300] INFO: param extractor started
+    traceId: "4786afa6-df9a-4dca-bf3a-0b3d7cc355a2"
+    conversationId: "bench-314cc9fc-b51b-42bb-8235-0d39e39cfa2a"
+    pluginId: "truss"
+    locale: "en"
+[2026-10-26 08:47:07.576 +0300] INFO: llm:qwen3.5:9b call completed
+    model: "qwen3.5:9b"
+    durationMs: 16817
+    success: true
+[2026-10-26 08:47:07.580 +0300] INFO: tool:extract_draft_params completed
+    traceId: "4786afa6-df9a-4dca-bf3a-0b3d7cc355a2"
+    conversationId: "bench-314cc9fc-b51b-42bb-8235-0d39e39cfa2a"
+    tool: "extract_draft_params"
+    durationMs: 16825
+    success: true
+    skillId: "truss"
+    extractionMode: "llm"
+    criticalMissing: 0
+    routingSource: "current-state"
+[2026-10-26 08:47:07.584 +0300] INFO: agent node invoking LLM
+    traceId: "4786afa6-df9a-4dca-bf3a-0b3d7cc355a2"
+    conversationId: "bench-314cc9fc-b51b-42bb-8235-0d39e39cfa2a"
+    node: "agent"
+    messageCount: 6
+    activeToolCount: 9
+    toolCallCount: 2
+    compacted: false
+[2026-10-26 08:47:12.497 +0300] INFO: agent node LLM response received
+    traceId: "4786afa6-df9a-4dca-bf3a-0b3d7cc355a2"
+    conversationId: "bench-314cc9fc-b51b-42bb-8235-0d39e39cfa2a"
+    node: "agent"
+    durationMs: 4912
+    hasToolCalls: true
+    finishReason: "tool_calls"
+    contentLength: 98
+    reasoningContentLength: 0
+[2026-10-26 08:47:12.502 +0300] INFO: tool:build_model completed
+    traceId: "4786afa6-df9a-4dca-bf3a-0b3d7cc355a2"
+    conversationId: "bench-314cc9fc-b51b-42bb-8235-0d39e39cfa2a"
+    tool: "build_model"
+    durationMs: 3
+    success: true
+    nodeCount: 18
+    elementCount: 33
+    schemaVersion: "2.0.0"
+    nextAction: "run_analysis"
+    message: "Model build is complete. Next, call run_analysis to execute the structural analysis."
+[2026-10-26 08:47:12.505 +0300] INFO: agent node invoking LLM
+    traceId: "4786afa6-df9a-4dca-bf3a-0b3d7cc355a2"
+    conversationId: "bench-314cc9fc-b51b-42bb-8235-0d39e39cfa2a"
+    node: "agent"
+    messageCount: 8
+    activeToolCount: 9
+    toolCallCount: 3
+    compacted: false
+[2026-10-26 08:47:14.518 +0300] INFO: agent node LLM response received
+    traceId: "4786afa6-df9a-4dca-bf3a-0b3d7cc355a2"
+    conversationId: "bench-314cc9fc-b51b-42bb-8235-0d39e39cfa2a"
+    node: "agent"
+    durationMs: 2012
+    hasToolCalls: true
+    finishReason: "tool_calls"
+    contentLength: 134
+    reasoningContentLength: 0
+[2026-10-26 08:47:15.215 +0300] INFO: agent node invoking LLM
+    traceId: "4786afa6-df9a-4dca-bf3a-0b3d7cc355a2"
+    conversationId: "bench-314cc9fc-b51b-42bb-8235-0d39e39cfa2a"
+    node: "agent"
+    messageCount: 10
+    activeToolCount: 9
+    toolCallCount: 4
+    compacted: false
+[2026-10-26 08:47:17.981 +0300] INFO: agent node LLM response received
+    traceId: "4786afa6-df9a-4dca-bf3a-0b3d7cc355a2"
+    conversationId: "bench-314cc9fc-b51b-42bb-8235-0d39e39cfa2a"
+    node: "agent"
+    durationMs: 2766
+    hasToolCalls: true
+    finishReason: "tool_calls"
+    contentLength: 76
+    reasoningContentLength: 0
+[2026-10-26 08:47:19.132 +0300] INFO: tool:run_analysis completed
+    traceId: "4786afa6-df9a-4dca-bf3a-0b3d7cc355a2"
+    conversationId: "bench-314cc9fc-b51b-42bb-8235-0d39e39cfa2a"
+    tool: "run_analysis"
+    durationMs: 1148
+    success: true
+    analysisType: "static"
+    skillId: "opensees-static"
+    requestedAnalysisSkillId: "opensees-static"
+[2026-10-26 08:47:19.136 +0300] INFO: agent node invoking LLM
+    traceId: "4786afa6-df9a-4dca-bf3a-0b3d7cc355a2"
+    conversationId: "bench-314cc9fc-b51b-42bb-8235-0d39e39cfa2a"
+    node: "agent"
+    messageCount: 12
+    activeToolCount: 9
+    toolCallCount: 5
+    compacted: false
+[2026-10-26 08:47:41.330 +0300] INFO: agent node LLM response received
+    traceId: "4786afa6-df9a-4dca-bf3a-0b3d7cc355a2"
+    conversationId: "bench-314cc9fc-b51b-42bb-8235-0d39e39cfa2a"
+    node: "agent"
+    durationMs: 22194
+    hasToolCalls: true
+    finishReason: "tool_calls"
+    contentLength: 140
+    reasoningContentLength: 0
+[2026-10-26 08:47:41.336 +0300] INFO: tool:generate_report completed
+    traceId: "4786afa6-df9a-4dca-bf3a-0b3d7cc355a2"
+    conversationId: "bench-314cc9fc-b51b-42bb-8235-0d39e39cfa2a"
+    tool: "generate_report"
+    durationMs: 2
+    success: true
+    analysisType: "static"
+    locale: "en"
+[2026-10-26 08:47:41.338 +0300] INFO: agent node invoking LLM
+    traceId: "4786afa6-df9a-4dca-bf3a-0b3d7cc355a2"
+    conversationId: "bench-314cc9fc-b51b-42bb-8235-0d39e39cfa2a"
+    node: "agent"
+    messageCount: 14
+    activeToolCount: 9
+    toolCallCount: 6
+    compacted: false
+[2026-10-26 08:48:41.758 +0300] INFO: agent node LLM response received
+    traceId: "4786afa6-df9a-4dca-bf3a-0b3d7cc355a2"
+    conversationId: "bench-314cc9fc-b51b-42bb-8235-0d39e39cfa2a"
+    node: "agent"
+    durationMs: 60420
+    hasToolCalls: false
+    finishReason: "stop"
+    contentLength: 3181
+    reasoningContentLength: 0
+[2026-10-26 08:48:41.765 +0300] INFO: LangGraph agent stream completed
+    traceId: "4786afa6-df9a-4dca-bf3a-0b3d7cc355a2"
+    conversationId: "bench-314cc9fc-b51b-42bb-8235-0d39e39cfa2a"
+    durationMs: 152153
+    mode: "stream"
+[2026-10-26 08:48:41.774 +0300] INFO: LangGraph agent stream started
+    traceId: "c85f49b9-f039-46fb-9a5b-a0313b6325ab"
+    conversationId: "bench-314cc9fc-b51b-42bb-8235-0d39e39cfa2a"
+    message: "[User task]\nПроверь, пожалуйста, геометрию своей модели и исправь её, прежде чем отвечать. 1) Модель"
+[2026-10-26 08:48:41.780 +0300] INFO: agent node invoking LLM
+    traceId: "c85f49b9-f039-46fb-9a5b-a0313b6325ab"
+    conversationId: "bench-314cc9fc-b51b-42bb-8235-0d39e39cfa2a"
+    node: "agent"
+    messageCount: 16
+    activeToolCount: 9
+    toolCallCount: 0
+    compacted: false
+[2026-10-26 08:49:21.959 +0300] INFO: agent node LLM response received
+    traceId: "c85f49b9-f039-46fb-9a5b-a0313b6325ab"
+    conversationId: "bench-314cc9fc-b51b-42bb-8235-0d39e39cfa2a"
+    node: "agent"
+    durationMs: 40179
+    hasToolCalls: true
+    finishReason: "tool_calls"
+    contentLength: 980
+    reasoningContentLength: 0
+[2026-10-26 08:49:21.962 +0300] INFO: param extractor started
+    traceId: "c85f49b9-f039-46fb-9a5b-a0313b6325ab"
+    conversationId: "bench-314cc9fc-b51b-42bb-8235-0d39e39cfa2a"
+    pluginId: "truss"
+    locale: "en"
+[2026-10-26 08:50:12.529 +0300] INFO: llm:qwen3.5:9b call completed
+    model: "qwen3.5:9b"
+    durationMs: 50566
+    success: true
+[2026-10-26 08:50:12.530 +0300] INFO: tool:extract_draft_params completed
+    traceId: "c85f49b9-f039-46fb-9a5b-a0313b6325ab"
+    conversationId: "bench-314cc9fc-b51b-42bb-8235-0d39e39cfa2a"
+    tool: "extract_draft_params"
+    durationMs: 50568
+    success: true
+    skillId: "truss"
+    extractionMode: "llm"
+    criticalMissing: 0
+    routingSource: "current-state"
+[2026-10-26 08:50:12.534 +0300] INFO: agent node invoking LLM
+    traceId: "c85f49b9-f039-46fb-9a5b-a0313b6325ab"
+    conversationId: "bench-314cc9fc-b51b-42bb-8235-0d39e39cfa2a"
+    node: "agent"
+    messageCount: 18
+    activeToolCount: 9
+    toolCallCount: 1
+    compacted: false
+[2026-10-26 08:50:24.276 +0300] INFO: agent node LLM response received
+    traceId: "c85f49b9-f039-46fb-9a5b-a0313b6325ab"
+    conversationId: "bench-314cc9fc-b51b-42bb-8235-0d39e39cfa2a"
+    node: "agent"
+    durationMs: 11742
+    hasToolCalls: true
+    finishReason: "tool_calls"
+    contentLength: 86
+    reasoningContentLength: 0
+[2026-10-26 08:50:24.285 +0300] INFO: agent node invoking LLM
+    traceId: "c85f49b9-f039-46fb-9a5b-a0313b6325ab"
+    conversationId: "bench-314cc9fc-b51b-42bb-8235-0d39e39cfa2a"
+    node: "agent"
+    messageCount: 20
+    activeToolCount: 9
+    toolCallCount: 2
+    compacted: false
+[2026-10-26 08:50:32.499 +0300] INFO: agent node LLM response received
+    traceId: "c85f49b9-f039-46fb-9a5b-a0313b6325ab"
+    conversationId: "bench-314cc9fc-b51b-42bb-8235-0d39e39cfa2a"
+    node: "agent"
+    durationMs: 8214
+    hasToolCalls: false
+    finishReason: "length"
+    contentLength: 191
+    reasoningContentLength: 0
+[2026-10-26 08:50:32.508 +0300] INFO: LangGraph agent stream completed
+    traceId: "c85f49b9-f039-46fb-9a5b-a0313b6325ab"
+    conversationId: "bench-314cc9fc-b51b-42bb-8235-0d39e39cfa2a"
+    durationMs: 110735
+    mode: "stream"
+
+============================================================
+FAIL  ru-truss-7e97-coach1#auto
+     Ферма 2.1 с наставником во втором ходе (подсказка без чисел: оси и равномерный шаг высот)
+
+  Turn 1: "Выполни в OpenSees статический расчёт пл..."
+    ✓ structural_type  truss
+    ✓ skill_match      truss
+    ✓ inputTokens      60794
+    ✓ outputTokens     3269
+    ✓ totalTokens      64063
+
+  Turn 2: "Проверь, пожалуйста, геометрию своей мод..."
+    ✓ has_model        18 nodes, 33 elements
+    ✗ model_matches    dimension 2d/2d; nodes actual=18, expected=14, matched=4 (P=0.222, R=0.286); elements actual=33, expected=25, matched=1 (P=0.030, R=0.040); restraints 4/4; properties OK; element modifiers OK; loads actual=21, expected=3, matched=1 (P=0.048, R=0.333); load combinations FAIL; stories OK; failed: nodes, topology, loads, load combinations
+    ✗ numerical_matches model mismatch: nodes, topology, loads, load combinations
+    ✓ has_analysis     present
+    ✓ engine_match     engine=builtin-opensees, skill=opensees-static, adapter=builtin-opensees
+    ✗ natural_language not satisfied — The criterion requires stating support reactions at A and B and axial forces in members D–J, J–K, D–K, D–E, and E–K. The provided analysis result uses node IDs (B0..B8, T0..T8) and element IDs (BC*, TC*, WV*, WD*) that do not correspond to the named members (D–J, etc.) or nodes (A, B, C...) specified in the criterion. Consequently, the specific values for the requested members cannot be extracted from the evidence.
+    ✓ inputTokens      111772
+    ✓ outputTokens     5547
+    ✓ totalTokens      117319
+
+  ✓ duration           expected: (info)                         actual: 262.9s
+============================================================
+
+============================================================
+Benchmark Results: 0/1 (0.0%) pass, 1 failed
+Pass@1: 0/1 (0.0%)
+Average tool calls: 8.0
+Average primary-model tokens: 117319.0
+Average duration: 262.9s
+Failed: ru-truss-7e97-coach1#auto
+Total time: 262.9s
+
+By metric:
+  engine_match                     1/1 (100.0%)
+  has_analysis                     1/1 (100.0%)
+  has_model                        1/1 (100.0%)
+  model_matches                    0/1 (0.0%)
+  natural_language                 0/1 (0.0%)
+  numerical_matches                0/1 (0.0%)
+  skill_match                      1/1 (100.0%)
+  structural_type                  1/1 (100.0%)
+============================================================
+
+Results written to C:/Users/user/PycharmProjects/MLTestovoe/bench_runs/20261026-084604_ru-truss-7e97-coach1.json

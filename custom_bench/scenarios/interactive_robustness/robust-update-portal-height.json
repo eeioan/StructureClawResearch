@@ -1,0 +1,114 @@
+{
+  "id": "robust-update-portal-height",
+  "description": "多轮：门刚修改柱高",
+  "split": "core",
+  "taskFamily": "interactive_robustness",
+  "inputModality": "text",
+  "structureType": "portal-frame",
+  "benchmarkStructureType": "portal-frame",
+  "difficulty": "L3",
+  "skillTarget": "portal-frame",
+  "evaluationFocus": [
+    "routing",
+    "modeling",
+    "model_match",
+    "analysis",
+    "numerical_match",
+    "semantic",
+    "interaction"
+  ],
+  "category": "multi-turn-update",
+  "tags": [
+    "portal-frame",
+    "interactive",
+    "multi-turn-update",
+    "zh",
+    "l3"
+  ],
+  "locale": "zh",
+  "maxRetries": 0,
+  "benchmarkModes": [
+    "auto"
+  ],
+  "turns": [
+    {
+      "message": "单跨平屋面门式刚架跨度18m，两个柱脚固定，水平屋面梁标高7m，沿屋面梁施加向下6kN/m线荷载，请分析",
+      "assertions": [
+        {
+          "type": "structural_type",
+          "expected": "portal-frame"
+        },
+        {
+          "type": "skill_match",
+          "primary": "portal-frame",
+          "mayAlsoMatch": [
+            "generic"
+          ]
+        },
+        {
+          "type": "has_model",
+          "minNodes": 4,
+          "minElements": 3
+        },
+        {
+          "type": "has_analysis"
+        },
+        {
+          "type": "model_matches",
+          "groundTruthId": "portal-simple-18m-7m-6k",
+          "tolerances": {
+            "coordinate": 0.05,
+            "load": 0.05
+          }
+        },
+        {
+          "type": "numerical_matches",
+          "groundTruthId": "portal-simple-18m-7m-6k",
+          "tolerances": {
+            "coordinate": 0.05,
+            "load": 0.05,
+            "numeric": 0.01,
+            "numericAbsolute": 1e-8
+          }
+        }
+      ],
+      "engineeringSpecification": "所有模式均须严格使用以下完整分析属性；这些记录不是占位符，无需要求补充。结构分类只使用用户任务，参数提取须同时包含这些属性。不得显式创建构件自重荷载或重复施加折算荷载；分析后端可按自身配置在内部计入构件自重。几何、拓扑、支座和荷载位置仍由用户任务确定。\n单位制: SI\n坐标系: semantics=global-z-up, version=1, dimension=2d, plane=xz, dof_order=ux,uy,uz,rx,ry,rz\n材料: id=1, name=Q345, grade=Q345, category=steel, E=206000, nu=0.3, rho=7850, fy=345\n截面: member=H600x250x10x16, id=1, name=H600x250x10x16, type=H, shape(kind=H, H=600, B=250, tw=10, tf=16), properties(A=0.01368, Iy=0.0008349913600000005, Iz=0.000041714, J=8.72e-7, G=79000)\n分析荷载组合: id=ULS, factors={LC1=1}"
+    },
+    {
+      "message": "柱高和水平屋面梁标高都改成9m，其他条件不变，重新分析",
+      "assertions": [
+        {
+          "type": "has_model",
+          "minNodes": 4,
+          "minElements": 3
+        },
+        {
+          "type": "has_analysis"
+        },
+        {
+          "type": "model_matches",
+          "groundTruthId": "portal-simple-18m-9m-6k",
+          "tolerances": {
+            "coordinate": 0.05,
+            "load": 0.05
+          }
+        },
+        {
+          "type": "numerical_matches",
+          "groundTruthId": "portal-simple-18m-9m-6k",
+          "tolerances": {
+            "coordinate": 0.05,
+            "load": 0.05,
+            "numeric": 0.01,
+            "numericAbsolute": 1e-8
+          }
+        },
+        {
+          "type": "natural_language",
+          "description": "The updated model should reflect the revised 9m column height."
+        }
+      ],
+      "engineeringSpecification": "所有模式均须严格使用以下完整分析属性；这些记录不是占位符，无需要求补充。结构分类只使用用户任务，参数提取须同时包含这些属性。不得显式创建构件自重荷载或重复施加折算荷载；分析后端可按自身配置在内部计入构件自重。几何、拓扑、支座和荷载位置仍由用户任务确定。\n单位制: SI\n坐标系: semantics=global-z-up, version=1, dimension=2d, plane=xz, dof_order=ux,uy,uz,rx,ry,rz\n材料: id=1, name=Q345, grade=Q345, category=steel, E=206000, nu=0.3, rho=7850, fy=345\n截面: member=H600x250x10x16, id=1, name=H600x250x10x16, type=H, shape(kind=H, H=600, B=250, tw=10, tf=16), properties(A=0.01368, Iy=0.0008349913600000005, Iz=0.000041714, J=8.72e-7, G=79000)\n分析荷载组合: id=ULS, factors={LC1=1}"
+    }
+  ]
+}

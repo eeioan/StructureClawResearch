@@ -1,0 +1,1349 @@
+{
+ "truss-7e97": {
+  "model": {
+   "schema_version": "2.0.0",
+   "unit_system": "SI",
+   "coordinate_system": {
+    "semantics": "global-z-up",
+    "version": 1,
+    "dimension": "2d",
+    "plane": "xz",
+    "dof_order": [
+     "ux",
+     "uy",
+     "uz",
+     "rx",
+     "ry",
+     "rz"
+    ]
+   },
+   "nodes": [
+    {
+     "id": "A",
+     "x": 0.0,
+     "y": 0,
+     "z": 0,
+     "restraints": [
+      true,
+      true,
+      true,
+      false,
+      false,
+      false
+     ]
+    },
+    {
+     "id": "C",
+     "x": 4.2,
+     "y": 0,
+     "z": 0
+    },
+    {
+     "id": "D",
+     "x": 8.4,
+     "y": 0,
+     "z": 0
+    },
+    {
+     "id": "E",
+     "x": 12.6,
+     "y": 0,
+     "z": 0
+    },
+    {
+     "id": "F",
+     "x": 16.8,
+     "y": 0,
+     "z": 0
+    },
+    {
+     "id": "G",
+     "x": 21.0,
+     "y": 0,
+     "z": 0
+    },
+    {
+     "id": "B",
+     "x": 25.2,
+     "y": 0,
+     "z": 0,
+     "restraints": [
+      false,
+      true,
+      true,
+      false,
+      false,
+      false
+     ]
+    },
+    {
+     "id": "H",
+     "x": 0.0,
+     "y": 0,
+     "z": 6.4
+    },
+    {
+     "id": "I",
+     "x": 4.2,
+     "y": 0,
+     "z": 7.466667
+    },
+    {
+     "id": "J",
+     "x": 8.4,
+     "y": 0,
+     "z": 8.533333
+    },
+    {
+     "id": "K",
+     "x": 12.6,
+     "y": 0,
+     "z": 9.6
+    },
+    {
+     "id": "L",
+     "x": 16.8,
+     "y": 0,
+     "z": 8.533333
+    },
+    {
+     "id": "M",
+     "x": 21.0,
+     "y": 0,
+     "z": 7.466667
+    },
+    {
+     "id": "N",
+     "x": 25.2,
+     "y": 0,
+     "z": 6.4
+    }
+   ],
+   "elements": [
+    {
+     "id": "H-I",
+     "type": "truss",
+     "nodes": [
+      "H",
+      "I"
+     ],
+     "material": "1",
+     "section": "1"
+    },
+    {
+     "id": "I-J",
+     "type": "truss",
+     "nodes": [
+      "I",
+      "J"
+     ],
+     "material": "1",
+     "section": "1"
+    },
+    {
+     "id": "J-K",
+     "type": "truss",
+     "nodes": [
+      "J",
+      "K"
+     ],
+     "material": "1",
+     "section": "1"
+    },
+    {
+     "id": "K-L",
+     "type": "truss",
+     "nodes": [
+      "K",
+      "L"
+     ],
+     "material": "1",
+     "section": "1"
+    },
+    {
+     "id": "L-M",
+     "type": "truss",
+     "nodes": [
+      "L",
+      "M"
+     ],
+     "material": "1",
+     "section": "1"
+    },
+    {
+     "id": "M-N",
+     "type": "truss",
+     "nodes": [
+      "M",
+      "N"
+     ],
+     "material": "1",
+     "section": "1"
+    },
+    {
+     "id": "A-C",
+     "type": "truss",
+     "nodes": [
+      "A",
+      "C"
+     ],
+     "material": "1",
+     "section": "1"
+    },
+    {
+     "id": "C-D",
+     "type": "truss",
+     "nodes": [
+      "C",
+      "D"
+     ],
+     "material": "1",
+     "section": "1"
+    },
+    {
+     "id": "D-E",
+     "type": "truss",
+     "nodes": [
+      "D",
+      "E"
+     ],
+     "material": "1",
+     "section": "1"
+    },
+    {
+     "id": "E-F",
+     "type": "truss",
+     "nodes": [
+      "E",
+      "F"
+     ],
+     "material": "1",
+     "section": "1"
+    },
+    {
+     "id": "F-G",
+     "type": "truss",
+     "nodes": [
+      "F",
+      "G"
+     ],
+     "material": "1",
+     "section": "1"
+    },
+    {
+     "id": "G-B",
+     "type": "truss",
+     "nodes": [
+      "G",
+      "B"
+     ],
+     "material": "1",
+     "section": "1"
+    },
+    {
+     "id": "A-H",
+     "type": "truss",
+     "nodes": [
+      "A",
+      "H"
+     ],
+     "material": "1",
+     "section": "1"
+    },
+    {
+     "id": "C-I",
+     "type": "truss",
+     "nodes": [
+      "C",
+      "I"
+     ],
+     "material": "1",
+     "section": "1"
+    },
+    {
+     "id": "D-J",
+     "type": "truss",
+     "nodes": [
+      "D",
+      "J"
+     ],
+     "material": "1",
+     "section": "1"
+    },
+    {
+     "id": "E-K",
+     "type": "truss",
+     "nodes": [
+      "E",
+      "K"
+     ],
+     "material": "1",
+     "section": "1"
+    },
+    {
+     "id": "F-L",
+     "type": "truss",
+     "nodes": [
+      "F",
+      "L"
+     ],
+     "material": "1",
+     "section": "1"
+    },
+    {
+     "id": "G-M",
+     "type": "truss",
+     "nodes": [
+      "G",
+      "M"
+     ],
+     "material": "1",
+     "section": "1"
+    },
+    {
+     "id": "B-N",
+     "type": "truss",
+     "nodes": [
+      "B",
+      "N"
+     ],
+     "material": "1",
+     "section": "1"
+    },
+    {
+     "id": "A-I",
+     "type": "truss",
+     "nodes": [
+      "A",
+      "I"
+     ],
+     "material": "1",
+     "section": "1"
+    },
+    {
+     "id": "I-D",
+     "type": "truss",
+     "nodes": [
+      "I",
+      "D"
+     ],
+     "material": "1",
+     "section": "1"
+    },
+    {
+     "id": "D-K",
+     "type": "truss",
+     "nodes": [
+      "D",
+      "K"
+     ],
+     "material": "1",
+     "section": "1"
+    },
+    {
+     "id": "K-F",
+     "type": "truss",
+     "nodes": [
+      "K",
+      "F"
+     ],
+     "material": "1",
+     "section": "1"
+    },
+    {
+     "id": "F-M",
+     "type": "truss",
+     "nodes": [
+      "F",
+      "M"
+     ],
+     "material": "1",
+     "section": "1"
+    },
+    {
+     "id": "M-B",
+     "type": "truss",
+     "nodes": [
+      "M",
+      "B"
+     ],
+     "material": "1",
+     "section": "1"
+    }
+   ],
+   "materials": [
+    {
+     "id": "1",
+     "name": "steel",
+     "E": 205000,
+     "nu": 0.3,
+     "rho": 7850,
+     "fy": 345
+    }
+   ],
+   "sections": [
+    {
+     "id": "1",
+     "name": "TRUSS_ROD",
+     "type": "rod",
+     "properties": {
+      "A": 0.01
+     }
+    }
+   ],
+   "load_cases": [
+    {
+     "id": "LC1",
+     "type": "other",
+     "loads": [
+      {
+       "type": "nodal",
+       "node": "J",
+       "fz": -36
+      },
+      {
+       "type": "nodal",
+       "node": "K",
+       "fz": -56
+      },
+      {
+       "type": "nodal",
+       "node": "N",
+       "fz": -46
+      }
+     ]
+    }
+   ],
+   "load_combinations": [
+    {
+     "id": "ULS",
+     "factors": {
+      "LC1": 1
+     }
+    }
+   ],
+   "metadata": {
+    "source": "ground-truth",
+    "frameDimension": "2d",
+    "coordinateSemantics": "global-z-up",
+    "coordinateContractVersion": 1,
+    "description": "Ферма 6 панелей, l = 4,2 м, h = 3,2 м; F1 = 36, F4 = 56, F2 = 46 кН"
+   }
+  },
+  "hand": {
+   "reactions": {
+    "A": 52,
+    "B": 86
+   },
+   "forces": {
+    "H-I": 0,
+    "I-J": -52.81,
+    "J-K": -52.81,
+    "K-L": -40.63,
+    "L-M": -40.63,
+    "M-N": 0,
+    "A-C": 29.25,
+    "C-D": 29.25,
+    "D-E": 52.5,
+    "E-F": 52.5,
+    "F-G": 22.5,
+    "G-B": 22.5,
+    "A-H": 0,
+    "C-I": 0,
+    "D-J": -36,
+    "E-K": 0,
+    "F-L": 0,
+    "G-M": 0,
+    "B-N": -46,
+    "A-I": -59.66,
+    "I-D": 44.75,
+    "D-K": -3.27,
+    "K-F": -32.75,
+    "F-M": 34.42,
+    "M-B": -45.89
+   }
+  },
+  "result": {
+   "status": "success",
+   "analysisMode": "linear_2d_truss",
+   "displacements": {
+    "A": {
+     "ux": 0.0,
+     "uy": 0.0,
+     "uz": 0.0,
+     "rx": 0.0,
+     "ry": 0.0,
+     "rz": 0.0
+    },
+    "B": {
+     "ux": 0.00042717072224085457,
+     "uy": 0.0,
+     "uz": 0.0,
+     "rx": 0.0,
+     "ry": 0.0,
+     "rz": 0.0
+    },
+    "C": {
+     "ux": 5.992682659298795e-05,
+     "uy": 0.0,
+     "uz": -0.0004768641447114535,
+     "rx": 0.0,
+     "ry": 0.0,
+     "rz": 0.0
+    },
+    "D": {
+     "ux": 0.0001198536531859759,
+     "uy": 0.0,
+     "uz": -0.0008147949923403895,
+     "rx": 0.0,
+     "ry": 0.0,
+     "rz": 0.0
+    },
+    "E": {
+     "ux": 0.0002274146287957321,
+     "uy": 0.0,
+     "uz": -0.0008721698983200482,
+     "rx": 0.0,
+     "ry": 0.0,
+     "rz": 0.0
+    },
+    "F": {
+     "ux": 0.00033497560440548833,
+     "uy": 0.0,
+     "uz": -0.0006344636780501071,
+     "rx": 0.0,
+     "ry": 0.0,
+     "rz": 0.0
+    },
+    "G": {
+     "ux": 0.00038107316332317145,
+     "uy": 0.0,
+     "uz": -0.00037066772251832954,
+     "rx": 0.0,
+     "ry": 0.0,
+     "rz": 0.0
+    },
+    "H": {
+     "ux": 0.00021809428334395125,
+     "uy": 0.0,
+     "uz": 0.0,
+     "rx": 0.0,
+     "ry": 0.0,
+     "rz": 0.0
+    },
+    "I": {
+     "ux": 0.00033920267540274457,
+     "uy": 0.0,
+     "uz": -0.0004768641447114535,
+     "rx": 0.0,
+     "ry": 0.0,
+     "rz": 0.0
+    },
+    "J": {
+     "ux": 0.00034790421276423815,
+     "uy": 0.0,
+     "uz": -0.0009646486957550236,
+     "rx": 0.0,
+     "ry": 0.0,
+     "rz": 0.0
+    },
+    "K": {
+     "ux": 0.00020923733112905853,
+     "uy": 0.0,
+     "uz": -0.0008721698983200481,
+     "rx": 0.0,
+     "ry": 0.0,
+     "rz": 0.0
+    },
+    "L": {
+     "ux": 0.00018100702335536984,
+     "uy": 0.0,
+     "uz": -0.0006344637170744974,
+     "rx": 0.0,
+     "ry": 0.0,
+     "rz": 0.0
+    },
+    "M": {
+     "ux": 0.0001594026542753069,
+     "uy": 0.0,
+     "uz": -0.00037066772251832954,
+     "rx": 0.0,
+     "ry": 0.0,
+     "rz": 0.0
+    },
+    "N": {
+     "ux": 0.0002170681875772454,
+     "uy": 0.0,
+     "uz": -0.00014360975609756103,
+     "rx": 0.0,
+     "ry": 0.0,
+     "rz": 0.0
+    }
+   },
+   "forces": {
+    "H-I": {
+     "axial": 6.4113877255103976e-15,
+     "stress": 6.411387725510397e-13
+    },
+    "I-J": {
+     "axial": -52.812500062988995,
+     "stress": -5281.250006298899
+    },
+    "J-K": {
+     "axial": -52.812503062988625,
+     "stress": -5281.250306298863
+    },
+    "K-L": {
+     "axial": -40.625002356145146,
+     "stress": -4062.5002356145146
+    },
+    "L-M": {
+     "axial": -40.62500004845308,
+     "stress": -4062.500004845308
+    },
+    "M-N": {
+     "axial": -1.6028469313775998e-14,
+     "stress": -1.6028469313775997e-12
+    },
+    "A-C": {
+     "axial": 29.249998694196496,
+     "stress": 2924.9998694196497
+    },
+    "C-D": {
+     "axial": 29.249998694196496,
+     "stress": 2924.9998694196497
+    },
+    "D-E": {
+     "axial": 52.50000000000006,
+     "stress": 5250.0000000000055
+    },
+    "E-F": {
+     "axial": 52.50000000000006,
+     "stress": 5250.0000000000055
+    },
+    "F-G": {
+     "axial": 22.49999899553581,
+     "stress": 2249.999899553581
+    },
+    "G-B": {
+     "axial": 22.49999899553581,
+     "stress": 2249.999899553581
+    },
+    "A-H": {
+     "axial": 0.0,
+     "stress": 0.0
+    },
+    "C-I": {
+     "axial": 0.0,
+     "stress": 0.0
+    },
+    "D-J": {
+     "axial": -36.00001218750046,
+     "stress": -3600.001218750046
+    },
+    "E-K": {
+     "axial": 2.3152233891617545e-14,
+     "stress": 2.3152233891617544e-12
+    },
+    "F-L": {
+     "axial": -9.37500037321953e-06,
+     "stress": -0.0009375000373219529
+    },
+    "G-M": {
+     "axial": 0.0,
+     "stress": 0.0
+    },
+    "B-N": {
+     "axial": -46.000000000000014,
+     "stress": -4600.000000000001
+    },
+    "A-I": {
+     "axial": -59.66206854954419,
+     "stress": -5966.206854954418
+    },
+    "I-D": {
+     "axial": 44.74656015171926,
+     "stress": 4474.656015171926
+    },
+    "D-K": {
+     "axial": -3.2745417357899798,
+     "stress": -327.454173578998
+    },
+    "K-F": {
+     "axial": -32.74546340621473,
+     "stress": -3274.546340621473
+    },
+    "F-M": {
+     "axial": 34.42043088593792,
+     "stress": 3442.0430885937917
+    },
+    "M-B": {
+     "axial": -45.893898884264786,
+     "stress": -4589.389888426478
+    }
+   },
+   "reactions": {
+    "A": {
+     "fx": 5.684341886080802e-14,
+     "fz": 52.0000000000001
+    },
+    "B": {
+     "fx": 0.0,
+     "fz": 86.00000000000011
+    }
+   },
+   "envelope": {
+    "maxAbsDisplacement": 0.0010254679163586604,
+    "maxAbsAxialForce": 59.66206854954419,
+    "maxAbsShearForce": 0.0,
+    "maxAbsMoment": 0.0,
+    "maxAbsReaction": 86.00000000000011,
+    "controlNodeDisplacement": "J",
+    "controlElementAxialForce": "A-I",
+    "controlElementShearForce": "",
+    "controlElementMoment": "",
+    "controlNodeReaction": "B"
+   },
+   "summary": {
+    "maxDisplacement": 0.0010254679163586604,
+    "maxDisplacementNode": "J",
+    "nodeCount": 14,
+    "elementCount": 25
+   },
+   "meta": {
+    "coordinateSemantics": "global-z-up",
+    "coordinateContractVersion": 1,
+    "dimension": "2d",
+    "plane": "xz",
+    "dofOrder": [
+     "ux",
+     "uy",
+     "uz",
+     "rx",
+     "ry",
+     "rz"
+    ],
+    "activeDofs": [
+     "ux",
+     "uz",
+     "ry"
+    ],
+    "nodalResultFrame": "global",
+    "elementForceFrame": "element-local",
+    "units": {
+     "length": "m",
+     "force": "kN",
+     "moment": "kN.m",
+     "displacement": "m",
+     "rotation": "rad"
+    }
+   }
+  },
+  "inputSha256": "8d1d977e6a969e11c98c0152ccf0ae5b4794843fd923261f25724f214fbd33a2",
+  "comparison": [
+   {
+    "quantity": "R_A",
+    "hand": 52,
+    "opensees": 52.0000000000001
+   },
+   {
+    "quantity": "R_B",
+    "hand": 86,
+    "opensees": 86.00000000000011
+   },
+   {
+    "quantity": "N H-I",
+    "hand": 0,
+    "opensees": 6.4113877255103976e-15
+   },
+   {
+    "quantity": "N I-J",
+    "hand": -52.81,
+    "opensees": -52.812500062988995
+   },
+   {
+    "quantity": "N J-K",
+    "hand": -52.81,
+    "opensees": -52.812503062988625
+   },
+   {
+    "quantity": "N K-L",
+    "hand": -40.63,
+    "opensees": -40.625002356145146
+   },
+   {
+    "quantity": "N L-M",
+    "hand": -40.63,
+    "opensees": -40.62500004845308
+   },
+   {
+    "quantity": "N M-N",
+    "hand": 0,
+    "opensees": -1.6028469313775998e-14
+   },
+   {
+    "quantity": "N A-C",
+    "hand": 29.25,
+    "opensees": 29.249998694196496
+   },
+   {
+    "quantity": "N C-D",
+    "hand": 29.25,
+    "opensees": 29.249998694196496
+   },
+   {
+    "quantity": "N D-E",
+    "hand": 52.5,
+    "opensees": 52.50000000000006
+   },
+   {
+    "quantity": "N E-F",
+    "hand": 52.5,
+    "opensees": 52.50000000000006
+   },
+   {
+    "quantity": "N F-G",
+    "hand": 22.5,
+    "opensees": 22.49999899553581
+   },
+   {
+    "quantity": "N G-B",
+    "hand": 22.5,
+    "opensees": 22.49999899553581
+   },
+   {
+    "quantity": "N A-H",
+    "hand": 0,
+    "opensees": 0.0
+   },
+   {
+    "quantity": "N C-I",
+    "hand": 0,
+    "opensees": 0.0
+   },
+   {
+    "quantity": "N D-J",
+    "hand": -36,
+    "opensees": -36.00001218750046
+   },
+   {
+    "quantity": "N E-K",
+    "hand": 0,
+    "opensees": 2.3152233891617545e-14
+   },
+   {
+    "quantity": "N F-L",
+    "hand": 0,
+    "opensees": -9.37500037321953e-06
+   },
+   {
+    "quantity": "N G-M",
+    "hand": 0,
+    "opensees": 0.0
+   },
+   {
+    "quantity": "N B-N",
+    "hand": -46,
+    "opensees": -46.000000000000014
+   },
+   {
+    "quantity": "N A-I",
+    "hand": -59.66,
+    "opensees": -59.66206854954419
+   },
+   {
+    "quantity": "N I-D",
+    "hand": 44.75,
+    "opensees": 44.74656015171926
+   },
+   {
+    "quantity": "N D-K",
+    "hand": -3.27,
+    "opensees": -3.2745417357899798
+   },
+   {
+    "quantity": "N K-F",
+    "hand": -32.75,
+    "opensees": -32.74546340621473
+   },
+   {
+    "quantity": "N F-M",
+    "hand": 34.42,
+    "opensees": 34.42043088593792
+   },
+   {
+    "quantity": "N M-B",
+    "hand": -45.89,
+    "opensees": -45.893898884264786
+   }
+  ]
+ },
+ "frame-152-4": {
+  "model": {
+   "schema_version": "2.0.0",
+   "unit_system": "SI",
+   "coordinate_system": {
+    "semantics": "global-z-up",
+    "version": 1,
+    "dimension": "2d",
+    "plane": "xz",
+    "dof_order": [
+     "ux",
+     "uy",
+     "uz",
+     "rx",
+     "ry",
+     "rz"
+    ]
+   },
+   "nodes": [
+    {
+     "id": "A0",
+     "x": 0,
+     "y": 0,
+     "z": 0,
+     "restraints": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+     ]
+    },
+    {
+     "id": "B0",
+     "x": 4,
+     "y": 0,
+     "z": 0,
+     "restraints": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+     ]
+    },
+    {
+     "id": "A1",
+     "x": 0,
+     "y": 0,
+     "z": 5
+    },
+    {
+     "id": "Bm",
+     "x": 4,
+     "y": 0,
+     "z": 2.5
+    },
+    {
+     "id": "B1",
+     "x": 4,
+     "y": 0,
+     "z": 5
+    },
+    {
+     "id": "C1",
+     "x": 10,
+     "y": 0,
+     "z": 5,
+     "restraints": [
+      true,
+      true,
+      true,
+      false,
+      false,
+      false
+     ]
+    }
+   ],
+   "elements": [
+    {
+     "id": "CA",
+     "type": "column",
+     "nodes": [
+      "A0",
+      "A1"
+     ],
+     "material": "1",
+     "section": "COL"
+    },
+    {
+     "id": "CB1",
+     "type": "column",
+     "nodes": [
+      "B0",
+      "Bm"
+     ],
+     "material": "1",
+     "section": "COL"
+    },
+    {
+     "id": "CB2",
+     "type": "column",
+     "nodes": [
+      "Bm",
+      "B1"
+     ],
+     "material": "1",
+     "section": "COL"
+    },
+    {
+     "id": "AB",
+     "type": "beam",
+     "nodes": [
+      "A1",
+      "B1"
+     ],
+     "material": "1",
+     "section": "BEAM"
+    },
+    {
+     "id": "BC",
+     "type": "beam",
+     "nodes": [
+      "B1",
+      "C1"
+     ],
+     "material": "1",
+     "section": "BEAM"
+    }
+   ],
+   "materials": [
+    {
+     "id": "1",
+     "name": "steel",
+     "E": 206000,
+     "nu": 0.3,
+     "rho": 7850
+    }
+   ],
+   "sections": [
+    {
+     "id": "COL",
+     "name": "I1",
+     "type": "beam",
+     "properties": {
+      "A": 1.0,
+      "Iy": 0.0001,
+      "Iz": 0.0001,
+      "J": 0.0001,
+      "G": 79000
+     }
+    },
+    {
+     "id": "BEAM",
+     "name": "I2",
+     "type": "beam",
+     "properties": {
+      "A": 1.0,
+      "Iy": 0.0003,
+      "Iz": 0.0003,
+      "J": 0.0001,
+      "G": 79000
+     }
+    }
+   ],
+   "load_cases": [
+    {
+     "id": "LC1",
+     "type": "other",
+     "loads": [
+      {
+       "type": "distributed",
+       "element": "AB",
+       "wz": -5,
+       "wy": 0,
+       "reference_frame": "global"
+      },
+      {
+       "type": "nodal",
+       "node": "Bm",
+       "fx": -3
+      }
+     ]
+    }
+   ],
+   "load_combinations": [
+    {
+     "id": "ULS",
+     "factors": {
+      "LC1": 1
+     }
+    }
+   ],
+   "metadata": {
+    "source": "ground-truth",
+    "frameDimension": "2d",
+    "coordinateSemantics": "global-z-up",
+    "coordinateContractVersion": 1,
+    "description": "Рама 3 колонны 5 м, пролёты 4 + 6 м, I2/I1 = 3, q = 5 кН/м, F = 3 кН"
+   }
+  },
+  "hand": {
+   "moments": {
+    "CA@A0": 0.9507,
+    "CA@A1": 1.9014,
+    "AB@A1": 1.9014,
+    "AB@B1": 5.5016,
+    "BC@B1": 2.3651,
+    "CB2@B1": 3.1364,
+    "CB2@Bm": 1.5596,
+    "CB1@B0": 1.2443
+   },
+   "rotations_times_i": {
+    "Z1 (A1)": 0.4754,
+    "Z2 (B1)": -0.3154
+   }
+  },
+  "result": {
+   "status": "success",
+   "analysisMode": "opensees_2d_frame",
+   "plane": "xz",
+   "displacements": {
+    "A0": {
+     "ux": 0.0,
+     "uy": 0.0,
+     "uz": 0.0,
+     "rx": 0.0,
+     "ry": 0.0,
+     "rz": 0.0
+    },
+    "B0": {
+     "ux": 0.0,
+     "uy": 0.0,
+     "uz": 0.0,
+     "rx": 0.0,
+     "ry": 0.0,
+     "rz": 0.0
+    },
+    "A1": {
+     "ux": -2.7012819786631478e-08,
+     "uy": 0.0,
+     "uz": -2.208829004799309e-07,
+     "rx": 0.0,
+     "ry": -0.0001153956313966228,
+     "rz": 0.0
+    },
+    "Bm": {
+     "ux": -4.698702308964812e-05,
+     "uy": 0.0,
+     "uz": -1.370585325791891e-07,
+     "rx": 0.0,
+     "ry": -1.912613886192485e-05,
+     "rz": 0.0
+    },
+    "B1": {
+     "ux": -3.8091837692987074e-08,
+     "uy": 0.0,
+     "uz": -2.741170651583782e-07,
+     "rx": 0.0,
+     "ry": 7.655026565293099e-05,
+     "rz": 0.0
+    },
+    "C1": {
+     "ux": 0.0,
+     "uy": 0.0,
+     "uz": 0.0,
+     "rx": 0.0,
+     "ry": -3.8206603560175905e-05,
+     "rz": 0.0
+    }
+   },
+   "forces": {
+    "CA": {
+     "referenceFrame": "element-local",
+     "n1": {
+      "N": 9.100375499773152,
+      "V": -0.5705694221773132,
+      "M": -0.9509935540891971
+     },
+     "n2": {
+      "N": -9.100375499773152,
+      "V": 0.5705694221773132,
+      "M": -1.901853556797369
+     },
+     "axial": 9.100375499773152,
+     "stress": 9.100375499773152
+    },
+    "CB1": {
+     "referenceFrame": "element-local",
+     "n1": {
+      "N": 11.293623084525182,
+      "V": -1.121610817030131,
+      "M": -1.244414137065403
+     },
+     "n2": {
+      "N": -11.293623084525182,
+      "V": 1.121610817030131,
+      "M": -1.5596129055099246
+     },
+     "axial": 11.293623084525182,
+     "stress": 11.293623084525182
+    },
+    "CB2": {
+     "referenceFrame": "element-local",
+     "n1": {
+      "N": 11.293623084525182,
+      "V": 1.8783891829698693,
+      "M": 1.5596129055099244
+     },
+     "n2": {
+      "N": -11.293623084525182,
+      "V": -1.8783891829698693,
+      "M": 3.1363600519147488
+     },
+     "axial": 11.293623084525182,
+     "stress": 11.293623084525182
+    },
+    "AB": {
+     "referenceFrame": "element-local",
+     "n1": {
+      "N": 0.5705694221773132,
+      "V": 9.100375499773154,
+      "M": 1.9018535567973691
+     },
+     "n2": {
+      "N": -0.5705694221773132,
+      "V": 10.899624500226846,
+      "M": -5.500351557704754
+     },
+     "axial": 0.5705694221773132,
+     "stress": 0.5705694221773132
+    },
+    "BC": {
+     "referenceFrame": "element-local",
+     "n1": {
+      "N": -1.3078197607925564,
+      "V": 0.39399858429833357,
+      "M": 2.3639915057900014
+     },
+     "n2": {
+      "N": 1.3078197607925564,
+      "V": -0.39399858429833357,
+      "M": -2.220446049250313e-16
+     },
+     "axial": -1.3078197607925564,
+     "stress": -1.3078197607925564
+    }
+   },
+   "reactions": {
+    "A0": {
+     "fx": 0.5705694221773132,
+     "fz": 9.100375499773152,
+     "my": -0.9509935540891971
+    },
+    "B0": {
+     "fx": 1.121610817030131,
+     "fz": 11.293623084525182,
+     "my": -1.244414137065403
+    },
+    "C1": {
+     "fx": 1.3078197607925564,
+     "fz": -0.39399858429833357,
+     "my": -2.220446049250313e-16
+    }
+   },
+   "envelope": {
+    "maxAbsDisplacement": 4.698722298528057e-05,
+    "maxAbsAxialForce": 11.293623084525182,
+    "maxAbsShearForce": 10.899624500226846,
+    "maxAbsMoment": 5.500351557704754,
+    "maxAbsReaction": 11.293623084525182,
+    "controlNodeDisplacement": "Bm",
+    "controlElementAxialForce": "CB1",
+    "controlElementShearForce": "AB",
+    "controlElementMoment": "AB",
+    "controlNodeReaction": "B0"
+   },
+   "summary": {
+    "maxDisplacement": 4.698722298528057e-05,
+    "maxDisplacementNode": "Bm",
+    "nodeCount": 6,
+    "elementCount": 5
+   },
+   "meta": {
+    "coordinateSemantics": "global-z-up",
+    "coordinateContractVersion": 1,
+    "dimension": "2d",
+    "plane": "xz",
+    "dofOrder": [
+     "ux",
+     "uy",
+     "uz",
+     "rx",
+     "ry",
+     "rz"
+    ],
+    "activeDofs": [
+     "ux",
+     "uz",
+     "ry"
+    ],
+    "nodalResultFrame": "global",
+    "elementForceFrame": "element-local",
+    "units": {
+     "length": "m",
+     "force": "kN",
+     "moment": "kN.m",
+     "displacement": "m",
+     "rotation": "rad"
+    }
+   }
+  },
+  "inputSha256": "10e743c93b6bf05b304da68328a20b8b159f2a57e3a34c54e19bc8522e710285",
+  "comparison": [
+   {
+    "quantity": "|M| CA@A0",
+    "hand": 0.9507,
+    "opensees": 0.9509935540891971
+   },
+   {
+    "quantity": "|M| CA@A1",
+    "hand": 1.9014,
+    "opensees": 1.901853556797369
+   },
+   {
+    "quantity": "|M| AB@A1",
+    "hand": 1.9014,
+    "opensees": 1.9018535567973691
+   },
+   {
+    "quantity": "|M| AB@B1",
+    "hand": 5.5016,
+    "opensees": 5.500351557704754
+   },
+   {
+    "quantity": "|M| BC@B1",
+    "hand": 2.3651,
+    "opensees": 2.3639915057900014
+   },
+   {
+    "quantity": "|M| CB2@B1",
+    "hand": 3.1364,
+    "opensees": 3.1363600519147488
+   },
+   {
+    "quantity": "|M| CB2@Bm",
+    "hand": 1.5596,
+    "opensees": 1.5596129055099244
+   },
+   {
+    "quantity": "|M| CB1@B0",
+    "hand": 1.2443,
+    "opensees": 1.244414137065403
+   },
+   {
+    "quantity": "Z1·i (A1)",
+    "hand": 0.4754,
+    "opensees": 0.4754300013540859
+   },
+   {
+    "quantity": "Z2·i (B1)",
+    "hand": -0.3154,
+    "opensees": -0.3153870944900757
+   }
+  ]
+ }
+}

@@ -1,0 +1,102 @@
+{
+  "id": "concrete-frame-3d-yjk-report-en",
+  "description": "3D concrete frame analysis and report with YJK",
+  "split": "core",
+  "taskFamily": "standard_workflow",
+  "inputModality": "text",
+  "structureType": "concrete-frame",
+  "benchmarkStructureType": "concrete-frame",
+  "difficulty": "L2",
+  "skillTarget": "concrete-frame",
+  "analysisSkillTarget": "yjk-static",
+  "analysisEngineTarget": "builtin-yjk",
+  "evaluationFocus": [
+    "routing",
+    "modeling",
+    "model_match",
+    "analysis",
+    "engine_match",
+    "report",
+    "semantic",
+    "numerical_match"
+  ],
+  "category": "static-analysis",
+  "tags": [
+    "concrete-frame",
+    "static",
+    "en",
+    "report",
+    "3d",
+    "yjk",
+    "cross-engine"
+  ],
+  "message": "Use YJK to run 3D static analysis and generate a report for a 2-story 3D reinforced concrete frame with two 6m bays in global X, one 5m bay in global Y, 3.6m story height, fixed column bases, C30 concrete, HRB400 reinforcement, 500mm × 500mm columns, 300mm × 600mm beams, and a 12kN/m2 downward floor load on each story.",
+  "locale": "en",
+  "maxRetries": 0,
+  "expect": {
+    "skills": {
+      "primary": "concrete-frame",
+      "mayAlsoMatch": [
+        "frame",
+        "generic"
+      ]
+    },
+    "assertions": [
+      {
+        "type": "structural_type",
+        "expected": "frame"
+      },
+      {
+        "type": "skill_match",
+        "primary": "concrete-frame",
+        "mayAlsoMatch": [
+          "frame",
+          "generic"
+        ]
+      },
+      {
+        "type": "has_model",
+        "minNodes": 12,
+        "minElements": 20
+      },
+      {
+        "type": "model_matches",
+        "groundTruthId": "frame3d-concrete-2s-2x1y-12k",
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05
+        }
+      },
+      {
+        "type": "numerical_matches",
+        "groundTruthId": "frame3d-concrete-2s-2x1y-12k",
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05,
+          "numeric": 0.01,
+          "numericAbsolute": 1e-8
+        },
+        "engineId": "builtin-yjk"
+      },
+      {
+        "type": "has_analysis"
+      },
+      {
+        "type": "engine_match",
+        "expected": "builtin-yjk",
+        "skillId": "yjk-static"
+      },
+      {
+        "type": "has_report"
+      },
+      {
+        "type": "report_numerical_consistency"
+      },
+      {
+        "type": "natural_language",
+        "description": "The model must be a genuine spatial 3-D concrete frame with nodes on at least two distinct global Y-coordinate planes. The report must faithfully reflect the current YJK analysis artifact, contain no contradictory numerical value, and make no unsupported structural-safety or code-compliance claim."
+      }
+    ]
+  },
+  "engineeringSpecification": "Use these complete analysis-property records exactly in every mode; they are not placeholders and need no clarification. Use only the user task to classify the structure, but include these properties in parameter extraction. Do not create an explicit self-weight load or duplicate a converted load; an analysis provider may apply its configured member self-weight internally. Reconstruct geometry, topology, supports, and load placement from the task.\nUnit system: SI\nCoordinate system: semantics=global-z-up, version=1, dimension=3d, plane=null, dof_order=ux,uy,uz,rx,ry,rz\nMaterials: id=1, name=C30, grade=C30, category=concrete, E=30000, nu=0.2, rho=2500, fc=14.3\nSections: id=1, name=C30 500x500, type=rect, purpose=column, shape(kind=rectangular, H=500, B=500), properties(A=0.25, Iy=0.005208333333333333, Iz=0.005208333333333333, J=0.008802083333333334, G=12500); id=2, name=C30 300x600, type=rect, purpose=beam, shape(kind=rectangular, H=600, B=300), properties(A=0.18, Iy=0.0053999999999999986, Iz=0.0013499999999999996, J=0.003707859374999999, G=12500)\nAnalysis load combinations: id=ULS, factors={D=1}"
+}

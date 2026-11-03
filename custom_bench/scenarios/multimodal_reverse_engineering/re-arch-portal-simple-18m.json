@@ -1,0 +1,88 @@
+{
+  "id": "re-arch-portal-simple-18m",
+  "description": "建筑立面DXF反问题：单层工业厂房",
+  "split": "auxiliary",
+  "taskFamily": "multimodal_reverse_engineering",
+  "inputModality": "dxf",
+  "structureType": "portal-frame",
+  "benchmarkStructureType": "portal-frame",
+  "difficulty": "L3",
+  "skillTarget": "portal-frame",
+  "evaluationFocus": [
+    "routing",
+    "modeling",
+    "model_match",
+    "analysis",
+    "numerical_match"
+  ],
+  "category": "reverse-engineering",
+  "tags": [
+    "reverse-engineering",
+    "portal-frame",
+    "architectural",
+    "architectural-elevation",
+    "dxf",
+    "zh"
+  ],
+  "message": "请根据所附工业建筑立面DXF及工程说明提取主体结构，过滤吊车、设备、门窗、轴网等非结构建筑元素，建立计算模型并进行静力分析。尺寸与拓扑须以图中可见证据为准，不得补猜。",
+  "engineeringSpecification": "材料 Q345：E=206000 MPa，ν=0.3，密度=7850 kg/m3，fy=345 MPa。全部构件采用 H600x250x10x16（H=600 mm，B=250 mm，tw=10 mm，tf=16 mm；A=0.01368 m2，Iy=0.00083499136 m4，Iz=0.000041714 m4，J=0.000000872 m4，G=79000 MPa）。该立面图的源X/Y轴映射为全局X/Z轴，全局Y=0。两个柱脚均固定，屋面梁施加全局Z负向6 kN/m线荷载。采用SI单位和全局Z轴向上的坐标约定，不附加构件自重，分析荷载组合为 ULS = 1 × LC1。",
+  "inputContract": {
+    "dxfProvides": ["topology", "dimensions"],
+    "specificationProvides": ["materials", "sections", "supports", "loads", "analysis-settings"],
+    "completeness": "complete"
+  },
+  "locale": "zh",
+  "maxRetries": 0,
+  "attachments": [
+    {
+      "fileId": "re-arch-portal-simple",
+      "originalName": "drawing-041.dxf",
+      "relPath": "fixtures/drawings/arch-portal-simple-18m.dxf",
+      "mimeType": "application/dxf"
+    }
+  ],
+  "expect": {
+    "skills": {
+      "primary": "portal-frame",
+      "mayAlsoMatch": [
+        "frame",
+        "generic"
+      ]
+    },
+    "assertions": [
+      {
+        "type": "structural_type",
+        "expected": "portal-frame"
+      },
+      {
+        "type": "skill_match",
+        "primary": "portal-frame",
+        "mayAlsoMatch": [
+          "frame",
+          "generic"
+        ]
+      },
+      {
+        "type": "model_matches",
+        "groundTruthId": "portal-simple-18m",
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05
+        }
+      },
+      {
+        "type": "numerical_matches",
+        "groundTruthId": "portal-simple-18m",
+        "tolerances": {
+          "load": 0.05,
+          "coordinate": 0.05,
+          "numeric": 0.01,
+          "numericAbsolute": 1e-8
+        }
+      },
+      {
+        "type": "has_analysis"
+      }
+    ]
+  }
+}

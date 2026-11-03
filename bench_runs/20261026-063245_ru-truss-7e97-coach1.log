@@ -1,0 +1,366 @@
+
+============================================================
+LangGraph Agent Benchmark: 1 scenario run(s)
+Mode: auto
+Execution: web-stream
+Case timeout: 1800000ms
+SUT root: C:/Users/user/PycharmProjects/MLTestovoe/structureclaw
+Model: gemma4:31b-cloud
+Base URL: http://localhost:18435/v1
+============================================================
+
+Running: ru-truss-7e97-coach1#auto...
+[2026-10-26 06:32:49.650 +0300] [32mINFO[39m: [36mbuilding agent graph[39m
+    [35mtoolCount[39m: 20
+    [35mhasCheckpointer[39m: true
+[2026-10-26 06:32:49.654 +0300] [32mINFO[39m: [36mLangGraph agent stream started[39m
+    [35mtraceId[39m: "8d3692f9-08c9-4f09-9ef8-0968a0a7653f"
+    [35mconversationId[39m: "bench-5e5725a1-34ad-4def-b2d1-ca5e7bc59995"
+    [35mmessage[39m: "[User task]\nВыполни в OpenSees статический расчёт плоской фермы. Нижний пояс горизонтальный, 6 панел"
+[2026-10-26 06:32:49.682 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "8d3692f9-08c9-4f09-9ef8-0968a0a7653f"
+    [35mconversationId[39m: "bench-5e5725a1-34ad-4def-b2d1-ca5e7bc59995"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 2
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 0
+    [35mcompacted[39m: false
+[2026-10-26 06:32:50.940 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "8d3692f9-08c9-4f09-9ef8-0968a0a7653f"
+    [35mconversationId[39m: "bench-5e5725a1-34ad-4def-b2d1-ca5e7bc59995"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 1258
+    [35mhasToolCalls[39m: true
+    [35mfinishReason[39m: "tool_calls"
+    [35mcontentLength[39m: 0
+    [35mreasoningContentLength[39m: 0
+[2026-10-26 06:32:51.656 +0300] [32mINFO[39m: [36mllm:gemma4:31b-cloud call completed[39m
+    [35mmodel[39m: "gemma4:31b-cloud"
+    [35mdurationMs[39m: 703
+    [35msuccess[39m: true
+[2026-10-26 06:32:51.657 +0300] [32mINFO[39m: [36mtool:detect_structure_type completed[39m
+    [35mtraceId[39m: "8d3692f9-08c9-4f09-9ef8-0968a0a7653f"
+    [35mconversationId[39m: "bench-5e5725a1-34ad-4def-b2d1-ca5e7bc59995"
+    [35mtool[39m: "detect_structure_type"
+    [35mdurationMs[39m: 706
+    [35msuccess[39m: true
+    [35mmatchedKey[39m: "truss"
+    [35mskillId[39m: "truss"
+    [35mroutingSource[39m: "llm-suggested"
+[2026-10-26 06:32:51.661 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "8d3692f9-08c9-4f09-9ef8-0968a0a7653f"
+    [35mconversationId[39m: "bench-5e5725a1-34ad-4def-b2d1-ca5e7bc59995"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 4
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 1
+    [35mcompacted[39m: false
+[2026-10-26 06:32:53.344 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "8d3692f9-08c9-4f09-9ef8-0968a0a7653f"
+    [35mconversationId[39m: "bench-5e5725a1-34ad-4def-b2d1-ca5e7bc59995"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 1682
+    [35mhasToolCalls[39m: true
+    [35mfinishReason[39m: "tool_calls"
+    [35mcontentLength[39m: 0
+    [35mreasoningContentLength[39m: 0
+[2026-10-26 06:32:53.351 +0300] [32mINFO[39m: [36mparam extractor started[39m
+    [35mtraceId[39m: "8d3692f9-08c9-4f09-9ef8-0968a0a7653f"
+    [35mconversationId[39m: "bench-5e5725a1-34ad-4def-b2d1-ca5e7bc59995"
+    [35mpluginId[39m: "truss"
+    [35mlocale[39m: "en"
+[2026-10-26 06:32:59.218 +0300] [32mINFO[39m: [36mllm:gemma4:31b-cloud call completed[39m
+    [35mmodel[39m: "gemma4:31b-cloud"
+    [35mdurationMs[39m: 5865
+    [35msuccess[39m: true
+[2026-10-26 06:32:59.222 +0300] [32mINFO[39m: [36mtool:extract_draft_params completed[39m
+    [35mtraceId[39m: "8d3692f9-08c9-4f09-9ef8-0968a0a7653f"
+    [35mconversationId[39m: "bench-5e5725a1-34ad-4def-b2d1-ca5e7bc59995"
+    [35mtool[39m: "extract_draft_params"
+    [35mdurationMs[39m: 5874
+    [35msuccess[39m: true
+    [35mskillId[39m: "truss"
+    [35mextractionMode[39m: "llm"
+    [35mcriticalMissing[39m: 0
+    [35mroutingSource[39m: "current-state"
+[2026-10-26 06:32:59.225 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "8d3692f9-08c9-4f09-9ef8-0968a0a7653f"
+    [35mconversationId[39m: "bench-5e5725a1-34ad-4def-b2d1-ca5e7bc59995"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 6
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 2
+    [35mcompacted[39m: false
+[2026-10-26 06:32:59.851 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "8d3692f9-08c9-4f09-9ef8-0968a0a7653f"
+    [35mconversationId[39m: "bench-5e5725a1-34ad-4def-b2d1-ca5e7bc59995"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 626
+    [35mhasToolCalls[39m: true
+    [35mfinishReason[39m: "tool_calls"
+    [35mcontentLength[39m: 0
+    [35mreasoningContentLength[39m: 0
+[2026-10-26 06:32:59.857 +0300] [32mINFO[39m: [36mtool:build_model completed[39m
+    [35mtraceId[39m: "8d3692f9-08c9-4f09-9ef8-0968a0a7653f"
+    [35mconversationId[39m: "bench-5e5725a1-34ad-4def-b2d1-ca5e7bc59995"
+    [35mtool[39m: "build_model"
+    [35mdurationMs[39m: 2
+    [35msuccess[39m: true
+    [35mnodeCount[39m: 14
+    [35melementCount[39m: 25
+    [35mschemaVersion[39m: "2.0.0"
+    [35mnextAction[39m: "run_analysis"
+    [35mmessage[39m: "Model build is complete. Next, call run_analysis to execute the structural analysis."
+[2026-10-26 06:32:59.860 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "8d3692f9-08c9-4f09-9ef8-0968a0a7653f"
+    [35mconversationId[39m: "bench-5e5725a1-34ad-4def-b2d1-ca5e7bc59995"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 8
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 3
+    [35mcompacted[39m: false
+[2026-10-26 06:33:00.449 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "8d3692f9-08c9-4f09-9ef8-0968a0a7653f"
+    [35mconversationId[39m: "bench-5e5725a1-34ad-4def-b2d1-ca5e7bc59995"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 589
+    [35mhasToolCalls[39m: true
+    [35mfinishReason[39m: "tool_calls"
+    [35mcontentLength[39m: 0
+    [35mreasoningContentLength[39m: 0
+[2026-10-26 06:33:01.099 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "8d3692f9-08c9-4f09-9ef8-0968a0a7653f"
+    [35mconversationId[39m: "bench-5e5725a1-34ad-4def-b2d1-ca5e7bc59995"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 10
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 4
+    [35mcompacted[39m: false
+[2026-10-26 06:33:01.721 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "8d3692f9-08c9-4f09-9ef8-0968a0a7653f"
+    [35mconversationId[39m: "bench-5e5725a1-34ad-4def-b2d1-ca5e7bc59995"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 622
+    [35mhasToolCalls[39m: true
+    [35mfinishReason[39m: "tool_calls"
+    [35mcontentLength[39m: 0
+    [35mreasoningContentLength[39m: 0
+[2026-10-26 06:33:02.719 +0300] [32mINFO[39m: [36mtool:run_analysis completed[39m
+    [35mtraceId[39m: "8d3692f9-08c9-4f09-9ef8-0968a0a7653f"
+    [35mconversationId[39m: "bench-5e5725a1-34ad-4def-b2d1-ca5e7bc59995"
+    [35mtool[39m: "run_analysis"
+    [35mdurationMs[39m: 994
+    [35msuccess[39m: true
+    [35manalysisType[39m: "static"
+    [35mskillId[39m: "opensees-static"
+    [35mrequestedAnalysisSkillId[39m: "opensees-static"
+[2026-10-26 06:33:02.722 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "8d3692f9-08c9-4f09-9ef8-0968a0a7653f"
+    [35mconversationId[39m: "bench-5e5725a1-34ad-4def-b2d1-ca5e7bc59995"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 12
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 5
+    [35mcompacted[39m: false
+[2026-10-26 06:33:04.868 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "8d3692f9-08c9-4f09-9ef8-0968a0a7653f"
+    [35mconversationId[39m: "bench-5e5725a1-34ad-4def-b2d1-ca5e7bc59995"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 2146
+    [35mhasToolCalls[39m: true
+    [35mfinishReason[39m: "tool_calls"
+    [35mcontentLength[39m: 0
+    [35mreasoningContentLength[39m: 0
+[2026-10-26 06:33:04.873 +0300] [32mINFO[39m: [36mtool:generate_report completed[39m
+    [35mtraceId[39m: "8d3692f9-08c9-4f09-9ef8-0968a0a7653f"
+    [35mconversationId[39m: "bench-5e5725a1-34ad-4def-b2d1-ca5e7bc59995"
+    [35mtool[39m: "generate_report"
+    [35mdurationMs[39m: 3
+    [35msuccess[39m: true
+    [35manalysisType[39m: "static"
+    [35mlocale[39m: "en"
+[2026-10-26 06:33:04.876 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "8d3692f9-08c9-4f09-9ef8-0968a0a7653f"
+    [35mconversationId[39m: "bench-5e5725a1-34ad-4def-b2d1-ca5e7bc59995"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 14
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 6
+    [35mcompacted[39m: false
+[2026-10-26 06:33:10.019 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "8d3692f9-08c9-4f09-9ef8-0968a0a7653f"
+    [35mconversationId[39m: "bench-5e5725a1-34ad-4def-b2d1-ca5e7bc59995"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 5143
+    [35mhasToolCalls[39m: false
+    [35mfinishReason[39m: "stop"
+    [35mcontentLength[39m: 1495
+    [35mreasoningContentLength[39m: 0
+[2026-10-26 06:33:10.025 +0300] [32mINFO[39m: [36mLangGraph agent stream completed[39m
+    [35mtraceId[39m: "8d3692f9-08c9-4f09-9ef8-0968a0a7653f"
+    [35mconversationId[39m: "bench-5e5725a1-34ad-4def-b2d1-ca5e7bc59995"
+    [35mdurationMs[39m: 20382
+    [35mmode[39m: "stream"
+[2026-10-26 06:33:10.038 +0300] [32mINFO[39m: [36mLangGraph agent stream started[39m
+    [35mtraceId[39m: "3910ac06-3217-41a6-a08c-09d388a10156"
+    [35mconversationId[39m: "bench-5e5725a1-34ad-4def-b2d1-ca5e7bc59995"
+    [35mmessage[39m: "[User task]\nПроверь, пожалуйста, геометрию своей модели и исправь её, прежде чем отвечать. 1) Модель"
+[2026-10-26 06:33:10.047 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "3910ac06-3217-41a6-a08c-09d388a10156"
+    [35mconversationId[39m: "bench-5e5725a1-34ad-4def-b2d1-ca5e7bc59995"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 16
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 0
+    [35mcompacted[39m: false
+[2026-10-26 06:33:12.207 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "3910ac06-3217-41a6-a08c-09d388a10156"
+    [35mconversationId[39m: "bench-5e5725a1-34ad-4def-b2d1-ca5e7bc59995"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 2160
+    [35mhasToolCalls[39m: true
+    [35mfinishReason[39m: "tool_calls"
+    [35mcontentLength[39m: 0
+    [35mreasoningContentLength[39m: 0
+[2026-10-26 06:33:12.210 +0300] [32mINFO[39m: [36mparam extractor started[39m
+    [35mtraceId[39m: "3910ac06-3217-41a6-a08c-09d388a10156"
+    [35mconversationId[39m: "bench-5e5725a1-34ad-4def-b2d1-ca5e7bc59995"
+    [35mpluginId[39m: "truss"
+    [35mlocale[39m: "en"
+[2026-10-26 06:33:15.070 +0300] [32mINFO[39m: [36mllm:gemma4:31b-cloud call completed[39m
+    [35mmodel[39m: "gemma4:31b-cloud"
+    [35mdurationMs[39m: 2858
+    [35msuccess[39m: true
+[2026-10-26 06:33:15.071 +0300] [32mINFO[39m: [36mtool:extract_draft_params completed[39m
+    [35mtraceId[39m: "3910ac06-3217-41a6-a08c-09d388a10156"
+    [35mconversationId[39m: "bench-5e5725a1-34ad-4def-b2d1-ca5e7bc59995"
+    [35mtool[39m: "extract_draft_params"
+    [35mdurationMs[39m: 2861
+    [35msuccess[39m: true
+    [35mskillId[39m: "truss"
+    [35mextractionMode[39m: "llm"
+    [35mcriticalMissing[39m: 0
+    [35mroutingSource[39m: "current-state"
+[2026-10-26 06:33:15.074 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "3910ac06-3217-41a6-a08c-09d388a10156"
+    [35mconversationId[39m: "bench-5e5725a1-34ad-4def-b2d1-ca5e7bc59995"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 18
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 1
+    [35mcompacted[39m: false
+[2026-10-26 06:33:15.810 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "3910ac06-3217-41a6-a08c-09d388a10156"
+    [35mconversationId[39m: "bench-5e5725a1-34ad-4def-b2d1-ca5e7bc59995"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 736
+    [35mhasToolCalls[39m: true
+    [35mfinishReason[39m: "tool_calls"
+    [35mcontentLength[39m: 0
+    [35mreasoningContentLength[39m: 0
+[2026-10-26 06:33:15.813 +0300] [32mINFO[39m: [36mtool:build_model completed[39m
+    [35mtraceId[39m: "3910ac06-3217-41a6-a08c-09d388a10156"
+    [35mconversationId[39m: "bench-5e5725a1-34ad-4def-b2d1-ca5e7bc59995"
+    [35mtool[39m: "build_model"
+    [35mdurationMs[39m: 1
+    [35msuccess[39m: true
+    [35mnodeCount[39m: 14
+    [35melementCount[39m: 25
+    [35mschemaVersion[39m: "2.0.0"
+    [35mnextAction[39m: "run_analysis"
+    [35mmessage[39m: "Model build is complete. Next, call run_analysis to execute the structural analysis."
+[2026-10-26 06:33:15.815 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "3910ac06-3217-41a6-a08c-09d388a10156"
+    [35mconversationId[39m: "bench-5e5725a1-34ad-4def-b2d1-ca5e7bc59995"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 20
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 2
+    [35mcompacted[39m: false
+[2026-10-26 06:33:16.510 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "3910ac06-3217-41a6-a08c-09d388a10156"
+    [35mconversationId[39m: "bench-5e5725a1-34ad-4def-b2d1-ca5e7bc59995"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 695
+    [35mhasToolCalls[39m: true
+    [35mfinishReason[39m: "tool_calls"
+    [35mcontentLength[39m: 0
+    [35mreasoningContentLength[39m: 0
+[2026-10-26 06:33:17.590 +0300] [32mINFO[39m: [36mtool:run_analysis completed[39m
+    [35mtraceId[39m: "3910ac06-3217-41a6-a08c-09d388a10156"
+    [35mconversationId[39m: "bench-5e5725a1-34ad-4def-b2d1-ca5e7bc59995"
+    [35mtool[39m: "run_analysis"
+    [35mdurationMs[39m: 1077
+    [35msuccess[39m: true
+    [35manalysisType[39m: "static"
+    [35mskillId[39m: "opensees-static"
+    [35mrequestedAnalysisSkillId[39m: "opensees-static"
+[2026-10-26 06:33:17.592 +0300] [32mINFO[39m: [36magent node invoking LLM[39m
+    [35mtraceId[39m: "3910ac06-3217-41a6-a08c-09d388a10156"
+    [35mconversationId[39m: "bench-5e5725a1-34ad-4def-b2d1-ca5e7bc59995"
+    [35mnode[39m: "agent"
+    [35mmessageCount[39m: 22
+    [35mactiveToolCount[39m: 9
+    [35mtoolCallCount[39m: 3
+    [35mcompacted[39m: false
+[2026-10-26 06:33:20.703 +0300] [32mINFO[39m: [36magent node LLM response received[39m
+    [35mtraceId[39m: "3910ac06-3217-41a6-a08c-09d388a10156"
+    [35mconversationId[39m: "bench-5e5725a1-34ad-4def-b2d1-ca5e7bc59995"
+    [35mnode[39m: "agent"
+    [35mdurationMs[39m: 3111
+    [35mhasToolCalls[39m: false
+    [35mfinishReason[39m: "stop"
+    [35mcontentLength[39m: 1368
+    [35mreasoningContentLength[39m: 0
+[2026-10-26 06:33:20.707 +0300] [32mINFO[39m: [36mLangGraph agent stream completed[39m
+    [35mtraceId[39m: "3910ac06-3217-41a6-a08c-09d388a10156"
+    [35mconversationId[39m: "bench-5e5725a1-34ad-4def-b2d1-ca5e7bc59995"
+    [35mdurationMs[39m: 10670
+    [35mmode[39m: "stream"
+
+============================================================
+FAIL  ru-truss-7e97-coach1#auto
+     Ферма 2.1 с наставником во втором ходе (подсказка без чисел: оси и равномерный шаг высот)
+
+  Turn 1: "Выполни в OpenSees статический расчёт пл..."
+    ✓ structural_type  truss
+    ✓ skill_match      truss
+    ✓ inputTokens      73801
+    ✓ outputTokens     3823
+    ✓ totalTokens      77624
+
+  Turn 2: "Проверь, пожалуйста, геометрию своей мод..."
+    ✓ has_model        14 nodes, 25 elements
+    ✗ model_matches    dimension 2d/2d; nodes actual=14, expected=14, matched=9 (P=0.643, R=0.643); elements actual=25, expected=25, matched=8 (P=0.320, R=0.320); restraints 9/9; properties OK; element modifiers OK; loads actual=3, expected=3, matched=1 (P=0.333, R=0.333); load combinations FAIL; stories OK; failed: nodes, topology, loads, load combinations
+    ✗ numerical_matches model mismatch: nodes, topology, loads, load combinations
+    ✓ has_analysis     present
+    ✓ engine_match     engine=builtin-opensees, skill=opensees-static, adapter=builtin-opensees
+    ✗ natural_language not satisfied — The agent provided two sets of contradictory results for the requested members (e.g., J-K is -50.5 kN in the first table and -55.6 kN in the final summary), and the final summary values for J-K, D-K, and D-E match the first analysis artifact but not the most recent one provided in the execution evidence.
+    ✓ inputTokens      154456
+    ✓ outputTokens     5471
+    ✓ totalTokens      159927
+
+  ✓ duration           expected: (info)                         actual: 31.1s
+============================================================
+
+============================================================
+Benchmark Results: 0/1 (0.0%) pass, 1 failed
+Pass@1: 0/1 (0.0%)
+Average tool calls: 9.0
+Average primary-model tokens: 159927.0
+Average duration: 31.1s
+Failed: ru-truss-7e97-coach1#auto
+Total time: 31.1s
+
+By metric:
+  engine_match                     1/1 (100.0%)
+  has_analysis                     1/1 (100.0%)
+  has_model                        1/1 (100.0%)
+  model_matches                    0/1 (0.0%)
+  natural_language                 0/1 (0.0%)
+  numerical_matches                0/1 (0.0%)
+  skill_match                      1/1 (100.0%)
+  structural_type                  1/1 (100.0%)
+============================================================
+
+Results written to C:/Users/user/PycharmProjects/MLTestovoe/bench_runs/20261026-063245_ru-truss-7e97-coach1.json

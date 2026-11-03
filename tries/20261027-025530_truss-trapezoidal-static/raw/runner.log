@@ -1,0 +1,239 @@
+
+============================================================
+LangGraph Agent Benchmark: 1 scenario run(s)
+Mode: auto
+Execution: web-stream
+Case timeout: 1800000ms
+SUT root: C:\Users\user\PycharmProjects\MLTestovoe\structureclaw
+Model: gemma4:31b-cloud
+Base URL: http://localhost:18435/v1
+============================================================
+
+Running: truss-trapezoidal-static#auto...
+[2026-10-27 02:55:38.101 +0300] INFO: building agent graph
+    toolCount: 20
+    hasCheckpointer: true
+[2026-10-27 02:55:38.104 +0300] INFO: LangGraph agent stream started
+    traceId: "00505266-1f98-4738-9184-173b844b5e67"
+    conversationId: "bench-45fafefc-df68-41da-9574-a07d6de1a00c"
+    message: "[用户任务]\n对称双坡上弦梯形桁架跨度18m，下弦水平并分为6个3m节间；上弦端高1.6m、跨中高2.5m，两侧坡度绝对值为1/10。每个下弦节间点与同一x坐标的上弦节点之间均设置竖杆，包括两端竖杆B"
+[2026-10-27 02:55:38.125 +0300] INFO: agent node invoking LLM
+    traceId: "00505266-1f98-4738-9184-173b844b5e67"
+    conversationId: "bench-45fafefc-df68-41da-9574-a07d6de1a00c"
+    node: "agent"
+    messageCount: 2
+    activeToolCount: 9
+    toolCallCount: 0
+    compacted: false
+[2026-10-27 02:55:39.400 +0300] INFO: agent node LLM response received
+    traceId: "00505266-1f98-4738-9184-173b844b5e67"
+    conversationId: "bench-45fafefc-df68-41da-9574-a07d6de1a00c"
+    node: "agent"
+    durationMs: 1275
+    hasToolCalls: true
+    finishReason: "tool_calls"
+    contentLength: 0
+    reasoningContentLength: 0
+[2026-10-27 02:55:40.243 +0300] INFO: llm:gemma4:31b-cloud call completed
+    model: "gemma4:31b-cloud"
+    durationMs: 834
+    success: true
+[2026-10-27 02:55:40.244 +0300] INFO: tool:detect_structure_type completed
+    traceId: "00505266-1f98-4738-9184-173b844b5e67"
+    conversationId: "bench-45fafefc-df68-41da-9574-a07d6de1a00c"
+    tool: "detect_structure_type"
+    durationMs: 837
+    success: true
+    matchedKey: "truss"
+    skillId: "truss"
+    routingSource: "llm-suggested"
+[2026-10-27 02:55:40.248 +0300] INFO: agent node invoking LLM
+    traceId: "00505266-1f98-4738-9184-173b844b5e67"
+    conversationId: "bench-45fafefc-df68-41da-9574-a07d6de1a00c"
+    node: "agent"
+    messageCount: 4
+    activeToolCount: 9
+    toolCallCount: 1
+    compacted: false
+[2026-10-27 02:55:41.259 +0300] INFO: agent node LLM response received
+    traceId: "00505266-1f98-4738-9184-173b844b5e67"
+    conversationId: "bench-45fafefc-df68-41da-9574-a07d6de1a00c"
+    node: "agent"
+    durationMs: 1011
+    hasToolCalls: true
+    finishReason: "tool_calls"
+    contentLength: 0
+    reasoningContentLength: 0
+[2026-10-27 02:55:41.265 +0300] INFO: param extractor started
+    traceId: "00505266-1f98-4738-9184-173b844b5e67"
+    conversationId: "bench-45fafefc-df68-41da-9574-a07d6de1a00c"
+    pluginId: "truss"
+    locale: "zh"
+[2026-10-27 02:55:46.936 +0300] INFO: llm:gemma4:31b-cloud call completed
+    model: "gemma4:31b-cloud"
+    durationMs: 5671
+    success: true
+[2026-10-27 02:55:46.940 +0300] INFO: tool:extract_draft_params completed
+    traceId: "00505266-1f98-4738-9184-173b844b5e67"
+    conversationId: "bench-45fafefc-df68-41da-9574-a07d6de1a00c"
+    tool: "extract_draft_params"
+    durationMs: 5678
+    success: true
+    skillId: "truss"
+    extractionMode: "llm"
+    criticalMissing: 0
+    routingSource: "current-state"
+[2026-10-27 02:55:46.945 +0300] INFO: agent node invoking LLM
+    traceId: "00505266-1f98-4738-9184-173b844b5e67"
+    conversationId: "bench-45fafefc-df68-41da-9574-a07d6de1a00c"
+    node: "agent"
+    messageCount: 6
+    activeToolCount: 9
+    toolCallCount: 2
+    compacted: false
+[2026-10-27 02:55:47.826 +0300] INFO: agent node LLM response received
+    traceId: "00505266-1f98-4738-9184-173b844b5e67"
+    conversationId: "bench-45fafefc-df68-41da-9574-a07d6de1a00c"
+    node: "agent"
+    durationMs: 881
+    hasToolCalls: true
+    finishReason: "tool_calls"
+    contentLength: 0
+    reasoningContentLength: 0
+[2026-10-27 02:55:47.830 +0300] INFO: tool:build_model completed
+    traceId: "00505266-1f98-4738-9184-173b844b5e67"
+    conversationId: "bench-45fafefc-df68-41da-9574-a07d6de1a00c"
+    tool: "build_model"
+    durationMs: 2
+    success: true
+    nodeCount: 14
+    elementCount: 25
+    schemaVersion: "2.0.0"
+    nextAction: "run_analysis"
+    message: "模型已构建完成。下一步必须调用 run_analysis 执行结构分析。"
+[2026-10-27 02:55:47.832 +0300] INFO: agent node invoking LLM
+    traceId: "00505266-1f98-4738-9184-173b844b5e67"
+    conversationId: "bench-45fafefc-df68-41da-9574-a07d6de1a00c"
+    node: "agent"
+    messageCount: 8
+    activeToolCount: 9
+    toolCallCount: 3
+    compacted: false
+[2026-10-27 02:55:48.264 +0300] INFO: agent node LLM response received
+    traceId: "00505266-1f98-4738-9184-173b844b5e67"
+    conversationId: "bench-45fafefc-df68-41da-9574-a07d6de1a00c"
+    node: "agent"
+    durationMs: 432
+    hasToolCalls: true
+    finishReason: "tool_calls"
+    contentLength: 0
+    reasoningContentLength: 0
+[2026-10-27 02:55:49.129 +0300] INFO: agent node invoking LLM
+    traceId: "00505266-1f98-4738-9184-173b844b5e67"
+    conversationId: "bench-45fafefc-df68-41da-9574-a07d6de1a00c"
+    node: "agent"
+    messageCount: 10
+    activeToolCount: 9
+    toolCallCount: 4
+    compacted: false
+[2026-10-27 02:55:49.600 +0300] INFO: agent node LLM response received
+    traceId: "00505266-1f98-4738-9184-173b844b5e67"
+    conversationId: "bench-45fafefc-df68-41da-9574-a07d6de1a00c"
+    node: "agent"
+    durationMs: 471
+    hasToolCalls: true
+    finishReason: "tool_calls"
+    contentLength: 0
+    reasoningContentLength: 0
+[2026-10-27 02:55:50.867 +0300] INFO: tool:run_analysis completed
+    traceId: "00505266-1f98-4738-9184-173b844b5e67"
+    conversationId: "bench-45fafefc-df68-41da-9574-a07d6de1a00c"
+    tool: "run_analysis"
+    durationMs: 1264
+    success: true
+    analysisType: "static"
+    skillId: "opensees-static"
+    requestedAnalysisSkillId: "opensees-static"
+[2026-10-27 02:55:50.870 +0300] INFO: agent node invoking LLM
+    traceId: "00505266-1f98-4738-9184-173b844b5e67"
+    conversationId: "bench-45fafefc-df68-41da-9574-a07d6de1a00c"
+    node: "agent"
+    messageCount: 12
+    activeToolCount: 9
+    toolCallCount: 5
+    compacted: false
+[2026-10-27 02:55:51.832 +0300] INFO: agent node LLM response received
+    traceId: "00505266-1f98-4738-9184-173b844b5e67"
+    conversationId: "bench-45fafefc-df68-41da-9574-a07d6de1a00c"
+    node: "agent"
+    durationMs: 962
+    hasToolCalls: true
+    finishReason: "tool_calls"
+    contentLength: 0
+    reasoningContentLength: 0
+[2026-10-27 02:55:51.836 +0300] INFO: tool:generate_report completed
+    traceId: "00505266-1f98-4738-9184-173b844b5e67"
+    conversationId: "bench-45fafefc-df68-41da-9574-a07d6de1a00c"
+    tool: "generate_report"
+    durationMs: 2
+    success: true
+    analysisType: "static"
+    locale: "zh"
+[2026-10-27 02:55:51.838 +0300] INFO: agent node invoking LLM
+    traceId: "00505266-1f98-4738-9184-173b844b5e67"
+    conversationId: "bench-45fafefc-df68-41da-9574-a07d6de1a00c"
+    node: "agent"
+    messageCount: 14
+    activeToolCount: 9
+    toolCallCount: 6
+    compacted: false
+[2026-10-27 02:55:55.168 +0300] INFO: agent node LLM response received
+    traceId: "00505266-1f98-4738-9184-173b844b5e67"
+    conversationId: "bench-45fafefc-df68-41da-9574-a07d6de1a00c"
+    node: "agent"
+    durationMs: 3330
+    hasToolCalls: false
+    finishReason: "stop"
+    contentLength: 1395
+    reasoningContentLength: 0
+[2026-10-27 02:55:55.175 +0300] INFO: LangGraph agent stream completed
+    traceId: "00505266-1f98-4738-9184-173b844b5e67"
+    conversationId: "bench-45fafefc-df68-41da-9574-a07d6de1a00c"
+    durationMs: 17079
+    mode: "stream"
+
+============================================================
+PASS  truss-trapezoidal-static#auto
+     梯形桁架静力分析
+
+  ✓ structural_type    expected: truss                          actual: truss
+  ✓ skill_match        expected: truss                          actual: truss
+  ✓ has_model          expected: >= 4 nodes, >= 5 elements      actual: 14 nodes, 25 elements
+  ✓ model_matches      expected: strict engineering match 'truss-complex-trap' (geometry, topology, restraints, assigned properties, loads) actual: dimension 2d/2d; nodes actual=14, expected=14, matched=14 (P=1.000, R=1.000); elements actual=25, expected=25, matched=25 (P=1.000, R=1.000); restraints 14/14; properties OK; element modifiers OK; loads actual=5, expected=5, matched=5 (P=1.000, R=1.000); load combinations OK; stories OK
+  ✓ numerical_matches  expected: 138 OpenSees response values within 1.0% actual: matched; max relative difference 0.000%
+  ✓ has_analysis       expected: analysis results with displacements, reactions, or forces actual: present
+  ✓ toolCalls          expected: (info, lower is better)        actual: 6
+  ✓ inputTokens        expected: (info, lower is better)        actual: 70935
+  ✓ outputTokens       expected: (info, lower is better)        actual: 3310
+  ✓ totalTokens        expected: (info, lower is better)        actual: 74245
+  ✓ duration           expected: (info)                         actual: 17.1s
+============================================================
+
+============================================================
+Benchmark Results: 1/1 (100.0%) pass
+Pass@1: 1/1 (100.0%)
+Average tool calls: 6.0
+Average primary-model tokens: 74245.0
+Average duration: 17.1s
+Total time: 17.1s
+
+By metric:
+  has_analysis                     1/1 (100.0%)
+  has_model                        1/1 (100.0%)
+  model_matches                    1/1 (100.0%)
+  numerical_matches                1/1 (100.0%)
+  skill_match                      1/1 (100.0%)
+  structural_type                  1/1 (100.0%)
+============================================================
+
+Results written to C:/Users/user/PycharmProjects/MLTestovoe/bench_runs/20261027-025530_truss-trapezoidal-static.json
